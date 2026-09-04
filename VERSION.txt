@@ -1,2 +1,2 @@
-AEVEMORA V9.9.2 MOBILE RESULT & QUIZ LAYOUT
-Portrait/name unified on mobile; architecture dossier remains visible during quiz navigation.
+AEVEMORA V9.9.3 MOBILE NAME CARD FIX
+The mobile portrait identity card now renders directly below the historical portrait.

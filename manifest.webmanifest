@@ -1,7 +1,7 @@
 {
   "name": "AEVEMORA 历史人格原型测试",
   "short_name": "AEVEMORA",
-  "description": "AEVEMORA V9.9.2：手机端结果页人物肖像与姓名一体化，并修复切题后建筑档案图被滚出视口的问题。",
+  "description": "AEVEMORA V9.9.3：修复手机结果页人物姓名、时代、身份与相似度被肖像容器裁掉的问题。",
   "lang": "zh-CN",
   "start_url": "./",
   "scope": "./",

@@ -1,22 +1,35 @@
-AEVEMORA V9.9.2 · 手机结果页与答题布局修复
+AEVEMORA V9.9.3 · 人物姓名卡修正版
 
-1. 结果页
-- 手机端肖像、姓名、时代、人物类型、模式、相似度放进同一个封面卡。
-- 不再出现人物图和姓名相隔很远。
-- 手机端隐藏原右页重复的姓名/相似度区域。
-- 真实肖像优先逻辑保持不变。
+本版专门修复 V9.9.2 手机结果页：
+真实人物肖像已经显示，但人物姓名没有显示。
 
-2. 答题页
-- 修复切到下一题后自动滚到问题区域、导致顶部建筑图完全看不到的问题。
-- 现在切题会回到整个答题页顶部。
-- 建筑档案压缩成约 130px 的横向历史画面。
-- 问题、答案和底部导航进一步压缩，保持手机操作效率。
-- 固定“上一题 / 下一题”继续保留。
+原因：
+V9.9.2 中 mobileResultIdentity（人物姓名 / 时代 / 身份 / 相似度）
+被错误嵌套到了 portraitWrap 图片容器内部。
+portraitWrap 使用固定比例和 overflow:hidden，因此姓名卡被裁掉。
 
-Cloudflare Worker 不需要修改。
+V9.9.3 修复后手机结果页顺序：
+真实人物肖像
+↓
+人物姓名 + 时代 + 类型 + 模式 + 相似度
+↓
+人物引语
+↓
+核心维度
+↓
+深度结果分析
+
+保留：
+- Cloudflare 真实肖像代理
+- 手机建筑答题布局
+- 开发者无限测试
+- 首次免费 / 后续授权
+- 120 人物匹配库
+
+Cloudflare Worker 不需要重新部署。
 
 版本检查：
-https://xuqinyu2123-cmd.github.io/aevemora/VERSION.txt?v=992
+https://xuqinyu2123-cmd.github.io/aevemora/VERSION.txt?v=993
 
 手机测试：
-https://xuqinyu2123-cmd.github.io/aevemora/?v=9.9.2
+https://xuqinyu2123-cmd.github.io/aevemora/?v=9.9.3
