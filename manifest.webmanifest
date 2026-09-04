@@ -1,7 +1,7 @@
 {
   "name": "AEVEMORA 历史人格原型测试",
   "short_name": "AEVEMORA",
-  "description": "AEVEMORA V9.8.1 Mobile Stable：首次测试免费；移动端优先本地资源、延迟加载人物库、稳定缓存。",
+  "description": "AEVEMORA V9.8.2：修复答题页左侧场景图，先显示本地高清兜底，再异步加载真实史料图。",
   "lang": "zh-CN",
   "start_url": "./",
   "scope": "./",

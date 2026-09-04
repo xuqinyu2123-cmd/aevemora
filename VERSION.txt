@@ -1,2 +1,2 @@
-AEVEMORA V9.8.1 MOBILE STABLE
-Mobile-first local media + lazy portrait data + resilient service worker.
+AEVEMORA V9.8.2 SCENE STABLE
+Left dossier artwork is always visible; remote historical imagery upgrades asynchronously.

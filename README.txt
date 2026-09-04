@@ -1,15 +1,17 @@
-AEVEMORA V9.8.1 · Mobile Stable
+AEVEMORA V9.8.2 · Scene Stable
 
-本版重点修手机端稳定性：
-- 修复 Service Worker 仍缓存已不存在 access-config.js 导致安装失败的问题。
-- Service Worker 改为逐个容错缓存，不再因某一个资源失败导致整次安装失败。
-- 移除 controllerchange 自动刷新，避免微信/手机浏览器出现重复刷新或版本抖动。
-- 约 1.8MB 的人物馆藏数据从 index.html 拆到 portrait-data.js，只在结果页需要人物图时加载。
-- 手机、微信、QQ、弱网/省流量模式不再访问 Wikipedia/Wikimedia 人物图，直接使用站内人物馆藏。
-- 手机答题背景使用本地 SVG，不依赖 Wikimedia。
-- HTML 导航 network-first，4.5 秒失败后回退已缓存页面。
-- 保留“首次完整测试免费 1 次，第二次申请次数”的 V9.8 逻辑。
+本版专门修复答题页左侧图片“消失/只剩很暗轮廓”的问题。
 
-上传：解压后把根目录全部内容覆盖上传到 aevemora 仓库根目录。
-测试：https://xuqinyu2123-cmd.github.io/aevemora/?v=9.8.1
-版本确认：https://xuqinyu2123-cmd.github.io/aevemora/VERSION.txt?v=981
+修复：
+- 左侧 dossier 本地图立即显示，不再等待 Wikimedia 超时。
+- 本地 fallback 明显提亮，手机端也能看清。
+- 网络允许时，真实历史史料图在后台加载成功后再平滑替换。
+- 网络不通时始终保留本地图，不再出现空白。
+- 省流量 / 2G / 3G 模式完全不请求外部大图。
+- 保留 V9.8.1 手机稳定版的拆包、按需人物库、Service Worker 修复。
+
+版本检查：
+https://xuqinyu2123-cmd.github.io/aevemora/VERSION.txt?v=982
+
+正式测试：
+https://xuqinyu2123-cmd.github.io/aevemora/?v=9.8.2
