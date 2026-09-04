@@ -1,7 +1,7 @@
 {
   "name": "AEVEMORA 历史人格原型测试",
   "short_name": "AEVEMORA",
-  "description": "AEVEMORA V9.8.3：答题页左侧改为自托管本地历史场景图，不再依赖 Wikimedia。",
+  "description": "AEVEMORA V9.8.4：左侧改为本地照片/肖像型历史画面，电脑端答案 2×2 排列，下一题导航始终固定在屏幕底部。",
   "lang": "zh-CN",
   "start_url": "./",
   "scope": "./",

@@ -1,4 +1,4 @@
-const CACHE="aevemora-v9-8-3-local-scene-art-20260904";
+const CACHE="aevemora-v9-8-4-photo-dossier-fixed-nav-20260904";
 const STATIC_CORE=[
   "./manifest.webmanifest","./icon-192.png","./icon-512.png","./apple-touch-icon.png","./owner-config.js",
   "./quiz-bg-1.svg","./quiz-bg-2.svg","./quiz-bg-3.svg","./quiz-bg-4.svg","./quiz-bg-5.svg","./quiz-bg-6.svg"

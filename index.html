@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta name="aevemora-build" content="9.8.3-local-scene-art">
+  <meta name="aevemora-build" content="9.8.4-photo-dossier-fixed-nav">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>AEVEMORA · 历史人格原型测试</title>
@@ -2372,6 +2372,103 @@ html:not(.accessUnlocked) body{overflow:auto !important}
   backdrop-filter:blur(1px) !important;
 }
 
+
+/* ===== V9.8.4 Photo Dossier + Fixed Navigation ===== */
+
+/* 左侧不再像图标卡：照片完整铺满并降低遮罩 */
+.dossierPortrait img#dossierSceneImage,
+.dossierPortrait img#dossierSceneImage.localSceneLoaded,
+.dossierPortrait img#dossierSceneImage.realSceneLoaded{
+  opacity:1 !important;
+  object-fit:cover !important;
+  object-position:center center !important;
+  filter:saturate(.78) contrast(1.08) brightness(.88) !important;
+  transform:none !important;
+}
+.dossierPortrait.localFallback .dossierPortraitShade{
+  background:
+    linear-gradient(90deg,rgba(5,7,10,.02) 0%,rgba(5,7,10,.06) 54%,rgba(5,7,10,.46) 100%),
+    linear-gradient(180deg,rgba(5,7,10,.00) 58%,rgba(5,7,10,.34) 100%) !important;
+}
+
+/* 电脑端 4 个选项改成 2×2，避免一题占一整屏 */
+@media(min-width:821px){
+  .quizQuestionStage{
+    padding:30px 36px 94px !important;
+  }
+  .question{
+    margin:14px 0 7px !important;
+    font-size:clamp(34px,2.45vw,44px) !important;
+    line-height:1.24 !important;
+    overflow-wrap:anywhere;
+    word-break:break-word;
+  }
+  .questionOrnament{
+    margin:15px 0 18px !important;
+  }
+  .answers{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:12px !important;
+    max-width:none !important;
+  }
+  .answer{
+    min-height:92px !important;
+    padding:14px 48px 14px 15px !important;
+    gap:14px !important;
+  }
+  .letter{
+    width:44px !important;
+    height:44px !important;
+    flex-basis:44px !important;
+  }
+  .choiceGuide{
+    margin-top:15px !important;
+    padding-top:12px !important;
+  }
+}
+
+/* 不管电脑还是手机，“上一题 / 下一题”始终固定在视口底部 */
+body.quizMode .quizCinemaLayout{
+  padding-bottom:76px;
+}
+body.quizMode .quizCinemaNav{
+  position:fixed !important;
+  left:50% !important;
+  bottom:0 !important;
+  transform:translateX(-50%);
+  width:min(1480px,calc(100% - 28px)) !important;
+  z-index:9999 !important;
+  min-height:68px !important;
+  background:rgba(7,9,12,.94) !important;
+  border:1px solid rgba(205,171,111,.16);
+  border-bottom:0;
+  box-shadow:0 -18px 46px rgba(0,0,0,.38);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+}
+body.quizMode .quizCinemaNav.answerReadyPulse .quizNavBtn.next:not(:disabled){
+  animation:nextReady984 .34s ease;
+  box-shadow:0 0 0 1px rgba(235,197,132,.20),0 0 30px rgba(205,160,87,.16);
+}
+@keyframes nextReady984{
+  0%{transform:scale(.985)}
+  55%{transform:scale(1.02)}
+  100%{transform:scale(1)}
+}
+
+@media(max-width:820px){
+  body.quizMode .quizCinemaLayout{
+    padding-bottom:82px;
+  }
+  body.quizMode .quizCinemaNav{
+    width:100% !important;
+    padding-bottom:max(10px,env(safe-area-inset-bottom)) !important;
+  }
+  .answers{
+    grid-template-columns:1fr !important;
+  }
+}
+
 </style>
 
 <link rel="preconnect" href="https://zh.wikipedia.org" crossorigin>
@@ -2731,7 +2828,7 @@ html:not(.accessUnlocked) body{overflow:auto !important}
     </div>
   </div>
 
-  <div class="buildStamp">LOCAL SCENE ART · V9.8.3</div>
+  <div class="buildStamp">PHOTO DOSSIER · V9.8.4</div>
   <div class="footer">
     <span>AEVEMORA · Civilizations Edition · V9.3</span>
     <button class="footLink" onclick="openInfo('about')">关于测试</button>
@@ -2777,7 +2874,7 @@ const DIM_NAMES={control:"统筹掌控",creative:"开放创造",resilience:"稳�
 
 
 
-const AEVEMORA_BUILD="9.8.3";
+const AEVEMORA_BUILD="9.8.4";
 (async function enforceFreshAccessBuild(){
   try{
     const prev=localStorage.getItem("aevemora_build_version");
@@ -3171,7 +3268,13 @@ function selectAnswer(optionIndex){
   answerHistory[current]={option:optionIndex,delta:selected[1]};
   document.querySelectorAll("#answers .answer").forEach((el,i)=>el.classList.toggle("selected",i===optionIndex));
   const next=document.getElementById("nextQuestionBtn");
+  const nav=document.querySelector(".quizCinemaNav");
   if(next) next.disabled=false;
+  if(nav){
+    nav.classList.remove("answerReadyPulse");
+    void nav.offsetWidth;
+    nav.classList.add("answerReadyPulse");
+  }
 }
 function prevQuestion(){
   if(current<=0) return;
@@ -3186,6 +3289,7 @@ function toggleMarkQuestion(){
 }
 function nextQuestion(){
   if(!answerHistory[current]) return;
+  document.querySelector(".quizCinemaNav")?.classList.remove("answerReadyPulse");
   if(current<QUESTIONS.length-1){
     current++;
     if(current>=30 && current%2===0){
@@ -4155,7 +4259,7 @@ async function setQuizBackdrop(index){
   const token=sceneKey+":"+Date.now();
 
   const bgPrimary=AEV_EXTERNAL_MEDIA ? scene.bg : (scene.bgFallback||scene.bg);
-  const dossierPrimary=scene.dossierFallback||scene.dossier;
+  const dossierPrimary=scene.dossierFallback||scene.dossier; // V9.8.4 self-hosted final artwork
 
   if(bg){
     bg.dataset.swapToken=token;
@@ -4189,7 +4293,7 @@ function ensureLocalPortraits(){
     };
     if(window.AEVEMORA_LOCAL_PORTRAITS){ useLoaded(); return; }
     const script=document.createElement("script");
-    script.src="./portrait-data.js?v=9.8.3";
+    script.src="./portrait-data.js?v=9.8.4";
     script.async=true;
     script.onload=useLoaded;
     script.onerror=()=>resolve(LOCAL_PORTRAITS);
@@ -4552,12 +4656,25 @@ function warmPortraitCandidates(){
 // ===== V9.8.1 Mobile Stable：安静更新，不强制刷新当前页面 =====
 if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js?v=9.8.3")
+    navigator.serviceWorker.register("./sw.js?v=9.8.4")
       .then(reg=>reg.update().catch(()=>{}))
       .catch(()=>{});
   }, {once:true});
 }
 
+
+
+document.addEventListener("keydown",(e)=>{
+  if(!document.body.classList.contains("quizMode")) return;
+  if(e.target && /INPUT|TEXTAREA|SELECT/.test(e.target.tagName)) return;
+  if((e.key==="Enter" || e.key==="ArrowRight") && answerHistory[current]){
+    e.preventDefault();
+    nextQuestion();
+  }else if(e.key==="ArrowLeft" && current>0){
+    e.preventDefault();
+    prevQuestion();
+  }
+});
 
 </script>
 </body>

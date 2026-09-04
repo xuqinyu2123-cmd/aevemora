@@ -1,2 +1,2 @@
-AEVEMORA V9.8.3 LOCAL SCENE ART
-Left dossier artwork is self-hosted and no longer depends on Wikimedia.
+AEVEMORA V9.8.4 PHOTO DOSSIER FIXED NAV
+Photographic local dossier artwork + always-visible quiz navigation.
