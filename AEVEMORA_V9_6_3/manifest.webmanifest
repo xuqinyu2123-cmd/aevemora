@@ -1,0 +1,27 @@
+{
+  "name": "AEVEMORA 历史人格原型测试",
+  "short_name": "AEVEMORA",
+  "description": "AEVEMORA V9.6.3：强制授权修正版。任何开始测试入口均须通过 Cloudflare 授权验证。",
+  "lang": "zh-CN",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b0b0f",
+  "theme_color": "#0b0b0f",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "id": "./"
+}

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 900">
+<defs>
+  <radialGradient id="dg" cx="50%" cy="30%" r="68%"><stop offset="0" stop-color="#b9c0b2" stop-opacity=".20"/><stop offset="1" stop-color="#0b0d11" stop-opacity="0"/></radialGradient>
+  <linearGradient id="db" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b0d11"/><stop offset=".55" stop-color="#15161b"/><stop offset="1" stop-color="#090b0f"/></linearGradient>
+</defs>
+<rect width="720" height="900" fill="url(#db)"/><rect width="720" height="900" fill="url(#dg)"/>
+<rect x="28" y="28" width="664" height="844" rx="20" fill="none" stroke="#b9c0b2" stroke-opacity=".22"/>
+<rect x="44" y="44" width="632" height="812" rx="16" fill="none" stroke="#fff" stroke-opacity=".035"/>
+<text x="72" y="92" fill="#b9c0b2" opacity=".92" font-size="17" font-family="Georgia" letter-spacing="4">AEVEMORA DOSSIER</text>
+<text x="648" y="92" fill="#b9c0b2" opacity=".66" font-size="22" font-family="Georgia" text-anchor="end">FOREIGN-06</text>
+<g stroke="#b9c0b2" fill="none" opacity=".20"><path d="M110 180h500v470H110z"/><path d="M155 240h410M155 300h320M155 360h390M155 420h280M155 480h350"/><circle cx="480" cy="310" r="112"/><path d="M368 310h224M480 198v224"/></g><path d="M225 625h270l-50-90H275z" fill="#b9c0b2" opacity=".08"/>
+<rect x="70" y="718" width="580" height="112" rx="18" fill="#090b10" fill-opacity=".72" stroke="#b9c0b2" stroke-opacity=".16"/>
+<text x="96" y="760" fill="#b9c0b2" opacity=".72" font-size="13" font-family="Georgia" letter-spacing="3">CURATED CIVILIZATION</text>
+<text x="96" y="799" fill="#eee3cf" opacity=".96" font-size="32" font-family="Georgia,serif">近现代世界</text>
+<text x="98" y="827" fill="#b9c0b2" opacity=".52" font-size="13" font-family="Georgia" letter-spacing="3">SCIENCE · INDUSTRY</text>
+</svg>
