@@ -1,22 +1,17 @@
-AEVEMORA V9.8.4 · Photo Dossier + Fixed Navigation
+AEVEMORA V9.8.7 · 建筑档案旗舰版
 
-本版解决两个问题：
-
-1. 左侧全是简单线稿 / 建筑图
-- 已删除 V9.8.3 的 18 张线稿式 scene-art。
-- 重新制作 18 张本地 WebP 历史肖像 / 雕像 / 场景型图片。
-- 仍然完全自托管，不依赖 Wikimedia，不受 VPN 或手机网络影响。
-- 左侧遮罩降低，图片主体更明显。
-
-2. 每答一题都要向下滑才能点“下一题”
-- 电脑端四个答案改为 2×2 排列，纵向高度大幅降低。
-- 底部“上一题 / 下一题”导航固定在屏幕底部，始终可点。
-- 选完答案后“下一题”会轻微提示。
-- 键盘 Enter / → 可下一题，← 可上一题。
-- 手机端保持单列答案，但底栏同样固定。
+本版继续优化：
+- 左侧彻底取消具体人物。
+- 使用东方古典宫门、帝国城门、古希腊神庙、古罗马建筑、中世纪城堡、文艺复兴建筑、现代城市文明建筑。
+- 每个历史章节保持对应建筑体系。
+- 同一章节内每一题切换不同建筑取景视角，不会连续一直是一张图。
+- 清理旧的人物 question-art 资源，避免误加载并减小包体。
+- 答题阶段图片全部从 GitHub Pages 本地加载，不再等待 Wikimedia。
+- 只预载后两题，兼顾手机稳定性。
+- 保留固定“上一题 / 下一题”、电脑 2×2 选项与键盘快捷键。
 
 版本检查：
-https://xuqinyu2123-cmd.github.io/aevemora/VERSION.txt?v=984
+https://xuqinyu2123-cmd.github.io/aevemora/VERSION.txt?v=987
 
 正式测试：
-https://xuqinyu2123-cmd.github.io/aevemora/?v=9.8.4
+https://xuqinyu2123-cmd.github.io/aevemora/?v=9.8.7

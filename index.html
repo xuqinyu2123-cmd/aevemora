@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta name="aevemora-build" content="9.8.4-photo-dossier-fixed-nav">
+  <meta name="aevemora-build" content="9.8.7-architecture-flagship">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>AEVEMORA · 历史人格原型测试</title>
@@ -2469,6 +2469,40 @@ body.quizMode .quizCinemaNav.answerReadyPulse .quizNavBtn.next:not(:disabled){
   }
 }
 
+
+/* ===== V9.8.5 每题独立场景图 ===== */
+.dossierPortrait img#dossierSceneImage{
+  transition:opacity .20s ease,filter .20s ease !important;
+}
+.dossierPortrait img#dossierSceneImage.sceneFading{
+  opacity:.18 !important;
+}
+
+
+/* ===== V9.8.7 建筑档案旗舰版 ===== */
+.dossierPortrait{background:#080a0d !important;overflow:hidden !important}
+.dossierPortrait img#dossierSceneImage,
+.dossierPortrait img#dossierSceneImage.localSceneLoaded,
+.dossierPortrait img#dossierSceneImage.realSceneLoaded{
+  opacity:1 !important;
+  width:100% !important;height:100% !important;
+  object-fit:cover !important;object-position:center center !important;
+  filter:saturate(.88) contrast(1.06) brightness(.93) !important;
+  transform:scale(1.015) !important;
+  transition:opacity .22s ease,transform .55s cubic-bezier(.2,.8,.2,1),filter .28s ease !important;
+}
+.dossierPortrait img#dossierSceneImage.sceneFading{opacity:.15 !important;transform:scale(1.045) !important}
+.dossierPortraitShade{
+  background:linear-gradient(90deg,rgba(4,6,9,.02) 0%,rgba(4,6,9,.02) 58%,rgba(4,6,9,.44) 100%),
+             linear-gradient(180deg,rgba(4,6,9,.00) 56%,rgba(4,6,9,.26) 100%) !important;
+}
+.dossierTraits div{background:rgba(7,9,12,.38) !important;backdrop-filter:blur(5px) !important;-webkit-backdrop-filter:blur(5px) !important}
+.quizBackdrop img{filter:saturate(.58) contrast(1.08) brightness(.48) blur(.2px) !important}
+@media(max-width:820px){
+  .dossierPortrait img#dossierSceneImage{filter:saturate(.92) contrast(1.05) brightness(.98) !important}
+  .dossierPortraitShade{background:linear-gradient(90deg,transparent 0%,rgba(4,6,9,.28) 100%) !important}
+}
+
 </style>
 
 <link rel="preconnect" href="https://zh.wikipedia.org" crossorigin>
@@ -2828,7 +2862,7 @@ body.quizMode .quizCinemaNav.answerReadyPulse .quizNavBtn.next:not(:disabled){
     </div>
   </div>
 
-  <div class="buildStamp">PHOTO DOSSIER · V9.8.4</div>
+  <div class="buildStamp">ARCHIVE ARCHITECTURE · V9.8.7</div>
   <div class="footer">
     <span>AEVEMORA · Civilizations Edition · V9.3</span>
     <button class="footLink" onclick="openInfo('about')">关于测试</button>
@@ -2874,7 +2908,7 @@ const DIM_NAMES={control:"统筹掌控",creative:"开放创造",resilience:"稳�
 
 
 
-const AEVEMORA_BUILD="9.8.4";
+const AEVEMORA_BUILD="9.8.7";
 (async function enforceFreshAccessBuild(){
   try{
     const prev=localStorage.getItem("aevemora_build_version");
@@ -4147,7 +4181,13 @@ const AEV_REDUCED_NETWORK = !!navigator.connection?.saveData
   || /(^|-)2g|3g/i.test(navigator.connection?.effectiveType||"");
 const AEV_EXTERNAL_MEDIA = !AEV_REDUCED_NETWORK;
 
-const QUIZ_SCENE_SETS={"mixed":[{"bg":"https://upload.wikimedia.org/wikipedia/commons/d/d7/Forbidden_City_IMG_4308_Meridian_Gate.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/d/d7/Forbidden_City_IMG_4308_Meridian_Gate.jpg","issue":"东方典籍与思想传统","volume":"EASTERN CLASSICS","title":"先秦与古典东方","subtitle":"PRE-QIN · EASTERN THOUGHT","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"东方文明的秩序、修身与判断方式","theme":"东方文明","feature":"FEATURE / 01","bgFallback":"./backgrounds/mix-1-east.svg","dossierFallback":"./scene-art/mix-1-east.webp"},{"bg":"https://upload.wikimedia.org/wikipedia/commons/5/59/Terracotta_warriors.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/5/59/Terracotta_warriors.jpg","issue":"权力结构与战略节奏","volume":"IMPERIAL STRATEGY","title":"帝国与兵法","subtitle":"ORDER · STRATEGY","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"当资源有限、局面复杂时，你如何判断与推进","theme":"帝国与兵法","feature":"FEATURE / 02","bgFallback":"./backgrounds/mix-2-imperial.svg","dossierFallback":"./scene-art/mix-2-imperial.webp"},{"bg":"https://upload.wikimedia.org/wikipedia/commons/2/22/Parth%C3%A9non_Ath%C3%A8nes_Gr%C3%A8ce.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/2/22/Parth%C3%A9non_Ath%C3%A8nes_Gr%C3%A8ce.jpg","issue":"理性、辩论与思想原型","volume":"HELLENIC WORLD","title":"希腊与哲思","subtitle":"REASON · DIALOGUE","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"面对没有标准答案的问题，你更相信什么","theme":"古希腊","feature":"FEATURE / 03","bgFallback":"./backgrounds/mix-3-greece.svg","dossierFallback":"./scene-art/mix-3-greece.webp"},{"bg":"https://upload.wikimedia.org/wikipedia/commons/a/a2/ColloseumRome.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/a/a2/ColloseumRome.jpg","issue":"制度、责任与公共秩序","volume":"ROMAN ORDER","title":"罗马与秩序","subtitle":"LAW · EMPIRE","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"你如何在个人意志与系统规则之间取舍","theme":"古罗马","feature":"FEATURE / 04","bgFallback":"./backgrounds/mix-4-rome.svg","dossierFallback":"./scene-art/mix-4-rome.webp"},{"bg":"https://upload.wikimedia.org/wikipedia/commons/a/a8/Raphael-School-of-Athens.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/a/a8/Raphael-School-of-Athens.jpg","issue":"艺术、科学与人的觉醒","volume":"RENAISSANCE","title":"文艺复兴与启蒙","subtitle":"CREATION · DISCOVERY","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"当旧框架不再够用，你会如何创造新的可能","theme":"文艺复兴","feature":"FEATURE / 05","bgFallback":"./backgrounds/mix-5-renaissance.svg","dossierFallback":"./scene-art/mix-5-renaissance.webp"},{"bg":"https://upload.wikimedia.org/wikipedia/commons/6/6e/Solvay_conference_1927.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/6/6e/Solvay_conference_1927.jpg","issue":"科学、工业与全球思想","volume":"MODERN WORLD","title":"科学与现代世界","subtitle":"SCIENCE · GLOBAL AGE","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"在高速变化的世界里，你如何建立自己的判断","theme":"近现代世界","feature":"FEATURE / 06","bgFallback":"./backgrounds/mix-6-modern.svg","dossierFallback":"./scene-art/mix-6-modern.webp"}],"china":[{"bg":"https://upload.wikimedia.org/wikipedia/commons/b/b4/Along_the_River_During_the_Qingming_Festival_%282112000601%29.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/b/b4/Along_the_River_During_the_Qingming_Festival_%282112000601%29.jpg","issue":"诸子、礼制与自我修养","volume":"PRE-QIN THOUGHT","title":"先秦诸子","subtitle":"THOUGHT · RITUAL","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"你更依赖秩序、原则，还是观察与变通","theme":"先秦诸子","feature":"FEATURE / 01","bgFallback":"./backgrounds/cn-1-preqin.svg","dossierFallback":"./scene-art/cn-1-preqin.webp"},{"bg":"https://upload.wikimedia.org/wikipedia/commons/5/59/Terracotta_warriors.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/5/59/Terracotta_warriors.jpg","issue":"大一统、扩张与组织能力","volume":"HAN & TANG","title":"汉唐格局","subtitle":"EMPIRE · EXPANSION","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"面对大格局时，你如何分配资源与承担代价","theme":"汉唐气象","feature":"FEATURE / 02","bgFallback":"./backgrounds/cn-2-hantang.svg","dossierFallback":"./scene-art/cn-2-hantang.webp"},{"bg":"https://upload.wikimedia.org/wikipedia/commons/d/d7/Forbidden_City_IMG_4308_Meridian_Gate.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/d/d7/Forbidden_City_IMG_4308_Meridian_Gate.jpg","issue":"理学、实学与长期修炼","volume":"SONG & MING","title":"宋明书院","subtitle":"LEARNING · PRINCIPLE","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"你如何在知识、原则与现实之间建立体系","theme":"宋明书院","feature":"FEATURE / 03","bgFallback":"./backgrounds/cn-3-songming.svg","dossierFallback":"./scene-art/cn-3-songming.webp"},{"bg":"https://upload.wikimedia.org/wikipedia/commons/5/59/Terracotta_warriors.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/5/59/Terracotta_warriors.jpg","issue":"军事、组织与现实执行","volume":"STRATEGY & FRONTIER","title":"兵法与边疆","subtitle":"ACTION · DEFENSE","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"压力来临时，你更重判断、速度还是稳定推进","theme":"军政与边疆","feature":"FEATURE / 04","bgFallback":"./backgrounds/cn-4-frontier.svg","dossierFallback":"./scene-art/cn-4-frontier.webp"},{"bg":"https://upload.wikimedia.org/wikipedia/commons/b/b4/Along_the_River_During_the_Qingming_Festival_%282112000601%29.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/b/b4/Along_the_River_During_the_Qingming_Festival_%282112000601%29.jpg","issue":"诗书、山水与内在秩序","volume":"SCHOLAR TRADITION","title":"山水与文脉","subtitle":"AESTHETIC · INNER ORDER","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"当外部世界喧闹时，你如何保持自己的节奏","theme":"山水与文脉","feature":"FEATURE / 05","bgFallback":"./backgrounds/cn-5-landscape.svg","dossierFallback":"./scene-art/cn-5-landscape.webp"},{"bg":"https://upload.wikimedia.org/wikipedia/commons/d/d7/Forbidden_City_IMG_4308_Meridian_Gate.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/d/d7/Forbidden_City_IMG_4308_Meridian_Gate.jpg","issue":"变革、科学与现代责任","volume":"MODERN CHINA","title":"科学与现代中国","subtitle":"REFORM · SCIENCE","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"面对新的时代条件，你如何学习、适应与突破","theme":"近现代中国","feature":"FEATURE / 06","bgFallback":"./backgrounds/cn-6-modern.svg","dossierFallback":"./scene-art/cn-6-modern.webp"}],"foreign":[{"bg":"https://upload.wikimedia.org/wikipedia/commons/2/22/Parth%C3%A9non_Ath%C3%A8nes_Gr%C3%A8ce.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/2/22/Parth%C3%A9non_Ath%C3%A8nes_Gr%C3%A8ce.jpg","issue":"哲学、城邦与理性传统","volume":"HELLENIC WORLD","title":"古希腊","subtitle":"REASON · POLIS","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"你如何追问真理、争辩观点并形成判断","theme":"古希腊","feature":"FEATURE / 01","bgFallback":"./backgrounds/fg-1-greece.svg","dossierFallback":"./scene-art/fg-1-greece.webp"},{"bg":"https://upload.wikimedia.org/wikipedia/commons/a/a2/ColloseumRome.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/a/a2/ColloseumRome.jpg","issue":"法律、军团与公共秩序","volume":"ROMAN ORDER","title":"古罗马","subtitle":"LAW · EMPIRE","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"规则与现实发生冲突时，你如何做选择","theme":"古罗马","feature":"FEATURE / 02","bgFallback":"./backgrounds/fg-2-rome.svg","dossierFallback":"./scene-art/fg-2-rome.webp"},{"bg":"https://upload.wikimedia.org/wikipedia/commons/a/a8/Raphael-School-of-Athens.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/a/a8/Raphael-School-of-Athens.jpg","issue":"信念、责任与共同体","volume":"MEDIEVAL EUROPE","title":"中世纪欧洲","subtitle":"FAITH · DUTY","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"当个人意愿受到更大秩序约束时，你如何回应","theme":"中世纪欧洲","feature":"FEATURE / 03","bgFallback":"./backgrounds/fg-3-medieval.svg","dossierFallback":"./scene-art/fg-3-medieval.webp"},{"bg":"https://upload.wikimedia.org/wikipedia/commons/a/a8/Raphael-School-of-Athens.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/a/a8/Raphael-School-of-Athens.jpg","issue":"艺术、解剖、科学与创造","volume":"RENAISSANCE","title":"文艺复兴","subtitle":"HUMAN · CREATION","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"当旧知识不够解释世界时，你是否愿意重画地图","theme":"文艺复兴","feature":"FEATURE / 04","bgFallback":"./backgrounds/fg-4-renaissance.svg","dossierFallback":"./scene-art/fg-4-renaissance.webp"},{"bg":"https://upload.wikimedia.org/wikipedia/commons/2/22/Parth%C3%A9non_Ath%C3%A8nes_Gr%C3%A8ce.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/2/22/Parth%C3%A9non_Ath%C3%A8nes_Gr%C3%A8ce.jpg","issue":"理性、自由与制度设计","volume":"ENLIGHTENMENT","title":"启蒙时代","subtitle":"REASON · LIBERTY","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"你更相信经验、原则，还是通过讨论不断修正","theme":"启蒙时代","feature":"FEATURE / 05","bgFallback":"./backgrounds/fg-5-enlightenment.svg","dossierFallback":"./scene-art/fg-5-enlightenment.webp"},{"bg":"https://upload.wikimedia.org/wikipedia/commons/6/6e/Solvay_conference_1927.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/6/6e/Solvay_conference_1927.jpg","issue":"实验、工业与全球现代性","volume":"MODERN SCIENCE","title":"近现代世界","subtitle":"SCIENCE · INDUSTRY","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"信息越来越多时，你如何避免噪音并做出行动","theme":"现代科学","feature":"FEATURE / 06","bgFallback":"./backgrounds/fg-6-modern.svg","dossierFallback":"./scene-art/fg-6-modern.webp"}]};
+const QUIZ_SCENE_SETS={"mixed":[{"bg":"https://upload.wikimedia.org/wikipedia/commons/d/d7/Forbidden_City_IMG_4308_Meridian_Gate.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/d/d7/Forbidden_City_IMG_4308_Meridian_Gate.jpg","issue":"东方典籍与思想传统","volume":"EASTERN CLASSICS","title":"先秦与古典东方","subtitle":"PRE-QIN · EASTERN THOUGHT","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"东方文明的秩序、修身与判断方式","theme":"东方文明","feature":"FEATURE / 01","bgFallback":"./backgrounds/mix-1-east.svg","dossierFallback":"./architecture-art/east-1.webp"},{"bg":"https://upload.wikimedia.org/wikipedia/commons/5/59/Terracotta_warriors.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/5/59/Terracotta_warriors.jpg","issue":"权力结构与战略节奏","volume":"IMPERIAL STRATEGY","title":"帝国与兵法","subtitle":"ORDER · STRATEGY","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"当资源有限、局面复杂时，你如何判断与推进","theme":"帝国与兵法","feature":"FEATURE / 02","bgFallback":"./backgrounds/mix-2-imperial.svg","dossierFallback":"./architecture-art/imperial-1.webp"},{"bg":"https://upload.wikimedia.org/wikipedia/commons/2/22/Parth%C3%A9non_Ath%C3%A8nes_Gr%C3%A8ce.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/2/22/Parth%C3%A9non_Ath%C3%A8nes_Gr%C3%A8ce.jpg","issue":"理性、辩论与思想原型","volume":"HELLENIC WORLD","title":"希腊与哲思","subtitle":"REASON · DIALOGUE","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"面对没有标准答案的问题，你更相信什么","theme":"古希腊","feature":"FEATURE / 03","bgFallback":"./backgrounds/mix-3-greece.svg","dossierFallback":"./architecture-art/greece-1.webp"},{"bg":"https://upload.wikimedia.org/wikipedia/commons/a/a2/ColloseumRome.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/a/a2/ColloseumRome.jpg","issue":"制度、责任与公共秩序","volume":"ROMAN ORDER","title":"罗马与秩序","subtitle":"LAW · EMPIRE","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"你如何在个人意志与系统规则之间取舍","theme":"古罗马","feature":"FEATURE / 04","bgFallback":"./backgrounds/mix-4-rome.svg","dossierFallback":"./architecture-art/rome-1.webp"},{"bg":"https://upload.wikimedia.org/wikipedia/commons/a/a8/Raphael-School-of-Athens.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/a/a8/Raphael-School-of-Athens.jpg","issue":"艺术、科学与人的觉醒","volume":"RENAISSANCE","title":"文艺复兴与启蒙","subtitle":"CREATION · DISCOVERY","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"当旧框架不再够用，你会如何创造新的可能","theme":"文艺复兴","feature":"FEATURE / 05","bgFallback":"./backgrounds/mix-5-renaissance.svg","dossierFallback":"./architecture-art/renaissance-1.webp"},{"bg":"https://upload.wikimedia.org/wikipedia/commons/6/6e/Solvay_conference_1927.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/6/6e/Solvay_conference_1927.jpg","issue":"科学、工业与全球思想","volume":"MODERN WORLD","title":"科学与现代世界","subtitle":"SCIENCE · GLOBAL AGE","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"在高速变化的世界里，你如何建立自己的判断","theme":"近现代世界","feature":"FEATURE / 06","bgFallback":"./backgrounds/mix-6-modern.svg","dossierFallback":"./architecture-art/modern-1.webp"}],"china":[{"bg":"https://upload.wikimedia.org/wikipedia/commons/b/b4/Along_the_River_During_the_Qingming_Festival_%282112000601%29.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/b/b4/Along_the_River_During_the_Qingming_Festival_%282112000601%29.jpg","issue":"诸子、礼制与自我修养","volume":"PRE-QIN THOUGHT","title":"先秦诸子","subtitle":"THOUGHT · RITUAL","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"你更依赖秩序、原则，还是观察与变通","theme":"先秦诸子","feature":"FEATURE / 01","bgFallback":"./backgrounds/cn-1-preqin.svg","dossierFallback":"./architecture-art/east-1.webp"},{"bg":"https://upload.wikimedia.org/wikipedia/commons/5/59/Terracotta_warriors.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/5/59/Terracotta_warriors.jpg","issue":"大一统、扩张与组织能力","volume":"HAN & TANG","title":"汉唐格局","subtitle":"EMPIRE · EXPANSION","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"面对大格局时，你如何分配资源与承担代价","theme":"汉唐气象","feature":"FEATURE / 02","bgFallback":"./backgrounds/cn-2-hantang.svg","dossierFallback":"./architecture-art/imperial-1.webp"},{"bg":"https://upload.wikimedia.org/wikipedia/commons/d/d7/Forbidden_City_IMG_4308_Meridian_Gate.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/d/d7/Forbidden_City_IMG_4308_Meridian_Gate.jpg","issue":"理学、实学与长期修炼","volume":"SONG & MING","title":"宋明书院","subtitle":"LEARNING · PRINCIPLE","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"你如何在知识、原则与现实之间建立体系","theme":"宋明书院","feature":"FEATURE / 03","bgFallback":"./backgrounds/cn-3-songming.svg","dossierFallback":"./architecture-art/east-2.webp"},{"bg":"https://upload.wikimedia.org/wikipedia/commons/5/59/Terracotta_warriors.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/5/59/Terracotta_warriors.jpg","issue":"军事、组织与现实执行","volume":"STRATEGY & FRONTIER","title":"兵法与边疆","subtitle":"ACTION · DEFENSE","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"压力来临时，你更重判断、速度还是稳定推进","theme":"军政与边疆","feature":"FEATURE / 04","bgFallback":"./backgrounds/cn-4-frontier.svg","dossierFallback":"./architecture-art/imperial-2.webp"},{"bg":"https://upload.wikimedia.org/wikipedia/commons/b/b4/Along_the_River_During_the_Qingming_Festival_%282112000601%29.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/b/b4/Along_the_River_During_the_Qingming_Festival_%282112000601%29.jpg","issue":"诗书、山水与内在秩序","volume":"SCHOLAR TRADITION","title":"山水与文脉","subtitle":"AESTHETIC · INNER ORDER","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"当外部世界喧闹时，你如何保持自己的节奏","theme":"山水与文脉","feature":"FEATURE / 05","bgFallback":"./backgrounds/cn-5-landscape.svg","dossierFallback":"./architecture-art/east-3.webp"},{"bg":"https://upload.wikimedia.org/wikipedia/commons/d/d7/Forbidden_City_IMG_4308_Meridian_Gate.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/d/d7/Forbidden_City_IMG_4308_Meridian_Gate.jpg","issue":"变革、科学与现代责任","volume":"MODERN CHINA","title":"科学与现代中国","subtitle":"REFORM · SCIENCE","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"面对新的时代条件，你如何学习、适应与突破","theme":"近现代中国","feature":"FEATURE / 06","bgFallback":"./backgrounds/cn-6-modern.svg","dossierFallback":"./architecture-art/modern-1.webp"}],"foreign":[{"bg":"https://upload.wikimedia.org/wikipedia/commons/2/22/Parth%C3%A9non_Ath%C3%A8nes_Gr%C3%A8ce.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/2/22/Parth%C3%A9non_Ath%C3%A8nes_Gr%C3%A8ce.jpg","issue":"哲学、城邦与理性传统","volume":"HELLENIC WORLD","title":"古希腊","subtitle":"REASON · POLIS","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"你如何追问真理、争辩观点并形成判断","theme":"古希腊","feature":"FEATURE / 01","bgFallback":"./backgrounds/fg-1-greece.svg","dossierFallback":"./architecture-art/greece-1.webp"},{"bg":"https://upload.wikimedia.org/wikipedia/commons/a/a2/ColloseumRome.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/a/a2/ColloseumRome.jpg","issue":"法律、军团与公共秩序","volume":"ROMAN ORDER","title":"古罗马","subtitle":"LAW · EMPIRE","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"规则与现实发生冲突时，你如何做选择","theme":"古罗马","feature":"FEATURE / 02","bgFallback":"./backgrounds/fg-2-rome.svg","dossierFallback":"./architecture-art/rome-1.webp"},{"bg":"https://upload.wikimedia.org/wikipedia/commons/a/a8/Raphael-School-of-Athens.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/a/a8/Raphael-School-of-Athens.jpg","issue":"信念、责任与共同体","volume":"MEDIEVAL EUROPE","title":"中世纪欧洲","subtitle":"FAITH · DUTY","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"当个人意愿受到更大秩序约束时，你如何回应","theme":"中世纪欧洲","feature":"FEATURE / 03","bgFallback":"./backgrounds/fg-3-medieval.svg","dossierFallback":"./architecture-art/medieval-1.webp"},{"bg":"https://upload.wikimedia.org/wikipedia/commons/a/a8/Raphael-School-of-Athens.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/a/a8/Raphael-School-of-Athens.jpg","issue":"艺术、解剖、科学与创造","volume":"RENAISSANCE","title":"文艺复兴","subtitle":"HUMAN · CREATION","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"当旧知识不够解释世界时，你是否愿意重画地图","theme":"文艺复兴","feature":"FEATURE / 04","bgFallback":"./backgrounds/fg-4-renaissance.svg","dossierFallback":"./architecture-art/renaissance-1.webp"},{"bg":"https://upload.wikimedia.org/wikipedia/commons/2/22/Parth%C3%A9non_Ath%C3%A8nes_Gr%C3%A8ce.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/2/22/Parth%C3%A9non_Ath%C3%A8nes_Gr%C3%A8ce.jpg","issue":"理性、自由与制度设计","volume":"ENLIGHTENMENT","title":"启蒙时代","subtitle":"REASON · LIBERTY","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"你更相信经验、原则，还是通过讨论不断修正","theme":"启蒙时代","feature":"FEATURE / 05","bgFallback":"./backgrounds/fg-5-enlightenment.svg","dossierFallback":"./architecture-art/renaissance-3.webp"},{"bg":"https://upload.wikimedia.org/wikipedia/commons/6/6e/Solvay_conference_1927.jpg","dossier":"https://upload.wikimedia.org/wikipedia/commons/6/6e/Solvay_conference_1927.jpg","issue":"实验、工业与全球现代性","volume":"MODERN SCIENCE","title":"近现代世界","subtitle":"SCIENCE · INDUSTRY","a":"判断方式","b":"决策习惯","c":"行为倾向","quote":"信息越来越多时，你如何避免噪音并做出行动","theme":"现代科学","feature":"FEATURE / 06","bgFallback":"./backgrounds/fg-6-modern.svg","dossierFallback":"./architecture-art/modern-1.webp"}]};
+const QUESTION_ART={"mixed":["./architecture-art/east-1.webp","./architecture-art/east-2.webp","./architecture-art/east-3.webp","./architecture-art/east-1.webp","./architecture-art/east-3.webp","./architecture-art/east-2.webp","./architecture-art/imperial-1.webp","./architecture-art/imperial-2.webp","./architecture-art/imperial-3.webp","./architecture-art/imperial-1.webp","./architecture-art/imperial-3.webp","./architecture-art/imperial-2.webp","./architecture-art/greece-1.webp","./architecture-art/greece-2.webp","./architecture-art/greece-3.webp","./architecture-art/greece-1.webp","./architecture-art/greece-3.webp","./architecture-art/greece-2.webp","./architecture-art/rome-1.webp","./architecture-art/rome-2.webp","./architecture-art/rome-3.webp","./architecture-art/rome-1.webp","./architecture-art/rome-3.webp","./architecture-art/rome-2.webp","./architecture-art/renaissance-1.webp","./architecture-art/renaissance-2.webp","./architecture-art/renaissance-3.webp","./architecture-art/renaissance-1.webp","./architecture-art/renaissance-3.webp","./architecture-art/renaissance-2.webp","./architecture-art/modern-1.webp","./architecture-art/modern-2.webp","./architecture-art/modern-3.webp","./architecture-art/modern-1.webp","./architecture-art/modern-3.webp","./architecture-art/modern-2.webp"],"china":["./architecture-art/east-1.webp","./architecture-art/east-2.webp","./architecture-art/east-3.webp","./architecture-art/east-1.webp","./architecture-art/east-3.webp","./architecture-art/east-2.webp","./architecture-art/imperial-1.webp","./architecture-art/imperial-2.webp","./architecture-art/imperial-3.webp","./architecture-art/imperial-1.webp","./architecture-art/imperial-3.webp","./architecture-art/imperial-2.webp","./architecture-art/east-1.webp","./architecture-art/east-2.webp","./architecture-art/east-3.webp","./architecture-art/east-1.webp","./architecture-art/east-3.webp","./architecture-art/east-2.webp","./architecture-art/imperial-1.webp","./architecture-art/imperial-2.webp","./architecture-art/imperial-3.webp","./architecture-art/imperial-1.webp","./architecture-art/imperial-3.webp","./architecture-art/imperial-2.webp","./architecture-art/east-1.webp","./architecture-art/east-2.webp","./architecture-art/east-3.webp","./architecture-art/east-1.webp","./architecture-art/east-3.webp","./architecture-art/east-2.webp","./architecture-art/modern-1.webp","./architecture-art/modern-2.webp","./architecture-art/modern-3.webp","./architecture-art/modern-1.webp","./architecture-art/modern-3.webp","./architecture-art/modern-2.webp"],"foreign":["./architecture-art/greece-1.webp","./architecture-art/greece-2.webp","./architecture-art/greece-3.webp","./architecture-art/greece-1.webp","./architecture-art/greece-3.webp","./architecture-art/greece-2.webp","./architecture-art/rome-1.webp","./architecture-art/rome-2.webp","./architecture-art/rome-3.webp","./architecture-art/rome-1.webp","./architecture-art/rome-3.webp","./architecture-art/rome-2.webp","./architecture-art/medieval-1.webp","./architecture-art/medieval-2.webp","./architecture-art/medieval-3.webp","./architecture-art/medieval-1.webp","./architecture-art/medieval-3.webp","./architecture-art/medieval-2.webp","./architecture-art/renaissance-1.webp","./architecture-art/renaissance-2.webp","./architecture-art/renaissance-3.webp","./architecture-art/renaissance-1.webp","./architecture-art/renaissance-3.webp","./architecture-art/renaissance-2.webp","./architecture-art/renaissance-1.webp","./architecture-art/renaissance-2.webp","./architecture-art/renaissance-3.webp","./architecture-art/renaissance-1.webp","./architecture-art/renaissance-3.webp","./architecture-art/renaissance-2.webp","./architecture-art/modern-1.webp","./architecture-art/modern-2.webp","./architecture-art/modern-3.webp","./architecture-art/modern-1.webp","./architecture-art/modern-3.webp","./architecture-art/modern-2.webp"]};
+function questionArtFor(index){
+  const list=QUESTION_ART[mode]||QUESTION_ART.mixed;
+  return list[index%list.length]||list[0];
+}
+
 
 function quizSceneSet(){
   return QUIZ_SCENE_SETS[mode] || QUIZ_SCENE_SETS.mixed;
@@ -4175,18 +4215,14 @@ function preloadSceneAsset(url){
 }
 
 function preloadSceneMode(targetMode=mode){
-  const oldMode=mode;
-  mode=targetMode;
-  const scenes=quizSceneSet();
-  mode=oldMode;
-
-  const urls=[...new Set(scenes.flatMap(s=>[s.bg,s.dossier]).filter(Boolean))];
+  const list=QUESTION_ART[targetMode]||QUESTION_ART.mixed;
+  const urls=[...new Set(list.slice(0,3))];
   urls.forEach((url,i)=>{
     const run=()=>preloadSceneAsset(url);
     if("requestIdleCallback" in window){
-      requestIdleCallback(run,{timeout:1200+i*120});
+      requestIdleCallback(run,{timeout:700+i*120});
     }else{
-      setTimeout(run,280+i*110);
+      setTimeout(run,180+i*100);
     }
   });
 }
@@ -4233,7 +4269,6 @@ async function setQuizBackdrop(index){
   const chapterIndex=Math.floor(index/6)%6;
   const scenes=quizSceneSet();
   const scene=scenes[chapterIndex]||scenes[0];
-
   const set=(id,value)=>{const el=document.getElementById(id);if(el)el.textContent=value;};
   set("featureLabel",scene.feature);
   set("dossierIssue",scene.issue);
@@ -4247,37 +4282,35 @@ async function setQuizBackdrop(index){
   set("dossierQuote",scene.quote);
   set("questionTheme",scene.theme);
 
-  const sceneKey=mode+":"+chapterIndex;
-  if(quiz.dataset.scene===sceneKey) return;
-  quiz.dataset.scene=sceneKey;
+  const questionSceneKey=mode+":"+index;
+  const chapterSceneKey=mode+":"+chapterIndex;
+  const questionArt=questionArtFor(index);
+  const chapterArt=(QUESTION_ART[mode]||QUESTION_ART.mixed)[chapterIndex*6]||questionArt;
+  quiz.dataset.scene=questionSceneKey;
 
-  // 本地 SVG 永远留在底层，网络图片即使失败也不会出现空白。
-  quiz.style.setProperty("--quiz-bg-image",'url("'+(scene.bgFallback||scene.bg)+'")');
-
-  const bg=document.getElementById("quizBackdropImage");
-  const dossier=document.getElementById("dossierSceneImage");
-  const token=sceneKey+":"+Date.now();
-
-  const bgPrimary=AEV_EXTERNAL_MEDIA ? scene.bg : (scene.bgFallback||scene.bg);
-  const dossierPrimary=scene.dossierFallback||scene.dossier; // V9.8.4 self-hosted final artwork
-
-  if(bg){
-    bg.dataset.swapToken=token;
-    smoothSwapImage(bg,bgPrimary,scene.bgFallback,token);
-  }
-  if(dossier){
-    dossier.dataset.swapToken=token;
-    smoothSwapImage(dossier,dossierPrimary,scene.dossierFallback,token);
-  }
-
-  // 下一章节优先预载本地兜底；网络允许时再后台预载真实史料图。
-  const next=scenes[(chapterIndex+1)%scenes.length];
-  if(next){
-    if(next.bgFallback) preloadSceneAsset(next.bgFallback);
-    if(next.dossierFallback) preloadSceneAsset(next.dossierFallback);
-    if(AEV_EXTERNAL_MEDIA){
-      setTimeout(()=>preloadSceneAsset(next.bg),480);
+  // V9.8.7：答题阶段完全使用本站本地建筑图，不再等待任何外部图片。
+  if(quiz.dataset.bgScene!==chapterSceneKey){
+    quiz.dataset.bgScene=chapterSceneKey;
+    quiz.style.setProperty("--quiz-bg-image",'url("'+chapterArt+'")');
+    const bg=document.getElementById("quizBackdropImage");
+    if(bg){
+      const token=chapterSceneKey+":"+Date.now();
+      bg.dataset.swapToken=token;
+      smoothSwapImage(bg,chapterArt,chapterArt,token);
     }
+  }
+
+  const dossier=document.getElementById("dossierSceneImage");
+  if(dossier && questionArt){
+    const token=questionSceneKey+":"+Date.now();
+    dossier.dataset.swapToken=token;
+    smoothSwapImage(dossier,questionArt,questionArt,token);
+  }
+
+  // 只预载下一题与再下一题，弱网手机也不会一次下载整套。
+  for(const offset of [1,2]){
+    const next=(QUESTION_ART[mode]||QUESTION_ART.mixed)[index+offset];
+    if(next) preloadSceneAsset(next);
   }
 }
 
@@ -4293,7 +4326,7 @@ function ensureLocalPortraits(){
     };
     if(window.AEVEMORA_LOCAL_PORTRAITS){ useLoaded(); return; }
     const script=document.createElement("script");
-    script.src="./portrait-data.js?v=9.8.4";
+    script.src="./portrait-data.js?v=9.8.7";
     script.async=true;
     script.onload=useLoaded;
     script.onerror=()=>resolve(LOCAL_PORTRAITS);
@@ -4656,7 +4689,7 @@ function warmPortraitCandidates(){
 // ===== V9.8.1 Mobile Stable：安静更新，不强制刷新当前页面 =====
 if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js?v=9.8.4")
+    navigator.serviceWorker.register("./sw.js?v=9.8.7")
       .then(reg=>reg.update().catch(()=>{}))
       .catch(()=>{});
   }, {once:true});

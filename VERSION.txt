@@ -1,2 +1,2 @@
-AEVEMORA V9.8.4 PHOTO DOSSIER FIXED NAV
-Photographic local dossier artwork + always-visible quiz navigation.
+AEVEMORA V9.8.7 ARCHITECTURE FLAGSHIP
+Architecture-only dossier visuals; fully local quiz media.
