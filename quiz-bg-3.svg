@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+<defs>
+  <radialGradient id="leafglow" cx="68%" cy="54%" r="46%">
+    <stop offset="0" stop-color="#d8b77d" stop-opacity=".20"/>
+    <stop offset=".5" stop-color="#c59253" stop-opacity=".06"/>
+    <stop offset="1" stop-color="#121217" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="1600" height="900" fill="#121217"/>
+<rect width="1600" height="900" fill="url(#leafglow)"/>
+<g opacity=".16">
+  <rect x="162" y="108" width="452" height="638" rx="16" fill="none" stroke="#d8ba82" stroke-width="2"/>
+  <rect x="192" y="138" width="392" height="578" rx="12" fill="none" stroke="#d8ba82" stroke-width="1.1" opacity=".6"/>
+  <path d="M226 202h324M226 246h324M226 290h324M226 334h288M226 378h324M226 422h324M226 466h238M226 510h324M226 554h296M226 598h324" stroke="#d8ba82" stroke-width="1.7"/>
+  <path d="M245 675h125M245 698h210" stroke="#d8ba82" stroke-width="1.4" opacity=".55"/>
+</g>
+<g opacity=".22">
+  <path d="M846 224c58 26 123 41 188 36 52-4 100-19 147-46 28 39 44 82 44 130 0 119-88 224-203 285-116-61-203-166-203-283 0-44 10-85 27-122z" fill="#d0ab69"/>
+  <path d="M895 349c40 17 84 26 128 26 51 0 100-11 147-31M917 432c38 10 79 15 120 15 41 0 82-5 122-15M944 516c29 7 61 10 96 10 37 0 72-3 107-10" fill="none" stroke="#121217" stroke-opacity=".22" stroke-width="2.8"/>
+</g>
+<g opacity=".14" fill="none" stroke="#d8ba82">
+  <path d="M1264 240h171M1264 292h171M1264 344h131M1264 396h171M1264 448h152" stroke-width="1.9"/>
+</g>
+<text x="790" y="732" fill="#ebcf99" opacity=".24" font-size="84" font-family="Georgia">ARCHIVE SPECIAL</text>
+<text x="794" y="778" fill="#ebcf99" opacity=".16" font-size="20" font-family="Georgia" letter-spacing="6">MANUSCRIPT · EMBLEM · MEMORY AS IMAGE</text>
+</svg>

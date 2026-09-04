@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+<defs>
+  <radialGradient id="spot" cx="28%" cy="40%" r="70%">
+    <stop offset="0" stop-color="#e5c48a" stop-opacity=".22"/>
+    <stop offset=".45" stop-color="#d6a967" stop-opacity=".08"/>
+    <stop offset="1" stop-color="#121217" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="frame" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#e2bf82" stop-opacity=".85"/>
+    <stop offset="1" stop-color="#9a723d" stop-opacity=".35"/>
+  </linearGradient>
+</defs>
+<rect width="1600" height="900" fill="#121217"/>
+<rect width="1600" height="900" fill="url(#spot)"/>
+<g opacity=".10" fill="none" stroke="url(#frame)">
+  <rect x="90" y="80" width="1420" height="740" rx="26" stroke-width="1.4"/>
+  <rect x="120" y="110" width="1360" height="680" rx="22" stroke-width="1"/>
+</g>
+<g opacity=".22">
+  <rect x="172" y="135" width="465" height="590" rx="18" fill="none" stroke="#d9bb83" stroke-width="2.4"/>
+  <rect x="202" y="165" width="405" height="530" rx="14" fill="rgba(255,255,255,.01)" stroke="#d9bb83" stroke-width="1.1" opacity=".75"/>
+  <path d="M300 593c49-175 153-286 264-286 108 0 210 99 247 268H300z" fill="#e1c186" opacity=".26"/>
+  <ellipse cx="503" cy="259" rx="119" ry="138" fill="#e1c186" opacity=".26"/>
+  <path d="M302 616c16 12 47 11 66 0 15 13 48 12 65-1 20 12 53 11 71-2" fill="none" stroke="#121217" stroke-opacity=".25" stroke-width="3"/>
+</g>
+<g opacity=".14" fill="none" stroke="#d9bb83">
+  <path d="M890 204h476M890 266h476M890 328h412M890 390h476M890 452h332M890 514h395" stroke-width="2.2"/>
+  <path d="M890 596h274M890 644h324" stroke-width="1.7" opacity=".6"/>
+</g>
+<text x="882" y="170" fill="#ebcf99" opacity=".24" font-size="84" font-family="Georgia">PORTRAIT ISSUE</text>
+<text x="885" y="216" fill="#ebcf99" opacity=".16" font-size="20" font-family="Georgia" letter-spacing="6">EDITORIAL PLATE · ICONIC FIGURE · CURATED IMAGE</text>
+<text x="208" y="124" fill="#ebcf99" opacity=".20" font-size="24" font-family="Georgia" letter-spacing="5">FEATURE / 01</text>
+</svg>

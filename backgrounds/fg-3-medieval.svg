@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+<defs>
+  <radialGradient id="glow" cx="68%" cy="32%" r="65%"><stop offset="0" stop-color="#b79b72" stop-opacity=".20"/><stop offset=".5" stop-color="#b79b72" stop-opacity=".05"/><stop offset="1" stop-color="#0b0d11" stop-opacity="0"/></radialGradient>
+  <linearGradient id="fade" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b79b72" stop-opacity=".22"/><stop offset="1" stop-color="#b79b72" stop-opacity=".04"/></linearGradient>
+</defs>
+<rect width="1600" height="900" fill="#0b0d11"/><rect width="1600" height="900" fill="url(#glow)"/>
+<g stroke="#b79b72" fill="none" opacity=".17"><path d="M180 650h620V280H180z" stroke-width="4"/><path d="M260 650V390q0-120 85-180 85 60 85 180v260M515 650V390q0-120 85-180 85 60 85 180v260" stroke-width="9"/><circle cx="345" cy="400" r="54"/><circle cx="600" cy="400" r="54"/><path d="M990 200h390v430H990zM1040 260h290M1040 320h240M1040 380h290M1040 440h210" stroke-width="2"/></g><path d="M1090 585c55-105 140-155 245-115 42 16 78 47 108 94H1090z" fill="#b79b72" opacity=".10"/>
+<text x="118" y="760" fill="#b79b72" opacity=".20" font-size="70" font-family="Georgia" letter-spacing="3">中世纪欧洲</text>
+<text x="122" y="810" fill="#b79b72" opacity=".13" font-size="22" font-family="Georgia" letter-spacing="6">MEDIEVAL EUROPE</text>
+</svg>

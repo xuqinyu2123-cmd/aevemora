@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+<defs>
+  <radialGradient id="glow" cx="68%" cy="32%" r="65%"><stop offset="0" stop-color="#bd8c54" stop-opacity=".20"/><stop offset=".5" stop-color="#bd8c54" stop-opacity=".05"/><stop offset="1" stop-color="#0b0d11" stop-opacity="0"/></radialGradient>
+  <linearGradient id="fade" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#bd8c54" stop-opacity=".22"/><stop offset="1" stop-color="#bd8c54" stop-opacity=".04"/></linearGradient>
+</defs>
+<rect width="1600" height="900" fill="#0b0d11"/><rect width="1600" height="900" fill="url(#glow)"/>
+<g stroke="#bd8c54" fill="none" opacity=".17"><path d="M120 180h630v520H120z" stroke-width="2"/><path d="M175 245c130-70 250-88 380-58 80 18 132 50 190 96M168 344c140-56 276-65 410-24 56 17 104 36 156 72M172 470c122-42 240-46 356-20 66 14 130 40 205 82" stroke-width="2"/><path d="M260 190v500M420 190v500M580 190v500" opacity=".55"/><circle cx="1150" cy="340" r="180"/><circle cx="1150" cy="340" r="125"/><path d="M970 340h360M1150 160v360"/><path d="M1040 650l110-190 120 190" stroke-width="7"/></g><text x="1035" y="350" fill="#bd8c54" opacity=".18" font-size="150" font-family="serif">兵</text>
+<text x="118" y="760" fill="#bd8c54" opacity=".20" font-size="70" font-family="Georgia" letter-spacing="3">军政与边疆</text>
+<text x="122" y="810" fill="#bd8c54" opacity=".13" font-size="22" font-family="Georgia" letter-spacing="6">STRATEGY & FRONTIER</text>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 900">
+<defs>
+  <radialGradient id="dg" cx="50%" cy="30%" r="68%"><stop offset="0" stop-color="#d0a96d" stop-opacity=".20"/><stop offset="1" stop-color="#0b0d11" stop-opacity="0"/></radialGradient>
+  <linearGradient id="db" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b0d11"/><stop offset=".55" stop-color="#15161b"/><stop offset="1" stop-color="#090b0f"/></linearGradient>
+</defs>
+<rect width="720" height="900" fill="url(#db)"/><rect width="720" height="900" fill="url(#dg)"/>
+<rect x="28" y="28" width="664" height="844" rx="20" fill="none" stroke="#d0a96d" stroke-opacity=".22"/>
+<rect x="44" y="44" width="632" height="812" rx="16" fill="none" stroke="#fff" stroke-opacity=".035"/>
+<text x="72" y="92" fill="#d0a96d" opacity=".92" font-size="17" font-family="Georgia" letter-spacing="4">AEVEMORA DOSSIER</text>
+<text x="648" y="92" fill="#d0a96d" opacity=".66" font-size="22" font-family="Georgia" text-anchor="end">CHINA-02</text>
+<g stroke="#d0a96d" fill="none" opacity=".22"><path d="M92 590h536M130 590V270M590 590V270M105 270h510M170 270l90-70h200l90 70" stroke-width="8"/><path d="M180 590V350M300 590V350M420 590V350M540 590V350" stroke-width="5"/></g><circle cx="360" cy="360" r="124" fill="#d0a96d" opacity=".07"/><text x="360" y="430" fill="#d0a96d" opacity=".10" font-size="230" text-anchor="middle" font-family="serif">史</text>
+<rect x="70" y="718" width="580" height="112" rx="18" fill="#090b10" fill-opacity=".72" stroke="#d0a96d" stroke-opacity=".16"/>
+<text x="96" y="760" fill="#d0a96d" opacity=".72" font-size="13" font-family="Georgia" letter-spacing="3">CURATED CIVILIZATION</text>
+<text x="96" y="799" fill="#eee3cf" opacity=".96" font-size="32" font-family="Georgia,serif">汉唐格局</text>
+<text x="98" y="827" fill="#d0a96d" opacity=".52" font-size="13" font-family="Georgia" letter-spacing="3">EMPIRE · EXPANSION</text>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+<defs>
+  <radialGradient id="glow" cx="68%" cy="32%" r="65%"><stop offset="0" stop-color="#d9b47e" stop-opacity=".20"/><stop offset=".5" stop-color="#d9b47e" stop-opacity=".05"/><stop offset="1" stop-color="#0b0d11" stop-opacity="0"/></radialGradient>
+  <linearGradient id="fade" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d9b47e" stop-opacity=".22"/><stop offset="1" stop-color="#d9b47e" stop-opacity=".04"/></linearGradient>
+</defs>
+<rect width="1600" height="900" fill="#0b0d11"/><rect width="1600" height="900" fill="url(#glow)"/>
+<g stroke="#d9b47e" fill="none" opacity=".17"><rect x="170" y="150" width="520" height="500" rx="10" stroke-width="3"/><path d="M220 220h420M220 280h420M220 340h370M220 400h420M220 460h330" stroke-width="2"/><circle cx="1110" cy="350" r="190" stroke-width="2"/><circle cx="1110" cy="350" r="135"/><circle cx="1110" cy="350" r="78"/><path d="M920 350h380M1110 160v380M980 220l260 260M1240 220L980 480"/><path d="M850 650c90-120 190-170 300-150 96 18 175 76 250 165" stroke-width="3"/></g><text x="240" y="590" fill="#d9b47e" opacity=".12" font-size="130" font-family="Georgia">V</text>
+<text x="118" y="760" fill="#d9b47e" opacity=".20" font-size="70" font-family="Georgia" letter-spacing="3">文艺复兴</text>
+<text x="122" y="810" fill="#d9b47e" opacity=".13" font-size="22" font-family="Georgia" letter-spacing="6">RENAISSANCE</text>
+</svg>
