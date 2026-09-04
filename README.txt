@@ -1,28 +1,28 @@
-AEVEMORA V9.5 · 新地址迁移版
+AEVEMORA V9.6.5 · 根目录直传版
 
-目标正式地址：
-https://xuqinyu2123-cmd.github.io/aevemora/
+这版专门解决“上传了新版但网站仍然没有授权墙”的问题。
 
-为什么要迁移：
-旧地址 /historia-test/ 已经被部分手机浏览器、微信内置浏览器和早期 PWA 缓存过多次。
-新建 /aevemora/ 仓库后，会获得全新的 GitHub Pages 路径与 Service Worker scope，从根源上隔离旧 HISTORIA 缓存。
+关键变化：
+- Worker 地址已经直接写入 index.html，不再依赖 access-config.js。
+- 授权墙默认显示，未验证无法关闭。
+- ZIP 解压后文件直接位于压缩包根目录，不再套 AEVEMORA_V9_x_x 外层文件夹。
+- 新增 VERSION.txt，用于确认 GitHub 根目录是否真的更新。
 
-V9.5 已经同步做了这些隔离：
-- 新 Service Worker cache key
-- manifest 新增独立 PWA id
-- localStorage 从 historia_* 改为 aevemora_v95_*
-- 分享按钮固定分享新正式地址，而不是带 ?v= 的临时测试地址
-- canonical / Open Graph URL 指向新地址
+上传时：
+1. 解压 ZIP。
+2. 进入解压后的目录。
+3. 全选里面的 index.html、sw.js、manifest.webmanifest、backgrounds、dossiers 等。
+4. 上传到 GitHub aevemora 仓库根目录，覆盖旧文件。
+5. 不要把整个文件夹作为一个子目录上传。
 
-GitHub 操作：
-1. 新建 Public 仓库：aevemora
-2. 解压本包。
-3. 把包内所有文件/文件夹上传到 aevemora 仓库根目录，不要再套一层文件夹。
-4. Commit changes。
-5. Settings → Pages → Deploy from a branch → main / (root) → Save。
-6. 等 github-pages 绿色部署完成。
-7. 打开：https://xuqinyu2123-cmd.github.io/aevemora/
+部署后先检查：
+https://xuqinyu2123-cmd.github.io/aevemora/VERSION.txt?v=965
 
-手机端：
-以后只保存和分享新地址，不再使用 /historia-test/。
-如果手机桌面以前添加过旧 HISTORIA / AEVEMORA PWA，建议删除旧图标，再从新地址重新“添加到主屏幕”。
+应该看到：
+AEVEMORA V9.6.5 ROOT ACCESS LOCK
+
+然后打开：
+https://xuqinyu2123-cmd.github.io/aevemora/?v=9.6.5
+
+正确页面一打开就会看到：
+ACCESS REQUIRED · V9.6.5

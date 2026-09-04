@@ -1,0 +1,2 @@
+AEVEMORA V9.6.5 ROOT ACCESS LOCK
+If this file is visible at /aevemora/VERSION.txt, the new root files were deployed.

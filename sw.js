@@ -1,11 +1,10 @@
-const CACHE="aevemora-v9-5-clean-launch-20260904";
+const CACHE="aevemora-v9-6-5-root-lock-20260904";
 const CORE=[
-  "./",
-  "./index.html",
   "./manifest.webmanifest",
   "./icon-192.png",
   "./icon-512.png",
   "./apple-touch-icon.png",
+  "./access-config.js",
   "./backgrounds/cn-1-preqin.svg",
   "./backgrounds/cn-2-hantang.svg",
   "./backgrounds/cn-3-songming.svg",
@@ -71,15 +70,9 @@ self.addEventListener("fetch", event => {
   const req=event.request;
   const url=new URL(req.url);
 
-  // HTML：network-first，确保 GitHub Pages 更新后优先得到最新版。
+  // V9.6.4：HTML 永不从 Service Worker 缓存读取，防止旧授权逻辑复活。
   if(req.mode==="navigate" || req.destination==="document"){
-    event.respondWith(
-      fetch(req,{cache:"no-store"}).then(resp=>{
-        const copy=resp.clone();
-        caches.open(CACHE).then(cache=>cache.put("./index.html",copy));
-        return resp;
-      }).catch(()=>caches.match("./index.html"))
-    );
+    event.respondWith(fetch(req,{cache:"no-store"}));
     return;
   }
 
@@ -97,6 +90,19 @@ self.addEventListener("fetch", event => {
           return resp;
         });
       })
+    );
+    return;
+  }
+
+  // 授权配置必须 network-first，不能让旧空配置长期命中缓存。
+  if(url.pathname.endsWith("/access-config.js")){
+    event.respondWith(
+      fetch(req,{cache:"no-store"}).then(resp=>{
+        if(resp && resp.ok){
+          caches.open(CACHE).then(cache=>cache.put(req,resp.clone())).catch(()=>{});
+        }
+        return resp;
+      }).catch(()=>caches.match(req))
     );
     return;
   }

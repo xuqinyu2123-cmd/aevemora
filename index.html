@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+  <meta name="aevemora-build" content="9.6.5-root-lock">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>AEVEMORA · 历史人格原型测试</title>
@@ -2102,6 +2103,198 @@ body.quizMode .footer{opacity:0;pointer-events:none;height:0;margin:0;padding:0;
   #quizBackdropImage.sceneVisible{opacity:.40}
 }
 
+
+/* ===== V9.6 授权码访问层 ===== */
+.accessGate{
+  position:fixed;inset:0;z-index:12000;
+  display:none;align-items:center;justify-content:center;
+  padding:22px;
+}
+.accessGate.show{display:flex}
+.accessGateBackdrop{
+  position:absolute;inset:0;
+  background:rgba(3,4,7,.82);
+  backdrop-filter:blur(18px) saturate(.75);
+}
+.accessGatePanel{
+  position:relative;z-index:1;
+  width:min(94vw,520px);
+  overflow:hidden;
+  border-radius:28px;
+  border:1px solid rgba(217,180,113,.22);
+  background:
+    radial-gradient(430px 230px at 50% 0%,rgba(218,181,113,.12),transparent 72%),
+    linear-gradient(155deg,rgba(255,255,255,.035),rgba(255,255,255,.008)),
+    #0d0f13;
+  box-shadow:0 42px 120px rgba(0,0,0,.58),inset 0 0 0 1px rgba(255,255,255,.018);
+  animation:accessPanelIn .28s cubic-bezier(.2,.8,.2,1) both;
+}
+.accessGatePanel:before{
+  content:"";position:absolute;inset:14px;pointer-events:none;
+  border:1px solid rgba(217,180,113,.07);border-radius:20px;
+}
+.accessGateClose{
+  position:absolute;right:16px;top:14px;z-index:4;
+  width:38px;height:38px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(9,10,14,.52);
+  color:#8e8478;font-size:22px;cursor:pointer;
+}
+.accessGateClose:hover{color:#e3c58f;border-color:rgba(217,180,113,.26)}
+.accessGateHead{
+  position:relative;padding:38px 42px 27px;text-align:center;
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+.accessGateMark{
+  display:flex;align-items:center;justify-content:center;gap:12px;margin:0 auto 18px;
+}
+.accessGateMark i{width:60px;height:1px;background:linear-gradient(90deg,transparent,rgba(221,185,120,.52))}
+.accessGateMark i:last-child{transform:scaleX(-1)}
+.accessGateMark span{width:8px;height:8px;border:1px solid #c79d5e;transform:rotate(45deg)}
+.accessGateEyebrow{
+  color:#b68e52;font:600 9px Georgia,serif;letter-spacing:.28em;
+}
+.accessGateHead h2{
+  margin:12px 0 8px;color:#f0e7dc;
+  font:600 34px/1.25 Georgia,"Songti SC",serif;
+}
+.accessGateHead p{
+  width:min(100%,410px);margin:0 auto;color:#8e857b;
+  font-size:12px;line-height:1.8;
+}
+.accessGateBody{position:relative;padding:28px 42px 34px}
+.accessCodeLabel{
+  display:block;margin-bottom:10px;color:#8f7d67;
+  font:600 9px Georgia,serif;letter-spacing:.22em;
+}
+.accessCodeField{
+  height:58px;display:grid;grid-template-columns:44px 1fr;align-items:center;
+  border-radius:14px;border:1px solid rgba(215,178,110,.24);
+  background:rgba(7,9,12,.70);
+  transition:.18s ease;
+}
+.accessCodeField:focus-within{
+  border-color:rgba(225,187,116,.58);
+  box-shadow:0 0 0 3px rgba(207,166,97,.055),0 12px 30px rgba(0,0,0,.18);
+}
+.accessCodeField>span{
+  display:grid;place-items:center;color:#c89e60;font-size:18px;
+}
+.accessCodeField input{
+  width:100%;height:100%;padding:0 16px 0 0;border:0;outline:0;
+  background:transparent;color:#eee4d7;
+  font:600 16px Georgia,monospace;letter-spacing:.10em;text-transform:uppercase;
+}
+.accessCodeField input::placeholder{color:#57524d;font-size:12px;letter-spacing:.07em}
+.accessGateStatus{
+  min-height:23px;padding-top:9px;color:#8c8378;font-size:11px;line-height:1.5;
+}
+.accessGateStatus.error{color:#c9957e}
+.accessGateStatus.success{color:#d8b979}
+.accessGateStatus.loading{color:#a99c8d}
+.accessVerifyBtn,.accessAcquireBtn{
+  width:100%;border-radius:14px;cursor:pointer;transition:.18s ease;
+}
+.accessVerifyBtn{
+  height:56px;display:flex;align-items:center;justify-content:center;gap:16px;
+  border:1px solid #e1bd7b;
+  background:linear-gradient(180deg,#e3c487,#bd914f);
+  color:#17120c;font-weight:750;font-size:14px;
+  box-shadow:0 14px 34px rgba(177,130,64,.13);
+}
+.accessVerifyBtn:hover{transform:translateY(-1px);filter:brightness(1.04)}
+.accessVerifyBtn:disabled{opacity:.58;cursor:wait;transform:none}
+.accessGateDivider{
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;
+  margin:19px 0;color:#655f58;font:500 8px Georgia,serif;letter-spacing:.16em;
+}
+.accessGateDivider span{height:1px;background:rgba(255,255,255,.055)}
+.accessAcquireBtn{
+  min-height:58px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 18px;border:1px solid rgba(255,255,255,.075);
+  background:rgba(255,255,255,.018);color:#d4c9bb;text-align:left;
+}
+.accessAcquireBtn:hover{border-color:rgba(215,178,110,.28);background:rgba(215,178,110,.035)}
+.accessAcquireBtn span{font-weight:650;font-size:13px}
+.accessAcquireBtn small{color:#756d65;font-size:10px}
+.accessGateFoot{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  margin-top:20px;padding-top:17px;border-top:1px solid rgba(255,255,255,.05);
+  color:#625d57;font-size:9px;
+}
+.accessGateFoot button{
+  padding:0;border:0;background:none;color:#8f7a5f;font-size:9px;cursor:pointer;
+}
+.accessGateFoot button:hover{color:#d4af73}
+body.accessGateOpen{overflow:hidden}
+@keyframes accessPanelIn{
+  from{opacity:0;transform:translateY(12px) scale(.975)}
+  to{opacity:1;transform:none}
+}
+@media(max-width:600px){
+  .accessGate{padding:12px}
+  .accessGatePanel{border-radius:22px}
+  .accessGateHead{padding:34px 22px 23px}
+  .accessGateHead h2{font-size:29px}
+  .accessGateBody{padding:23px 20px 28px}
+  .accessGateFoot{align-items:flex-start}
+}
+
+
+/* ===== V9.6.3 强制授权修复 ===== */
+.buildStamp{
+  width:max-content;
+  margin:16px auto 0;
+  color:rgba(199,166,105,.34);
+  font:500 9px Georgia,serif;
+  letter-spacing:.20em;
+}
+
+
+/* ===== V9.6.4 Fail-Closed Access Wall ===== */
+html:not(.accessUnlocked) body{
+  overflow:hidden !important;
+}
+.accessGate.authMandatory{
+  display:flex !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  pointer-events:auto !important;
+}
+html.accessUnlocked .accessGate.authMandatory{
+  display:none !important;
+}
+.accessGate.authMandatory .accessGateBackdrop{
+  cursor:default;
+}
+.accessGate.authMandatory .accessGatePanel{
+  border-color:rgba(222,184,113,.34);
+}
+.accessGateLockNote{
+  margin-top:12px;
+  color:#665f57;
+  font-size:9px;
+  line-height:1.7;
+  text-align:center;
+}
+.authBuildBadge{
+  position:fixed;
+  right:12px;
+  bottom:12px;
+  z-index:13000;
+  padding:7px 10px;
+  border:1px solid rgba(214,176,107,.20);
+  border-radius:999px;
+  background:rgba(7,9,12,.86);
+  color:rgba(222,187,122,.62);
+  font:600 9px Georgia,serif;
+  letter-spacing:.14em;
+  pointer-events:none;
+}
+html.accessUnlocked .authBuildBadge{
+  display:none;
+}
+
 </style>
 
 <link rel="preconnect" href="https://zh.wikipedia.org" crossorigin>
@@ -2185,7 +2378,7 @@ body.quizMode .footer{opacity:0;pointer-events:none;height:0;margin:0;padding:0;
       </div>
 
       <div class="actions">
-        <button class="btn primary" onclick="startQuiz()">开始测试</button>
+        <button class="btn primary" onclick="requestQuizAccess()">开始测试</button>
         <button class="btn ghost" onclick="installApp()">添加到桌面</button>
         <button class="btn ghost" onclick="shareApp()">分享测试</button>
         <button id="resumeBtn" class="btn ghost" onclick="restoreLastResult()" style="display:none">查看上次结果</button>
@@ -2397,13 +2590,61 @@ body.quizMode .footer{opacity:0;pointer-events:none;height:0;margin:0;padding:0;
     </div>
   </section>
 
-  <div id="mobileCTA" class="mobileBottomCTA">
+  
+  <div id="accessGate" class="accessGate authMandatory show" aria-hidden="false">
+    <div class="accessGateBackdrop"></div>
+    <div class="accessGatePanel" role="dialog" aria-modal="true" aria-labelledby="accessGateTitle">
+      
+
+      <div class="accessGateHead">
+        <div class="accessGateMark">
+          <i></i><span></span><i></i>
+        </div>
+        <div class="accessGateEyebrow">ACCESS REQUIRED · V9.6.5</div>
+        <h2 id="accessGateTitle">验证后进入 AEVEMORA</h2>
+        <p>本版本已启用强制访问控制。未通过授权验证，测试内容不会解锁。</p>
+      </div>
+
+      <div class="accessGateBody">
+        <label class="accessCodeLabel" for="accessCodeInput">ACCESS CODE</label>
+        <div class="accessCodeField">
+          <span>◇</span>
+          <input id="accessCodeInput" type="text" inputmode="text" autocomplete="one-time-code"
+                 maxlength="32" placeholder="例如 AEV-7K29-XQ84"
+                 oninput="formatAccessCodeInput(this)"
+                 onkeydown="if(event.key==='Enter'){event.preventDefault();verifyAccessCode()}">
+        </div>
+
+        <div id="accessGateStatus" class="accessGateStatus" aria-live="polite"></div>
+
+        <button id="verifyAccessBtn" class="accessVerifyBtn" type="button" onclick="verifyAccessCode()">
+          <span>验证并开始测试</span><b>→</b>
+        </button>
+
+        <div class="accessGateDivider"><span></span><b>OR</b><span></span></div>
+
+        <button class="accessAcquireBtn" type="button" onclick="acquireAccessCode()">
+          <span>获取授权码</span><small>购买 / 联系发布者</small>
+        </button>
+
+        <div class="accessGateLockNote">AUTHORIZATION GATE · CLOUDFLARE VERIFIED ACCESS</div>
+        <div class="accessGateFoot">
+          <span>授权状态只保存在当前设备。</span>
+          <button type="button" onclick="clearAccessSession()">清除本机授权</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="authBuildBadge">AUTH LOCK · 9.6.5</div>
+<div id="mobileCTA" class="mobileBottomCTA">
     <div class="ctaRow">
-      <button class="btn primary" onclick="startQuiz()">开始测试</button>
+      <button class="btn primary" onclick="requestQuizAccess()">开始测试</button>
       <button class="btn ghost" onclick="installApp()">添加到桌面</button>
     </div>
   </div>
 
+  <div class="buildStamp">ACCESS BUILD · V9.6.5</div>
   <div class="footer">
     <span>AEVEMORA · Civilizations Edition · V9.3</span>
     <button class="footLink" onclick="openInfo('about')">关于测试</button>
@@ -2447,6 +2688,230 @@ const QUESTIONS=[["面对一个复杂任务，你更倾向于：", [["先拆目�
 const DIM_KEYS=["control","creative","resilience","empathy","drive","insight"];
 const DIM_NAMES={control:"统筹掌控",creative:"开放创造",resilience:"稳定韧性",empathy:"共情协作",drive:"行动进取",insight:"判断洞察"};
 
+
+
+const AEVEMORA_BUILD="9.6.5";
+(async function enforceFreshAccessBuild(){
+  try{
+    const prev=localStorage.getItem("aevemora_build_version");
+    if(prev!==AEVEMORA_BUILD){
+      // 旧版授权状态不能跨版本继承。
+      localStorage.removeItem("aevemora_access_v1");
+      localStorage.removeItem("aevemora_access_v2");
+      localStorage.setItem("aevemora_build_version",AEVEMORA_BUILD);
+
+      // 清掉旧 CacheStorage；新版 SW 会重新建立。
+      if("caches" in window){
+        const keys=await caches.keys();
+        await Promise.all(
+          keys.filter(k=>/aevemora|historia/i.test(k)).map(k=>caches.delete(k))
+        );
+      }
+    }
+  }catch(e){}
+})();
+
+// ===== V9.6 授权访问控制 =====
+// 部署 Cloudflare Worker 后，只需把 apiBase 改成你的 workers.dev 地址。
+// purchaseUrl 可填写商品页、微信引导页或其他获取授权码页面。
+const ACCESS_CONFIG={
+  apiBase:"https://aevemora-access.xuqinyu2123.workers.dev",
+  purchaseUrl:"",
+  appId:"aevemora",
+  storageKey:"aevemora_access_v2",
+  deviceKey:"aevemora_device_v2"
+};
+
+function accessApiConfigured(){
+  return /^https:\/\//i.test(ACCESS_CONFIG.apiBase||"");
+}
+function accessDeviceId(){
+  let id=localStorage.getItem(ACCESS_CONFIG.deviceKey);
+  if(!id){
+    try{id=crypto.randomUUID()}catch(e){id="dev-"+Date.now()+"-"+Math.random().toString(36).slice(2)}
+    localStorage.setItem(ACCESS_CONFIG.deviceKey,id);
+  }
+  return id;
+}
+function readAccessSession(){
+  try{
+    const raw=localStorage.getItem(ACCESS_CONFIG.storageKey);
+    if(!raw) return null;
+    const s=JSON.parse(raw);
+    if(!s || !s.token || !s.expiresAt) return null;
+    if(Number(s.expiresAt)<=Date.now()){
+      localStorage.removeItem(ACCESS_CONFIG.storageKey);
+      return null;
+    }
+    return s;
+  }catch(e){return null}
+}
+function saveAccessSession(data){
+  localStorage.setItem(ACCESS_CONFIG.storageKey,JSON.stringify({
+    token:data.token,
+    expiresAt:Number(data.expiresAt),
+    codeHint:data.codeHint||""
+  }));
+  updateAccessUI();
+}
+function clearAccessSession(){
+  localStorage.removeItem(ACCESS_CONFIG.storageKey);
+  setAccessStatus("已清除本设备授权。","");
+  updateAccessUI();
+}
+function updateAccessUI(){
+  const active=!!readAccessSession();
+  document.querySelectorAll(".actions .btn.primary,#mobileCTA .btn.primary").forEach(btn=>{
+    if(active) btn.setAttribute("data-access","active");
+    else btn.removeAttribute("data-access");
+  });
+}
+function openAccessGate(message=""){
+  const gate=document.getElementById("accessGate");
+  if(!gate) return;
+  gate.classList.add("show");
+  gate.setAttribute("aria-hidden","false");
+  document.body.classList.add("accessGateOpen");
+  const input=document.getElementById("accessCodeInput");
+  if(input) setTimeout(()=>input.focus(),180);
+  if(message) setAccessStatus(message,"");
+}
+function closeAccessGate(){
+  if(!document.documentElement.classList.contains("accessUnlocked")) return;
+  const gate=document.getElementById("accessGate");
+  if(!gate) return;
+  gate.classList.remove("show");
+  gate.setAttribute("aria-hidden","true");
+  document.body.classList.remove("accessGateOpen");
+}
+
+function lockAppForAccess(message="请输入授权码以继续。"){
+  document.documentElement.classList.remove("accessUnlocked");
+  const gate=document.getElementById("accessGate");
+  if(gate){
+    gate.classList.add("authMandatory","show");
+    gate.setAttribute("aria-hidden","false");
+  }
+  document.body.classList.add("accessGateOpen");
+  setAccessStatus(message,"");
+}
+function unlockAppAfterAccess(){
+  document.documentElement.classList.add("accessUnlocked");
+  const gate=document.getElementById("accessGate");
+  if(gate){
+    gate.classList.remove("show");
+    gate.setAttribute("aria-hidden","true");
+  }
+  document.body.classList.remove("accessGateOpen");
+}
+
+function setAccessStatus(message,type=""){
+  const el=document.getElementById("accessGateStatus");
+  if(!el) return;
+  el.textContent=message||"";
+  el.className="accessGateStatus"+(type?" "+type:"");
+}
+function formatAccessCodeInput(input){
+  const pos=input.selectionStart;
+  input.value=(input.value||"").toUpperCase().replace(/[^A-Z0-9\-]/g,"").slice(0,32);
+}
+async function accessFetch(path,body,timeout=6500){
+  const ctrl=new AbortController();
+  const timer=setTimeout(()=>ctrl.abort(),timeout);
+  try{
+    const res=await fetch(ACCESS_CONFIG.apiBase.replace(/\/$/,"")+path,{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify(body),
+      signal:ctrl.signal,
+      credentials:"omit"
+    });
+    let data={};
+    try{data=await res.json()}catch(e){}
+    return {ok:res.ok,data};
+  }finally{clearTimeout(timer)}
+}
+async function checkAccessSession(session){
+  if(!session || !accessApiConfigured()) return false;
+  try{
+    const {ok,data}=await accessFetch("/check",{
+      token:session.token,
+      deviceId:accessDeviceId(),
+      appId:ACCESS_CONFIG.appId
+    },4200);
+    if(ok && data.valid) return true;
+  }catch(e){}
+  localStorage.removeItem(ACCESS_CONFIG.storageKey);
+  updateAccessUI();
+  return false;
+}
+async function requestQuizAccess(){
+  const session=readAccessSession();
+  if(session && accessApiConfigured()){
+    const btns=document.querySelectorAll(".actions .btn.primary,#mobileCTA .btn.primary");
+    btns.forEach(b=>b.disabled=true);
+    const valid=await checkAccessSession(session);
+    btns.forEach(b=>b.disabled=false);
+    if(valid){
+      unlockAppAfterAccess();
+      return launchAuthorizedQuiz();
+    }
+  }
+  lockAppForAccess(
+    accessApiConfigured()
+      ? "请输入你的探索授权码。"
+      : "授权验证服务尚未配置，请检查 access-config.js。"
+  );
+}
+async function verifyAccessCode(){
+  const input=document.getElementById("accessCodeInput");
+  const btn=document.getElementById("verifyAccessBtn");
+  const code=(input?.value||"").trim().toUpperCase();
+
+  if(!accessApiConfigured()){
+    setAccessStatus("验证服务尚未配置：请先部署 Cloudflare Worker，再把 Worker 地址填入 access-config.js。","error");
+    return;
+  }
+  if(code.length<6){
+    setAccessStatus("请输入完整授权码。","error");
+    input?.focus();
+    return;
+  }
+
+  btn.disabled=true;
+  setAccessStatus("正在验证授权码…","loading");
+  try{
+    const {ok,data}=await accessFetch("/verify",{
+      code,
+      deviceId:accessDeviceId(),
+      appId:ACCESS_CONFIG.appId
+    });
+    if(!ok || !data.ok){
+      const msg=data.message||"授权码无效或已失效。";
+      setAccessStatus(msg,"error");
+      return;
+    }
+    saveAccessSession(data);
+    setAccessStatus("验证成功，正在解锁…","success");
+    setTimeout(()=>{
+      unlockAppAfterAccess();
+      launchAuthorizedQuiz();
+    },420);
+  }catch(e){
+    setAccessStatus(e?.name==="AbortError"?"验证超时，请稍后再试。":"网络异常，暂时无法验证授权码。","error");
+  }finally{
+    btn.disabled=false;
+  }
+}
+function acquireAccessCode(){
+  if(ACCESS_CONFIG.purchaseUrl){
+    window.open(ACCESS_CONFIG.purchaseUrl,"_blank","noopener");
+    return;
+  }
+  setAccessStatus("“获取授权码”入口尚未配置。你可以把这里连接到商品页、微信引导页或其他购买渠道。","");
+}
+
+
 let mode="mixed", current=0, scores={control:0,creative:0,resilience:0,empathy:0,drive:0,insight:0}, answerHistory=[], markedQuestions=new Set(), last=null, posterDataUrl=null, deferredInstallPrompt=null;
 
 function setMode(m){
@@ -2470,7 +2935,28 @@ function recalcScores(){
     Object.entries(item.delta).forEach(([k,v])=>scores[k]+=v);
   });
 }
-function startQuiz(){
+
+// V9.6.3：任何遗留 startQuiz() 调用都必须先经过授权层。
+window.startQuiz = function(){
+  return requestQuizAccess();
+};
+
+let __accessLaunchPermit=false;
+
+function launchAuthorizedQuiz(){
+  __accessLaunchPermit=true;
+  try{
+    startQuizCore();
+  }finally{
+    __accessLaunchPermit=false;
+  }
+}
+
+function startQuizCore(){
+  if(!__accessLaunchPermit){
+    openAccessGate("请先完成授权码验证。");
+    return;
+  }
   document.body.classList.add("quizMode");
   const hero=document.getElementById("hero");
   const quiz=document.getElementById("quiz");
@@ -2862,7 +3348,7 @@ function restart(){
 function copySummary(){
   if(!last) return;
   const t=topDims(last.user).slice(0,2).map(x=>DIM_NAMES[x[0]]).join(" × ");
-  const text="AEVEMORA 历史人格原型测试 V9.5\n我的历史人格原型："+last.best.name+"\n匹配模式："+modeName(last.mode)+"\n相似度："+last.best.sim.toFixed(1)+"%\n核心维度："+t+"\n"+last.best.tag;
+  const text="AEVEMORA 历史人格原型测试 V9.6.5\n我的历史人格原型："+last.best.name+"\n匹配模式："+modeName(last.mode)+"\n相似度："+last.best.sim.toFixed(1)+"%\n核心维度："+t+"\n"+last.best.tag;
   navigator.clipboard?.writeText(text).then(()=>alert("结果文案已复制")).catch(()=>prompt("复制下面的结果：",text));
 }
 
@@ -3083,7 +3569,7 @@ function renderPosterCanvas(x,img,compactFallback=false){
   x.textAlign="right";
   x.fillStyle="#8a806f";
   x.font="22px Georgia";
-  x.fillText("AEVEMORA JOURNAL · V9.5",1074,2390);
+  x.fillText("AEVEMORA JOURNAL · V9.6.5",1074,2390);
   x.textAlign="left";
 }
 
@@ -3250,7 +3736,25 @@ function openInfo(type){
 function closeInfo(){document.getElementById("infoModal")?.classList.remove("open")}
 function infoModalBg(e){if(e.target.id==="infoModal") closeInfo()}
 
-window.addEventListener("load",()=>{
+window.addEventListener("load",async ()=>{
+  // V9.6.4 fail-closed：默认保持授权墙，只有服务器确认有效 Session 才解锁。
+  lockAppForAccess("正在检查访问授权…");
+  const savedSession=readAccessSession();
+  if(savedSession && accessApiConfigured()){
+    const valid=await checkAccessSession(savedSession);
+    if(valid){
+      unlockAppAfterAccess();
+    }else{
+      lockAppForAccess("请输入你的探索授权码。");
+    }
+  }else{
+    lockAppForAccess(
+      accessApiConfigured()
+        ? "请输入你的探索授权码。"
+        : "授权服务未连接，请检查 access-config.js。"
+    );
+  }
+  updateAccessUI();
   // 首屏只允许首页出现，答题页绝不预先占位或露出。
   const quiz=document.getElementById("quiz");
   if(quiz){
@@ -3970,7 +4474,7 @@ function warmPortraitCandidates(){
 if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
   window.addEventListener("load", async () => {
     try {
-      const reg = await navigator.serviceWorker.register("./sw.js?v=9.5");
+      const reg = await navigator.serviceWorker.register("./sw.js?v=9.6.5");
       await reg.update();
 
       let refreshed = false;
@@ -3983,6 +4487,7 @@ if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
     } catch (e) {}
   });
 }
+
 
 </script>
 </body>

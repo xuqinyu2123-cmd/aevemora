@@ -1,0 +1,31 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AEVEMORA Auth Diagnostic 9.6.4</title>
+<style>
+body{font-family:system-ui;background:#0d0f13;color:#eee;padding:28px;max-width:760px;margin:auto}
+.ok{color:#d6b474}pre{background:#17191e;padding:16px;overflow:auto}
+button{padding:12px 18px}
+</style>
+<h1>AEVEMORA 授权诊断 · V9.6.4</h1>
+<p>如果你能看到这个页面，说明 GitHub 已经至少上传了 V9.6.4 的诊断文件。</p>
+<div id="out">检测中...</div>
+<script src="./access-config.js"></script>
+<script>
+(async()=>{
+ const out=document.getElementById('out');
+ const api=window.AEVEMORA_ACCESS_CONFIG?.apiBase||'';
+ let rows=['配置 Worker: '+api,'页面版本: 9.6.4'];
+ try{
+   const r=await fetch(api+'/health',{cache:'no-store'});
+   const t=await r.text();
+   rows.push('Worker /health: '+r.status+' '+t);
+ }catch(e){rows.push('Worker 请求失败: '+e)}
+ if('serviceWorker' in navigator){
+   const regs=await navigator.serviceWorker.getRegistrations();
+   rows.push('Service Worker 数量: '+regs.length);
+   rows.push(...regs.map(x=>'SW scope: '+x.scope));
+ }
+ out.innerHTML='<pre>'+rows.join('\n').replace(/</g,'&lt;')+'</pre>';
+})();
+</script>

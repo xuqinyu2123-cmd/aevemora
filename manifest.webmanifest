@@ -1,7 +1,7 @@
 {
   "name": "AEVEMORA 历史人格原型测试",
   "short_name": "AEVEMORA",
-  "description": "AEVEMORA V9.5：全新 /aevemora/ 发布路径，独立缓存、独立 PWA 身份，彻底隔离旧 HISTORIA 版本。",
+  "description": "AEVEMORA V9.6.5：根目录直传版，授权墙默认锁定，Worker 地址已内置。",
   "lang": "zh-CN",
   "start_url": "./",
   "scope": "./",
