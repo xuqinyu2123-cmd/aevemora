@@ -1,2 +1,2 @@
-AEVEMORA V9.8.7 ARCHITECTURE FLAGSHIP
-Architecture-only dossier visuals; fully local quiz media.
+AEVEMORA V9.8.8 MOBILE COMPACT
+Compact mobile dossier + denser answers + fixed navigation + smart question focus.

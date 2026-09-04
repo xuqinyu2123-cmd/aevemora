@@ -1,7 +1,7 @@
 {
   "name": "AEVEMORA 历史人格原型测试",
   "short_name": "AEVEMORA",
-  "description": "AEVEMORA V9.8.7：无具体人物的经典建筑档案答题版；每题切换建筑视角，答题图片全部本地化。",
+  "description": "AEVEMORA V9.8.8：手机专用紧凑答题布局；历史档案改为横向电影海报条，题目/选项缩短，底部导航固定。",
   "lang": "zh-CN",
   "start_url": "./",
   "scope": "./",
