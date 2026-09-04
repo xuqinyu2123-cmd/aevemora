@@ -1,2 +1,2 @@
-AEVEMORA V9.7 ACCESS CENTER
-Main auth wall + internal access center are deployed.
+AEVEMORA V9.8.1 MOBILE STABLE
+Mobile-first local media + lazy portrait data + resilient service worker.

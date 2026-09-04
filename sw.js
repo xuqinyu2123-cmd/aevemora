@@ -1,122 +1,81 @@
-const CACHE="aevemora-v9-7-access-center-20260904";
-const CORE=[
-  "./manifest.webmanifest",
-  "./icon-192.png",
-  "./icon-512.png",
-  "./apple-touch-icon.png",
-  "./access-config.js",
-  "./backgrounds/cn-1-preqin.svg",
-  "./backgrounds/cn-2-hantang.svg",
-  "./backgrounds/cn-3-songming.svg",
-  "./backgrounds/cn-4-frontier.svg",
-  "./backgrounds/cn-5-landscape.svg",
-  "./backgrounds/cn-6-modern.svg",
-  "./backgrounds/fg-1-greece.svg",
-  "./backgrounds/fg-2-rome.svg",
-  "./backgrounds/fg-3-medieval.svg",
-  "./backgrounds/fg-4-renaissance.svg",
-  "./backgrounds/fg-5-enlightenment.svg",
-  "./backgrounds/fg-6-modern.svg",
-  "./backgrounds/mix-1-east.svg",
-  "./backgrounds/mix-2-imperial.svg",
-  "./backgrounds/mix-3-greece.svg",
-  "./backgrounds/mix-4-rome.svg",
-  "./backgrounds/mix-5-renaissance.svg",
-  "./backgrounds/mix-6-modern.svg",
-  "./dossiers/cn-1-preqin.svg",
-  "./dossiers/cn-2-hantang.svg",
-  "./dossiers/cn-3-songming.svg",
-  "./dossiers/cn-4-frontier.svg",
-  "./dossiers/cn-5-landscape.svg",
-  "./dossiers/cn-6-modern.svg",
-  "./dossiers/fg-1-greece.svg",
-  "./dossiers/fg-2-rome.svg",
-  "./dossiers/fg-3-medieval.svg",
-  "./dossiers/fg-4-renaissance.svg",
-  "./dossiers/fg-5-enlightenment.svg",
-  "./dossiers/fg-6-modern.svg",
-  "./dossiers/mix-1-east.svg",
-  "./dossiers/mix-2-imperial.svg",
-  "./dossiers/mix-3-greece.svg",
-  "./dossiers/mix-4-rome.svg",
-  "./dossiers/mix-5-renaissance.svg",
-  "./dossiers/mix-6-modern.svg"
+const CACHE="aevemora-v9-8-1-mobile-stable-20260904";
+const STATIC_CORE=[
+  "./manifest.webmanifest","./icon-192.png","./icon-512.png","./apple-touch-icon.png","./owner-config.js",
+  "./quiz-bg-1.svg","./quiz-bg-2.svg","./quiz-bg-3.svg","./quiz-bg-4.svg","./quiz-bg-5.svg","./quiz-bg-6.svg"
 ];
 
-self.addEventListener("install", event => {
-  event.waitUntil(
-    caches.open(CACHE).then(cache => cache.addAll(CORE))
-  );
-  self.skipWaiting();
+self.addEventListener("install",event=>{
+  event.waitUntil((async()=>{
+    const cache=await caches.open(CACHE);
+    await Promise.allSettled(STATIC_CORE.map(async url=>{
+      try{
+        const r=await fetch(url,{cache:"reload"});
+        if(r.ok) await cache.put(url,r);
+      }catch(e){}
+    }));
+    self.skipWaiting();
+  })());
 });
 
-self.addEventListener("activate", event => {
-  event.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))
-    )
-  );
-  self.clients.claim();
+self.addEventListener("activate",event=>{
+  event.waitUntil((async()=>{
+    const keys=await caches.keys();
+    await Promise.all(keys.filter(k=>k!==CACHE && /aevemora|historia/i.test(k)).map(k=>caches.delete(k)));
+    await self.clients.claim();
+  })());
 });
 
-function isWikiRequest(url){
-  return /(^|\.)wikipedia\.org$/.test(url.hostname) ||
-         /(^|\.)wikimedia\.org$/.test(url.hostname);
+async function networkWithTimeout(req,ms=4500){
+  const controller=new AbortController();
+  const timer=setTimeout(()=>controller.abort(),ms);
+  try{return await fetch(req,{signal:controller.signal,cache:"no-store"});}
+  finally{clearTimeout(timer);}
 }
 
-self.addEventListener("fetch", event => {
-  if(event.request.method !== "GET") return;
-
+self.addEventListener("fetch",event=>{
   const req=event.request;
+  if(req.method!=="GET") return;
   const url=new URL(req.url);
+  if(url.origin!==self.location.origin) return; // 外部图片/API完全交给浏览器，SW不再放大失败链路
 
-  // V9.6.4：HTML 永不从 Service Worker 缓存读取，防止旧授权逻辑复活。
   if(req.mode==="navigate" || req.destination==="document"){
-    event.respondWith(fetch(req,{cache:"no-store"}));
-    return;
-  }
-
-  // Wikipedia API / Wikimedia 图片：
-  // cache-first。首次请求成功（包括 opaque 图片响应）后直接持久缓存，
-  // 后续同一人物图片无需再次经过外部网络。
-  if(isWikiRequest(url)){
-    event.respondWith(
-      caches.match(req).then(hit=>{
-        if(hit) return hit;
-        return fetch(req).then(resp=>{
-          if(resp && (resp.ok || resp.type==="opaque")){
-            caches.open(CACHE).then(cache=>cache.put(req,resp.clone())).catch(()=>{});
-          }
-          return resp;
-        });
-      })
-    );
-    return;
-  }
-
-  // 授权配置必须 network-first，不能让旧空配置长期命中缓存。
-  if(url.pathname.endsWith("/access-config.js")){
-    event.respondWith(
-      fetch(req,{cache:"no-store"}).then(resp=>{
+    event.respondWith((async()=>{
+      const cache=await caches.open(CACHE);
+      const shellKey=new Request(new URL("index.html",self.registration.scope).href);
+      try{
+        const resp=await networkWithTimeout(req,4500);
         if(resp && resp.ok){
-          caches.open(CACHE).then(cache=>cache.put(req,resp.clone())).catch(()=>{});
+          await cache.put(req,resp.clone());
+          await cache.put(shellKey,resp.clone());
         }
         return resp;
-      }).catch(()=>caches.match(req))
-    );
+      }catch(e){
+        return (await cache.match(req)) || (await cache.match(shellKey)) || Response.error();
+      }
+    })());
     return;
   }
 
-  // 站内静态资源：stale-while-revalidate。
-  event.respondWith(
-    caches.match(req).then(hit=>{
-      const network=fetch(req).then(resp=>{
-        if(resp && resp.ok){
-          caches.open(CACHE).then(cache=>cache.put(req,resp.clone())).catch(()=>{});
-        }
+  if(url.pathname.endsWith("/owner-config.js")){
+    event.respondWith((async()=>{
+      const cache=await caches.open(CACHE);
+      try{
+        const resp=await networkWithTimeout(req,3000);
+        if(resp && resp.ok) await cache.put(req,resp.clone());
         return resp;
-      }).catch(()=>hit);
-      return hit || network;
-    })
-  );
+      }catch(e){return (await cache.match(req)) || Response.error();}
+    })());
+    return;
+  }
+
+  event.respondWith((async()=>{
+    const cache=await caches.open(CACHE);
+    const hit=await cache.match(req);
+    if(hit) return hit;
+    try{
+      const resp=await fetch(req);
+      if(resp && resp.ok) cache.put(req,resp.clone()).catch(()=>{});
+      return resp;
+    }catch(e){return hit || Response.error();}
+  })());
 });

@@ -1,16 +1,15 @@
-AEVEMORA V9.7 · 授权获取中心版
+AEVEMORA V9.8.1 · Mobile Stable
 
-本版解决：点击“获取授权码”没有实际去向。
+本版重点修手机端稳定性：
+- 修复 Service Worker 仍缓存已不存在 access-config.js 导致安装失败的问题。
+- Service Worker 改为逐个容错缓存，不再因某一个资源失败导致整次安装失败。
+- 移除 controllerchange 自动刷新，避免微信/手机浏览器出现重复刷新或版本抖动。
+- 约 1.8MB 的人物馆藏数据从 index.html 拆到 portrait-data.js，只在结果页需要人物图时加载。
+- 手机、微信、QQ、弱网/省流量模式不再访问 Wikipedia/Wikimedia 人物图，直接使用站内人物馆藏。
+- 手机答题背景使用本地 SVG，不依赖 Wikimedia。
+- HTML 导航 network-first，4.5 秒失败后回退已缓存页面。
+- 保留“首次完整测试免费 1 次，第二次申请次数”的 V9.8 逻辑。
 
-新增：
-- /access/ 站内授权获取中心
-- 7 天体验 / 30 天标准 / 长期授权 三种展示方案
-- 选择方案后可一键复制授权申请文案
-- “已有授权码”返回验证墙
-- 当前明确标注为内测人工发码，不虚构价格或支付入口
-
-主验证页：
-https://xuqinyu2123-cmd.github.io/aevemora/?v=9.7
-
-授权获取中心：
-https://xuqinyu2123-cmd.github.io/aevemora/access/
+上传：解压后把根目录全部内容覆盖上传到 aevemora 仓库根目录。
+测试：https://xuqinyu2123-cmd.github.io/aevemora/?v=9.8.1
+版本确认：https://xuqinyu2123-cmd.github.io/aevemora/VERSION.txt?v=981
