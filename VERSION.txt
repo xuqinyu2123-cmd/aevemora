@@ -1,2 +1,2 @@
-AEVEMORA V9.8.9 DEVELOPER MODE
-Persistent backend-verified developer session enabled.
+AEVEMORA V9.9.0 REAL PORTRAIT FIRST
+Mobile and desktop results prefer real historical portraits through Cloudflare proxy.

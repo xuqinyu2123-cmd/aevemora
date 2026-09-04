@@ -1,15 +1,20 @@
-AEVEMORA V9.8.9 · Developer Mode
+AEVEMORA V9.9.0 · 真实肖像优先版
 
-新增：
-- /developer.html 开发者设备授权页。
-- 输入 ADMIN_SECRET 一次，由 Cloudflare Worker 生成长期 developer session。
-- 开发模式不限测试次数，不消耗免费次数，不要求测试授权码。
-- developer session 默认可设置 365 天，且与浏览器 deviceId 绑定。
-- ADMIN_SECRET 不写入浏览器存储。
-- 前端升级版本时保留 developer session。
-- 普通用户访问逻辑完全不变。
+修复：
+- 手机端不再直接使用 portrait-data.js 的黑色抽象人物卡。
+- 结果页第一名和 Top 5 均优先加载真实历史人物肖像。
+- 图片由 aevemora-access Cloudflare Worker /portrait 代理。
+- 用户手机无需直接访问 Wikipedia/Wikimedia。
+- 代理失败时才尝试 Wikipedia 直连；最终才使用本地馆藏风格兜底卡。
+- 手机答题阶段只预热第一名候选，不增加明显流量。
+- 保留 V9.8.9 开发者无限测试、Mobile Compact、建筑档案场景。
 
-必须同时部署 AEVEMORA_ACCESS_WORKER_V1_1_DEV 的 worker.js，否则 /admin/dev-session 不存在。
+部署顺序：
+1. 先部署 AEVEMORA Access Worker V1.2。
+2. 再上传本前端到 GitHub Pages 根目录。
 
-开发者入口：
-https://xuqinyu2123-cmd.github.io/aevemora/developer.html
+版本检查：
+https://xuqinyu2123-cmd.github.io/aevemora/VERSION.txt?v=990
+
+正式测试：
+https://xuqinyu2123-cmd.github.io/aevemora/?v=9.9.0
