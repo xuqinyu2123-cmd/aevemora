@@ -1,19 +1,15 @@
-AEVEMORA V9.8.8 · Mobile Compact
+AEVEMORA V9.8.9 · Developer Mode
 
-本版专门针对手机端优化，不改变桌面端的建筑档案风格。
+新增：
+- /developer.html 开发者设备授权页。
+- 输入 ADMIN_SECRET 一次，由 Cloudflare Worker 生成长期 developer session。
+- 开发模式不限测试次数，不消耗免费次数，不要求测试授权码。
+- developer session 默认可设置 365 天，且与浏览器 deviceId 绑定。
+- ADMIN_SECRET 不写入浏览器存储。
+- 前端升级版本时保留 developer session。
+- 普通用户访问逻辑完全不变。
 
-手机端变化：
-- 历史档案从纵向大卡改成约 200px 高的横向电影海报条。
-- 隐藏 ARCHETYPE / WISDOM / LEGACY 详细块与长引语，只保留文明标题和建筑图。
-- 题目字号调整为约 29–34px。
-- 答案卡压缩到约 64–66px 高，减少滚动。
-- 选择指引在手机端隐藏。
-- 上一题 / 下一题固定底栏继续保留并进一步缩小。
-- 切到下一题或上一题时，手机自动把问题区域滚到视口顶部，不再每题回到大档案图顶端。
-- 首页三种模式改为一行三列的紧凑选择器；首次免费状态条也缩短。
+必须同时部署 AEVEMORA_ACCESS_WORKER_V1_1_DEV 的 worker.js，否则 /admin/dev-session 不存在。
 
-版本检查：
-https://xuqinyu2123-cmd.github.io/aevemora/VERSION.txt?v=988
-
-正式测试：
-https://xuqinyu2123-cmd.github.io/aevemora/?v=9.8.8
+开发者入口：
+https://xuqinyu2123-cmd.github.io/aevemora/developer.html

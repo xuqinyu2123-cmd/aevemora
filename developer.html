@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>AEVEMORA · Developer Access</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#080a0e;color:#eee6da;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif}
+body{min-height:100vh;display:grid;place-items:center;padding:22px;background:radial-gradient(700px 420px at 50% -8%,rgba(82,160,119,.12),transparent 68%),#080a0e}
+.card{width:min(94vw,620px);padding:40px 38px;border:1px solid rgba(111,194,151,.25);border-radius:26px;background:linear-gradient(155deg,rgba(255,255,255,.025),rgba(255,255,255,.006)),#0e1014;box-shadow:0 40px 120px rgba(0,0,0,.5)}
+.eyebrow{color:#85bd9f;font:600 10px Georgia,serif;letter-spacing:.22em}.title{margin:13px 0 10px;font:600 38px/1.15 Georgia,"Songti SC",serif}.desc{color:#8b8178;font-size:12px;line-height:1.9}.field{margin-top:24px}.field label{display:block;margin-bottom:8px;color:#a89d90;font-size:10px;letter-spacing:.12em}.field input{width:100%;height:54px;border-radius:13px;border:1px solid rgba(255,255,255,.09);background:#080a0d;color:#eee;padding:0 15px;outline:none}.field input:focus{border-color:rgba(111,194,151,.46)}
+.btn{width:100%;height:56px;margin-top:16px;border-radius:13px;font-weight:750;cursor:pointer}.primary{border:1px solid #82c09f;background:linear-gradient(180deg,#9bd1b5,#5d9f7d);color:#07110c}.ghost{border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.015);color:#c9bfb2}.status{min-height:22px;margin-top:12px;text-align:center;color:#a0b8aa;font-size:10px;line-height:1.6}.note{margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,.055);color:#66615c;font-size:9px;line-height:1.8}
+</style></head>
+<body><div class="card">
+<div class="eyebrow">AEVEMORA · DEVELOPER ACCESS</div>
+<h1 class="title">开发设备授权</h1>
+<p class="desc">只需要在这台设备上验证一次后台 ADMIN_SECRET。成功后会获得长期开发者 Session，测试不限次数，也不会消耗用户免费次数。</p>
+<div class="field"><label>ADMIN SECRET</label><input id="secret" type="password" autocomplete="off" placeholder="输入 Cloudflare Worker 的 ADMIN_SECRET"></div>
+<div class="field"><label>有效期</label><input id="days" type="number" min="1" max="3650" value="365"></div>
+<button id="activate" class="btn primary" onclick="activateDeveloper()">启用开发模式</button>
+<button class="btn ghost" onclick="exitDeveloper()">清除本机开发模式</button>
+<div id="status" class="status"></div>
+<div class="note">ADMIN_SECRET 只会发送到你的 Cloudflare Worker，不会写入 localStorage。开发者 Session 与当前浏览器设备绑定。此页面不在普通用户界面中显示。</div>
+</div>
+<script>
+const API="https://aevemora-access.xuqinyu2123.workers.dev";
+const STORAGE_KEY="aevemora_access_v2";
+const DEVICE_KEY="aevemora_device_v2";
+function deviceId(){
+  let id=localStorage.getItem(DEVICE_KEY);
+  if(!id){try{id=crypto.randomUUID()}catch(e){id="dev-"+Date.now()+"-"+Math.random().toString(36).slice(2)}localStorage.setItem(DEVICE_KEY,id)}
+  return id;
+}
+function setStatus(t){document.getElementById("status").textContent=t||""}
+async function activateDeveloper(){
+  const secret=document.getElementById("secret").value.trim();
+  const durationDays=Math.max(1,Math.min(3650,Number(document.getElementById("days").value||365)));
+  if(!secret){setStatus("请输入 ADMIN_SECRET。 ");return}
+  const btn=document.getElementById("activate");btn.disabled=true;setStatus("正在验证开发者身份…");
+  try{
+    const res=await fetch(API+"/admin/dev-session",{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+secret},body:JSON.stringify({appId:"aevemora",deviceId:deviceId(),durationDays})});
+    const data=await res.json().catch(()=>({}));
+    if(!res.ok||!data.ok){setStatus(data.message||"验证失败，请检查 ADMIN_SECRET 和 Worker 版本。 ");return}
+    localStorage.setItem(STORAGE_KEY,JSON.stringify({token:data.token,expiresAt:Number(data.expiresAt),codeHint:"DEV",developer:true}));
+    setStatus("开发模式已启用，正在返回测试页…");
+    setTimeout(()=>location.href="./?dev=active",550);
+  }catch(e){setStatus("网络异常，无法连接开发者授权服务。")}
+  finally{btn.disabled=false}
+}
+function exitDeveloper(){localStorage.removeItem(STORAGE_KEY);setStatus("本机开发模式已清除。")}
+</script></body></html>

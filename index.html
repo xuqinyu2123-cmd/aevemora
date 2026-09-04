@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta name="aevemora-build" content="9.8.8-mobile-compact">
+  <meta name="aevemora-build" content="9.8.9-developer-mode">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>AEVEMORA · 历史人格原型测试</title>
@@ -2726,6 +2726,11 @@ body.quizMode .quizCinemaNav.answerReadyPulse .quizNavBtn.next:not(:disabled){
   .answer{font-size:13.5px !important;min-height:64px !important}
 }
 
+
+/* ===== V9.8.9 Developer Mode ===== */
+.trialStatus.developer{border-color:rgba(101,184,146,.34)!important;background:linear-gradient(100deg,rgba(101,184,146,.075),transparent 58%),rgba(255,255,255,.012)!important}
+.trialStatus.developer b{color:#8bc5a8!important}
+.trialStatus.developer em{color:#a8d8bd!important;border-color:rgba(114,196,156,.32)!important;background:rgba(84,160,122,.07)!important}
 </style>
 
 <link rel="preconnect" href="https://zh.wikipedia.org" crossorigin>
@@ -3131,14 +3136,20 @@ const DIM_NAMES={control:"统筹掌控",creative:"开放创造",resilience:"稳�
 
 
 
-const AEVEMORA_BUILD="9.8.8";
+const AEVEMORA_BUILD="9.8.9";
 (async function enforceFreshAccessBuild(){
   try{
     const prev=localStorage.getItem("aevemora_build_version");
     if(prev!==AEVEMORA_BUILD){
-      // 旧版授权状态不能跨版本继承。
+      // 普通用户授权不跨版本继承；开发者 Session 保留，避免每次发布都重新登录。
+      let keepDeveloper=false;
+      try{
+        const raw=localStorage.getItem("aevemora_access_v2");
+        const saved=raw?JSON.parse(raw):null;
+        keepDeveloper=!!saved?.developer;
+      }catch(e){}
       localStorage.removeItem("aevemora_access_v1");
-      localStorage.removeItem("aevemora_access_v2");
+      if(!keepDeveloper) localStorage.removeItem("aevemora_access_v2");
       localStorage.setItem("aevemora_build_version",AEVEMORA_BUILD);
 
       // 清掉旧 CacheStorage；新版 SW 会重新建立。
@@ -3191,7 +3202,8 @@ function saveAccessSession(data){
   localStorage.setItem(ACCESS_CONFIG.storageKey,JSON.stringify({
     token:data.token,
     expiresAt:Number(data.expiresAt),
-    codeHint:data.codeHint||""
+    codeHint:data.codeHint||"",
+    developer:!!data.developer
   }));
   updateAccessUI();
 }
@@ -3259,8 +3271,20 @@ function hasUsedFreeTrial(){
 function markFreeTrialUsed(){
   localStorage.setItem(TRIAL_CONFIG.usedKey,"1");
 }
+function isDeveloperSession(){
+  const s=readAccessSession();
+  return !!(s && s.developer);
+}
+function exitDeveloperMode(){
+  localStorage.removeItem(ACCESS_CONFIG.storageKey);
+  __entryKind="none";
+  refreshTrialUI();
+  alert("开发模式已退出。本设备恢复普通用户访问规则。");
+}
+
 function refreshTrialUI(){
   const used=hasUsedFreeTrial();
+  const developer=isDeveloperSession();
   const box=document.getElementById("trialStatus");
   const title=document.getElementById("trialStatusTitle");
   const text=document.getElementById("trialStatusText");
@@ -3269,7 +3293,28 @@ function refreshTrialUI(){
   const mobile=document.getElementById("mobileStartBtn");
   const codeBtn=document.getElementById("existingCodeBtn");
 
-  box?.classList.toggle("used",used);
+  box?.classList.toggle("used",used && !developer);
+  box?.classList.toggle("developer",developer);
+
+  if(developer){
+    if(title) title.textContent="DEVELOPER MODE · UNLIMITED";
+    if(text) text.textContent="开发设备已授权，不消耗免费次数，也不需要测试授权码";
+    if(badge) badge.textContent="DEV";
+    if(main) main.textContent="开发测试";
+    if(mobile) mobile.textContent="开发测试";
+    if(codeBtn){
+      codeBtn.style.display="inline-flex";
+      codeBtn.textContent="退出开发模式";
+      codeBtn.onclick=exitDeveloperMode;
+    }
+    return;
+  }
+
+  if(codeBtn){
+    codeBtn.textContent="我已有授权码";
+    codeBtn.onclick=openExtraCodeGate;
+  }
+
   if(used){
     if(title) title.textContent="FREE ENTRY · COMPLETED";
     if(text) text.textContent="免费体验已使用，再次测试需申请新的次数";
@@ -3340,23 +3385,39 @@ async function checkAccessSession(session){
       deviceId:accessDeviceId(),
       appId:ACCESS_CONFIG.appId
     },4200);
-    if(ok && data.valid) return true;
+    if(ok && data.valid){
+      if(data.developer && !session.developer){
+        saveAccessSession({...session,developer:true,expiresAt:data.expiresAt||session.expiresAt});
+      }
+      return true;
+    }
   }catch(e){}
   localStorage.removeItem(ACCESS_CONFIG.storageKey);
   updateAccessUI();
   return false;
 }
 async function requestQuizAccess(){
+  const session=readAccessSession();
+
+  // 开发者 Session 优先：不走免费次数、不走授权码、不消耗次数。
+  if(session?.developer && accessApiConfigured()){
+    const valid=await checkAccessSession(session);
+    if(valid){
+      __entryKind="developer";
+      return launchAuthorizedQuiz();
+    }
+  }
+
   if(!hasUsedFreeTrial()){
     __entryKind="free";
     return launchAuthorizedQuiz();
   }
 
-  const session=readAccessSession();
-  if(session && accessApiConfigured()){
-    const valid=await checkAccessSession(session);
+  const normalSession=readAccessSession();
+  if(normalSession && accessApiConfigured()){
+    const valid=await checkAccessSession(normalSession);
     if(valid){
-      __entryKind="authorized";
+      __entryKind=normalSession.developer?"developer":"authorized";
       return launchAuthorizedQuiz();
     }
   }
@@ -3670,6 +3731,8 @@ function showResult(){
     markFreeTrialUsed();
   }else if(__entryKind==="authorized"){
     localStorage.removeItem(ACCESS_CONFIG.storageKey);
+  }else if(__entryKind==="developer"){
+    // 开发模式不消耗次数，也不清除开发者 Session。
   }
   __entryKind="none";
   refreshTrialUI();
@@ -4562,7 +4625,7 @@ function ensureLocalPortraits(){
     };
     if(window.AEVEMORA_LOCAL_PORTRAITS){ useLoaded(); return; }
     const script=document.createElement("script");
-    script.src="./portrait-data.js?v=9.8.8";
+    script.src="./portrait-data.js?v=9.8.9";
     script.async=true;
     script.onload=useLoaded;
     script.onerror=()=>resolve(LOCAL_PORTRAITS);
@@ -4925,7 +4988,7 @@ function warmPortraitCandidates(){
 // ===== V9.8.1 Mobile Stable：安静更新，不强制刷新当前页面 =====
 if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js?v=9.8.8")
+    navigator.serviceWorker.register("./sw.js?v=9.8.9")
       .then(reg=>reg.update().catch(()=>{}))
       .catch(()=>{});
   }, {once:true});

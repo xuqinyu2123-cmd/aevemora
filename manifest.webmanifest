@@ -1,7 +1,7 @@
 {
   "name": "AEVEMORA 历史人格原型测试",
   "short_name": "AEVEMORA",
-  "description": "AEVEMORA V9.8.8：手机专用紧凑答题布局；历史档案改为横向电影海报条，题目/选项缩短，底部导航固定。",
+  "description": "AEVEMORA V9.8.9：新增安全的开发者设备模式，后台验证一次后不限次数测试。",
   "lang": "zh-CN",
   "start_url": "./",
   "scope": "./",

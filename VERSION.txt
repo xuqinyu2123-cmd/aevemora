@@ -1,2 +1,2 @@
-AEVEMORA V9.8.8 MOBILE COMPACT
-Compact mobile dossier + denser answers + fixed navigation + smart question focus.
+AEVEMORA V9.8.9 DEVELOPER MODE
+Persistent backend-verified developer session enabled.
