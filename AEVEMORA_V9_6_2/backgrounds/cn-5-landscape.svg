@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+<defs>
+  <radialGradient id="glow" cx="68%" cy="32%" r="65%"><stop offset="0" stop-color="#b9a277" stop-opacity=".20"/><stop offset=".5" stop-color="#b9a277" stop-opacity=".05"/><stop offset="1" stop-color="#0b0d11" stop-opacity="0"/></radialGradient>
+  <linearGradient id="fade" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b9a277" stop-opacity=".22"/><stop offset="1" stop-color="#b9a277" stop-opacity=".04"/></linearGradient>
+</defs>
+<rect width="1600" height="900" fill="#0b0d11"/><rect width="1600" height="900" fill="url(#glow)"/>
+<g fill="none" stroke="#b9a277" opacity=".16"><path d="M120 650c150-120 240-235 350-210 90 20 120 110 215 100 100-10 135-170 260-160 92 8 130 106 215 95 82-10 120-105 260-130" stroke-width="5"/><path d="M140 700c145-75 270-90 390-55 90 25 170 34 250 10 130-40 235-33 405 32" stroke-width="2"/><path d="M1020 160h380M1020 215h310M1020 270h360" stroke-width="2"/></g><circle cx="1250" cy="210" r="84" fill="#b9a277" opacity=".08"/>
+<text x="118" y="760" fill="#b9a277" opacity=".20" font-size="70" font-family="Georgia" letter-spacing="3">山水与文脉</text>
+<text x="122" y="810" fill="#b9a277" opacity=".13" font-size="22" font-family="Georgia" letter-spacing="6">SCHOLAR TRADITION</text>
+</svg>

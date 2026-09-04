@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+<defs>
+  <radialGradient id="hallglow" cx="76%" cy="54%" r="54%">
+    <stop offset="0" stop-color="#e5c78f" stop-opacity=".20"/>
+    <stop offset=".48" stop-color="#c18d4c" stop-opacity=".06"/>
+    <stop offset="1" stop-color="#121217" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="1600" height="900" fill="#121217"/>
+<rect width="1600" height="900" fill="url(#hallglow)"/>
+<g opacity=".15" stroke="#d7b87f" fill="none">
+  <path d="M158 708C302 632 435 547 582 495c106-38 217-63 332-74 176-17 344 0 500 35 58 13 114 31 168 52" stroke-width="2.2"/>
+  <path d="M165 639c122-61 241-126 370-174 107-40 218-65 332-74 172-13 339 9 493 54" stroke-width="1.5"/>
+  <path d="M190 568c96-47 194-104 298-148 109-46 222-79 341-92 150-17 300-2 444 29 68 14 135 34 201 61" stroke-width="1.2"/>
+  <path d="M236 501c79-32 157-74 243-110 117-48 237-84 364-95 126-11 252 0 376 25 84 17 167 43 242 80" stroke-width="1.1" opacity=".65"/>
+</g>
+<g opacity=".19">
+  <rect x="1098" y="136" width="300" height="210" rx="16" fill="none" stroke="#d7b87f" stroke-width="1.6"/>
+  <path d="M1134 180h226M1134 222h184M1134 264h226" stroke="#d7b87f" stroke-width="1.5" fill="none"/>
+  <path d="M1225 442c-19 47-28 98-28 151 0 140 65 266 169 346 105-80 170-206 170-346 0-54-10-105-29-151-44 15-92 24-141 24-52 0-100-8-141-24z" fill="#d7b87f" opacity=".23"/>
+</g>
+<text x="196" y="180" fill="#ebcf99" opacity=".24" font-size="92" font-family="Georgia">CHRONICLE COVER</text>
+<text x="200" y="228" fill="#ebcf99" opacity=".16" font-size="20" font-family="Georgia" letter-spacing="6">DYNASTY · LANDSCAPE · THEATRE OF HISTORY</text>
+</svg>

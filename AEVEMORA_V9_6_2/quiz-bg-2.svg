@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+<defs>
+  <radialGradient id="mapglow" cx="72%" cy="35%" r="56%">
+    <stop offset="0" stop-color="#e7c98f" stop-opacity=".20"/>
+    <stop offset=".42" stop-color="#d6a967" stop-opacity=".08"/>
+    <stop offset="1" stop-color="#121217" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="1600" height="900" fill="#121217"/>
+<rect width="1600" height="900" fill="url(#mapglow)"/>
+<g opacity=".14" stroke="#d7b87f" fill="none">
+  <path d="M154 176h596v558H154z" stroke-width="1.9"/>
+  <path d="M182 204h540v502H182z" stroke-width="1.1"/>
+  <path d="M217 254c116-70 251-108 392-108 32 0 64 2 95 7M217 328c111-58 245-89 380-89 36 0 70 2 104 8M217 405c108-47 230-70 349-70 50 0 97 4 140 11M217 492c96-31 204-47 315-47 66 0 129 7 188 18M217 584c86-18 171-26 257-26 78 0 157 9 238 26" stroke-width="1.8"/>
+  <path d="M319 188v518M449 188v518M579 188v518" stroke-width="1" opacity=".45"/>
+  <path d="M263 284l70 42 126-89 138 77 95-52" stroke-width="2.2" opacity=".72"/>
+</g>
+<g transform="translate(1152 282)" opacity=".22">
+  <circle r="184" fill="none" stroke="#dfc289" stroke-width="2.4"/>
+  <circle r="138" fill="none" stroke="#dfc289" stroke-width="1.4"/>
+  <circle r="92" fill="none" stroke="#dfc289" stroke-width="1"/>
+  <path d="M0-172L15-45 132-132 47-15 172 0 47 15 132 132 15 45 0 172 -15 45 -132 132 -47 15 -172 0 -47 -15 -132 -132 -15 -45Z" fill="#dfc289" opacity=".78"/>
+  <circle r="26" fill="#dfc289"/>
+</g>
+<text x="170" y="778" fill="#ebcf99" opacity=".24" font-size="90" font-family="Georgia">ATLAS FEATURE</text>
+<text x="174" y="826" fill="#ebcf99" opacity=".16" font-size="20" font-family="Georgia" letter-spacing="6">MAPS · CIVILIZATIONS · GEOGRAPHIES OF TEMPERAMENT</text>
+</svg>
