@@ -1,4 +1,4 @@
-const CACHE="aevemora-v9-9-0-real-portrait-first-20260904";
+const CACHE="aevemora-v9-9-2-mobile-result-quiz-layout-20260904";
 const STATIC_CORE=[
   "./manifest.webmanifest","./icon-192.png","./icon-512.png","./apple-touch-icon.png","./owner-config.js",
   "./quiz-bg-1.svg","./quiz-bg-2.svg","./quiz-bg-3.svg","./quiz-bg-4.svg","./quiz-bg-5.svg","./quiz-bg-6.svg"

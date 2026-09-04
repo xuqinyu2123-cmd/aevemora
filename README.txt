@@ -1,20 +1,22 @@
-AEVEMORA V9.9.0 · 真实肖像优先版
+AEVEMORA V9.9.2 · 手机结果页与答题布局修复
 
-修复：
-- 手机端不再直接使用 portrait-data.js 的黑色抽象人物卡。
-- 结果页第一名和 Top 5 均优先加载真实历史人物肖像。
-- 图片由 aevemora-access Cloudflare Worker /portrait 代理。
-- 用户手机无需直接访问 Wikipedia/Wikimedia。
-- 代理失败时才尝试 Wikipedia 直连；最终才使用本地馆藏风格兜底卡。
-- 手机答题阶段只预热第一名候选，不增加明显流量。
-- 保留 V9.8.9 开发者无限测试、Mobile Compact、建筑档案场景。
+1. 结果页
+- 手机端肖像、姓名、时代、人物类型、模式、相似度放进同一个封面卡。
+- 不再出现人物图和姓名相隔很远。
+- 手机端隐藏原右页重复的姓名/相似度区域。
+- 真实肖像优先逻辑保持不变。
 
-部署顺序：
-1. 先部署 AEVEMORA Access Worker V1.2。
-2. 再上传本前端到 GitHub Pages 根目录。
+2. 答题页
+- 修复切到下一题后自动滚到问题区域、导致顶部建筑图完全看不到的问题。
+- 现在切题会回到整个答题页顶部。
+- 建筑档案压缩成约 130px 的横向历史画面。
+- 问题、答案和底部导航进一步压缩，保持手机操作效率。
+- 固定“上一题 / 下一题”继续保留。
+
+Cloudflare Worker 不需要修改。
 
 版本检查：
-https://xuqinyu2123-cmd.github.io/aevemora/VERSION.txt?v=990
+https://xuqinyu2123-cmd.github.io/aevemora/VERSION.txt?v=992
 
-正式测试：
-https://xuqinyu2123-cmd.github.io/aevemora/?v=9.9.0
+手机测试：
+https://xuqinyu2123-cmd.github.io/aevemora/?v=9.9.2

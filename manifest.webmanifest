@@ -1,7 +1,7 @@
 {
   "name": "AEVEMORA 历史人格原型测试",
   "short_name": "AEVEMORA",
-  "description": "AEVEMORA V9.9.0：结果页手机/桌面均真实人物肖像优先，Cloudflare 代理加载，失败才使用本地兜底卡。",
+  "description": "AEVEMORA V9.9.2：手机端结果页人物肖像与姓名一体化，并修复切题后建筑档案图被滚出视口的问题。",
   "lang": "zh-CN",
   "start_url": "./",
   "scope": "./",

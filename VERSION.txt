@@ -1,2 +1,2 @@
-AEVEMORA V9.9.0 REAL PORTRAIT FIRST
-Mobile and desktop results prefer real historical portraits through Cloudflare proxy.
+AEVEMORA V9.9.2 MOBILE RESULT & QUIZ LAYOUT
+Portrait/name unified on mobile; architecture dossier remains visible during quiz navigation.

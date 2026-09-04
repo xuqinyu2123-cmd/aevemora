@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta name="aevemora-build" content="9.9.0-real-portrait-first">
+  <meta name="aevemora-build" content="9.9.2-mobile-result-quiz-layout">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>AEVEMORA · 历史人格原型测试</title>
@@ -2750,6 +2750,239 @@ body.quizMode .quizCinemaNav.answerReadyPulse .quizNavBtn.next:not(:disabled){
   .rankThumb img{object-position:center 15% !important}
 }
 
+
+/* ===== V9.9.2 Mobile Result + Quiz Layout ===== */
+.mobileResultIdentity{display:none}
+
+@media(max-width:820px){
+
+  /* 结果页：肖像、姓名、身份、相似度作为同一个封面单元 */
+  #result .magazine{
+    display:block !important;
+    border-radius:18px !important;
+    overflow:hidden !important;
+  }
+  #result .leftPage{padding:16px 14px 18px !important}
+  #result .rightPage{padding:18px 14px 20px !important}
+  #result .issue{padding:0 2px !important;margin-bottom:10px !important}
+  #result .frame{
+    margin-top:10px !important;
+    padding:10px !important;
+    border-radius:22px !important;
+    overflow:hidden !important;
+    background:
+      radial-gradient(360px 180px at 0% 0%,rgba(207,174,118,.07),transparent 72%),
+      linear-gradient(180deg,rgba(255,255,255,.022),rgba(255,255,255,.008)) !important;
+  }
+  #result .portraitWrap{
+    border-radius:17px 17px 8px 8px !important;
+    aspect-ratio:4/4.65 !important;
+  }
+  #result .portraitWrap img{object-position:center 15% !important}
+
+  .mobileResultIdentity{
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) auto !important;
+    align-items:end !important;
+    gap:12px !important;
+    margin-top:9px !important;
+    padding:16px 14px 14px !important;
+    border:1px solid rgba(207,174,118,.12) !important;
+    border-radius:8px 8px 17px 17px !important;
+    background:
+      linear-gradient(90deg,rgba(207,174,118,.055),transparent 48%),
+      rgba(7,9,12,.72) !important;
+  }
+  .mobileIdentityKicker{
+    margin-bottom:8px !important;
+    color:#b99761 !important;
+    font:600 8px/1.2 Georgia,serif !important;
+    letter-spacing:.20em !important;
+  }
+  .mobileResultIdentity h2{
+    margin:0 !important;
+    color:#f0e9df !important;
+    font:600 clamp(34px,10.5vw,46px)/1.02 Georgia,"Songti SC",serif !important;
+    letter-spacing:-.035em !important;
+  }
+  .mobileResultIdentity p{
+    margin:8px 0 0 !important;
+    color:#a89d91 !important;
+    font-size:12px !important;
+    line-height:1.5 !important;
+  }
+  .mobileIdentityMeta{
+    margin-top:8px !important;
+    color:#756d65 !important;
+    font-size:9px !important;
+    line-height:1.5 !important;
+  }
+  .mobileIdentityScore{
+    min-width:100px !important;
+    padding-left:12px !important;
+    border-left:1px solid rgba(255,255,255,.07) !important;
+    text-align:right !important;
+  }
+  .mobileIdentityScore strong{
+    display:block !important;
+    color:#e7c17d !important;
+    font:700 31px/1 Georgia,serif !important;
+  }
+  .mobileIdentityScore span{
+    display:block !important;
+    margin-top:7px !important;
+    color:#857b70 !important;
+    font-size:8px !important;
+  }
+
+  /* 手机右页不重复展示名字与相似度，直接进入解读 */
+  #result .rightPage>.kicker,
+  #result .rightPage>.resultEdition,
+  #result .rightPage>.titleLine{
+    display:none !important;
+  }
+  #result .editorial{
+    margin-top:0 !important;
+    padding:17px 16px !important;
+  }
+
+  /* 相似度已经与姓名放在同一封面内，左页只保留维度摘要 */
+  #result .factGrid{
+    display:grid !important;
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    gap:7px !important;
+    margin-top:12px !important;
+  }
+  #result .factGrid .fact:first-child{display:none !important}
+  #result .fact{
+    min-width:0 !important;
+    padding:10px 7px !important;
+    border-radius:12px !important;
+  }
+  #result .fact b{
+    font-size:13px !important;
+    line-height:1.25 !important;
+    white-space:normal !important;
+  }
+  #result .fact span{font-size:7px !important;line-height:1.25 !important}
+  #result .leftQuote{
+    margin-top:14px !important;
+    padding-left:12px !important;
+    font-size:13px !important;
+    line-height:1.75 !important;
+  }
+  #result .v6PortraitIntro,
+  #result .fastPortraitHint{display:none !important}
+
+  /* 答题顶部区域紧凑，但保留建筑档案图 */
+  .quizCinematicTop{
+    min-height:48px !important;
+    padding:8px 12px !important;
+    gap:6px !important;
+  }
+  .quizBrandBlock strong{
+    font-size:22px !important;
+    letter-spacing:.18em !important;
+  }
+  .quizBrandBlock span,
+  .quizCuratedMeta{display:none !important}
+  .quizProgressRail{gap:8px !important}
+  .quizProgressRail b{min-width:56px !important;font-size:14px !important}
+
+  .quizDossier{padding:7px 10px 0 !important}
+  .dossierCover{
+    height:136px !important;
+    min-height:0 !important;
+    padding:7px !important;
+    border-radius:13px !important;
+  }
+  .dossierPortrait{
+    height:122px !important;
+    margin:0 !important;
+    border-radius:8px !important;
+  }
+  .dossierPortrait img#dossierSceneImage{
+    object-position:center 47% !important;
+    filter:saturate(.95) contrast(1.07) brightness(.90) !important;
+  }
+  .dossierHead{
+    left:17px !important;
+    right:17px !important;
+    top:14px !important;
+  }
+  .dossierHead strong{font-size:8px !important;letter-spacing:.13em !important}
+  .dossierHead span{font-size:7px !important}
+  #dossierIndex{font-size:13px !important}
+
+  .dossierCurrent{
+    left:16px !important;
+    right:auto !important;
+    bottom:13px !important;
+    width:min(66%,320px) !important;
+    padding:7px 9px !important;
+    border-radius:8px !important;
+    background:linear-gradient(90deg,rgba(7,9,12,.88),rgba(7,9,12,.55),rgba(7,9,12,.12)) !important;
+  }
+  .dossierCurrent h3{font-size:14px !important;line-height:1.18 !important}
+  .dossierCurrent p{margin-top:2px !important;font-size:6.5px !important}
+  .dossierTraits,.dossierQuote{display:none !important}
+
+  .quizQuestionStage{
+    padding:11px 12px 72px !important;
+    min-height:0 !important;
+  }
+  .questionHeaderLine{margin-bottom:6px !important}
+  .question{
+    margin:5px 0 6px !important;
+    font-size:clamp(26px,7.7vw,31px) !important;
+    line-height:1.20 !important;
+  }
+  .questionSub{font-size:10.5px !important;line-height:1.45 !important}
+  .questionOrnament{margin:8px 0 10px !important}
+  .answers{gap:7px !important}
+  .answer{
+    min-height:58px !important;
+    padding:8px 34px 8px 9px !important;
+    gap:8px !important;
+    font-size:13px !important;
+    line-height:1.35 !important;
+  }
+  .letter{
+    width:34px !important;
+    height:34px !important;
+    flex-basis:34px !important;
+    font-size:13px !important;
+  }
+
+  body.quizMode .quizCinemaLayout{padding-bottom:62px !important}
+  body.quizMode .quizCinemaNav{
+    min-height:54px !important;
+    gap:7px !important;
+    padding:6px 8px max(7px,env(safe-area-inset-bottom)) !important;
+  }
+  .quizNavBtn,.quizNavBtn.next{
+    min-height:42px !important;
+    font-size:12px !important;
+  }
+}
+
+@media(max-width:390px){
+  .mobileResultIdentity{
+    grid-template-columns:1fr !important;
+    align-items:start !important;
+  }
+  .mobileIdentityScore{
+    padding:10px 0 0 !important;
+    border-left:0 !important;
+    border-top:1px solid rgba(255,255,255,.06) !important;
+    text-align:left !important;
+  }
+  .mobileIdentityScore strong{font-size:28px !important}
+  .dossierCover{height:128px !important}
+  .dossierPortrait{height:114px !important}
+  .question{font-size:27px !important}
+}
+
 </style>
 
 <link rel="preconnect" href="https://zh.wikipedia.org" crossorigin>
@@ -2970,7 +3203,20 @@ body.quizMode .quizCinemaNav.answerReadyPulse .quizNavBtn.next:not(:disabled){
             <img id="portraitMain" decoding="async" fetchpriority="high" alt="人物肖像">
             <div id="portraitFallbackNote" class="portraitFallbackNote">当前网络未能取得真实肖像，已暂时使用本地馆藏风格兜底卡。</div>
             
+          
+          <div class="mobileResultIdentity" aria-label="人物结果摘要">
+            <div class="mobileIdentityText">
+              <div class="mobileIdentityKicker">YOUR HISTORICAL ARCHETYPE</div>
+              <h2 id="mobilePersonName">—</h2>
+              <p id="mobilePersonEra">—</p>
+              <div id="mobilePersonMeta" class="mobileIdentityMeta">—</div>
+            </div>
+            <div class="mobileIdentityScore">
+              <strong id="mobileMatchPct">0%</strong>
+              <span>人格相似度</span>
+            </div>
           </div>
+</div>
         </div>
         <div id="leftQuote" class="leftQuote"></div>
         <div class="factGrid">
@@ -3109,7 +3355,7 @@ body.quizMode .quizCinemaNav.answerReadyPulse .quizNavBtn.next:not(:disabled){
     </div>
   </div>
 
-  <div class="buildStamp">MOBILE COMPACT · V9.8.8</div>
+  <div class="buildStamp">MOBILE EDITION · V9.9.2</div>
   <div class="footer">
     <span>AEVEMORA · Civilizations Edition · V9.3</span>
     <button class="footLink" onclick="openInfo('about')">关于测试</button>
@@ -3155,7 +3401,7 @@ const DIM_NAMES={control:"统筹掌控",creative:"开放创造",resilience:"稳�
 
 
 
-const AEVEMORA_BUILD="9.9.0";
+const AEVEMORA_BUILD="9.9.2";
 (async function enforceFreshAccessBuild(){
   try{
     const prev=localStorage.getItem("aevemora_build_version");
@@ -3616,10 +3862,10 @@ function selectAnswer(optionIndex){
 
 function focusQuestionForMobile(behavior="smooth"){
   if(!window.matchMedia("(max-width: 820px)").matches) return;
-  const stage=document.querySelector(".quizQuestionStage");
-  if(!stage) return;
+  const quiz=document.getElementById("quiz");
+  if(!quiz) return;
   requestAnimationFrame(()=>{
-    const top=stage.getBoundingClientRect().top+window.scrollY-8;
+    const top=quiz.getBoundingClientRect().top+window.scrollY-2;
     window.scrollTo({top:Math.max(0,top),behavior});
   });
 }
@@ -3712,6 +3958,14 @@ function renderResultState(state){
   document.getElementById("modeBadge").textContent=modeName(stateMode);
   document.getElementById("matchPct").textContent=best.sim.toFixed(1)+"%";
   document.getElementById("matchPctLeft").textContent=best.sim.toFixed(1)+"%";
+  const mobileName=document.getElementById("mobilePersonName");
+  const mobileEra=document.getElementById("mobilePersonEra");
+  const mobileMeta=document.getElementById("mobilePersonMeta");
+  const mobilePct=document.getElementById("mobileMatchPct");
+  if(mobileName) mobileName.textContent=best.name;
+  if(mobileEra) mobileEra.textContent=best.era;
+  if(mobileMeta) mobileMeta.textContent=best.region+" · "+best.type+" · "+modeName(stateMode);
+  if(mobilePct) mobilePct.textContent=best.sim.toFixed(1)+"%";
   document.getElementById("leftQuote").textContent="“"+best.tag+"”";
   document.getElementById("coreDimA").textContent=DIM_NAMES[top[0][0]];
   document.getElementById("coreDimB").textContent=DIM_NAMES[top[1][0]];
@@ -4644,7 +4898,7 @@ function ensureLocalPortraits(){
     };
     if(window.AEVEMORA_LOCAL_PORTRAITS){ useLoaded(); return; }
     const script=document.createElement("script");
-    script.src="./portrait-data.js?v=9.9.0";
+    script.src="./portrait-data.js?v=9.9.2";
     script.async=true;
     script.onload=useLoaded;
     script.onerror=()=>resolve(LOCAL_PORTRAITS);
@@ -5058,7 +5312,7 @@ function warmPortraitCandidates(){
 // ===== V9.8.1 Mobile Stable：安静更新，不强制刷新当前页面 =====
 if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js?v=9.9.0")
+    navigator.serviceWorker.register("./sw.js?v=9.9.2")
       .then(reg=>reg.update().catch(()=>{}))
       .catch(()=>{});
   }, {once:true});
