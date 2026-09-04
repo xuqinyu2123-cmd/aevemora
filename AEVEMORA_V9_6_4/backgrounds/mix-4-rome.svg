@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+<defs>
+  <radialGradient id="glow" cx="68%" cy="32%" r="65%"><stop offset="0" stop-color="#cfaa72" stop-opacity=".20"/><stop offset=".5" stop-color="#cfaa72" stop-opacity=".05"/><stop offset="1" stop-color="#0b0d11" stop-opacity="0"/></radialGradient>
+  <linearGradient id="fade" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#cfaa72" stop-opacity=".22"/><stop offset="1" stop-color="#cfaa72" stop-opacity=".04"/></linearGradient>
+</defs>
+<rect width="1600" height="900" fill="#0b0d11"/><rect width="1600" height="900" fill="url(#glow)"/>
+<g fill="none" stroke="#cfaa72" opacity=".18"><path d="M160 630h700M210 630V310M810 630V310M210 310h600" stroke-width="10"/><path d="M290 630V390q0-92 78-92t78 92v240M515 630V390q0-92 78-92t78 92v240" stroke-width="14"/><path d="M980 220h420M1000 270h380M1035 320h310" stroke-width="3"/><path d="M1130 520c-50-70-52-150-5-210M1260 520c50-70 52-150 5-210" stroke-width="5"/></g><g fill="#cfaa72" opacity=".10"><circle cx="1195" cy="365" r="90"/><path d="M1030 600h330l-55-70H1085z"/></g>
+<text x="118" y="760" fill="#cfaa72" opacity=".20" font-size="70" font-family="Georgia" letter-spacing="3">古罗马</text>
+<text x="122" y="810" fill="#cfaa72" opacity=".13" font-size="22" font-family="Georgia" letter-spacing="6">ROMAN ORDER</text>
+</svg>

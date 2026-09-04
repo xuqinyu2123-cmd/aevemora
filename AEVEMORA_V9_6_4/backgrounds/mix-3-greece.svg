@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+<defs>
+  <radialGradient id="glow" cx="68%" cy="32%" r="65%"><stop offset="0" stop-color="#d8c18c" stop-opacity=".20"/><stop offset=".5" stop-color="#d8c18c" stop-opacity=".05"/><stop offset="1" stop-color="#0b0d11" stop-opacity="0"/></radialGradient>
+  <linearGradient id="fade" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d8c18c" stop-opacity=".22"/><stop offset="1" stop-color="#d8c18c" stop-opacity=".04"/></linearGradient>
+</defs>
+<rect width="1600" height="900" fill="#0b0d11"/><rect width="1600" height="900" fill="url(#glow)"/>
+<g fill="none" stroke="#d8c18c" opacity=".18"><path d="M220 625h650M260 585h570M290 255h510M320 215h450" stroke-width="10"/><path d="M340 585V285M455 585V285M570 585V285M685 585V285" stroke-width="16"/><path d="M292 255l254-128 254 128" stroke-width="14"/><circle cx="1190" cy="330" r="180" stroke-width="2"/><circle cx="1190" cy="330" r="125"/><path d="M1010 330h360M1190 150v360"/></g><path d="M1095 610c28-118 96-190 176-190 79 0 147 71 174 184H1095z" fill="#d8c18c" opacity=".12"/><ellipse cx="1270" cy="377" rx="72" ry="90" fill="#d8c18c" opacity=".12"/>
+<text x="118" y="760" fill="#d8c18c" opacity=".20" font-size="70" font-family="Georgia" letter-spacing="3">古希腊</text>
+<text x="122" y="810" fill="#d8c18c" opacity=".13" font-size="22" font-family="Georgia" letter-spacing="6">HELLENIC WORLD</text>
+</svg>
