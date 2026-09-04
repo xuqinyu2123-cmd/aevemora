@@ -1,17 +1,14 @@
-AEVEMORA V9.8.2 · Scene Stable
+AEVEMORA V9.8.3 · Local Scene Art
 
-本版专门修复答题页左侧图片“消失/只剩很暗轮廓”的问题。
-
-修复：
-- 左侧 dossier 本地图立即显示，不再等待 Wikimedia 超时。
-- 本地 fallback 明显提亮，手机端也能看清。
-- 网络允许时，真实历史史料图在后台加载成功后再平滑替换。
-- 网络不通时始终保留本地图，不再出现空白。
-- 省流量 / 2G / 3G 模式完全不请求外部大图。
-- 保留 V9.8.1 手机稳定版的拆包、按需人物库、Service Worker 修复。
+这版不是再提亮旧 SVG，而是直接替换左侧视觉：
+- 新增 18 张本地历史场景图（WebP）
+- 左侧场景图只读取本站 ./scene-art/，不再请求 Wikimedia
+- 不会因为 VPN、国内网络、微信浏览器或 Wikimedia 连接失败而消失
+- 每个文明章节都有独立图：先秦、汉唐、宋明、边疆、山水、现代中国、希腊、罗马、中世纪、文艺复兴、启蒙、现代科学等
+- 页面大背景仍可在网络允许时尝试真实史料图，但左侧图完全本地化
 
 版本检查：
-https://xuqinyu2123-cmd.github.io/aevemora/VERSION.txt?v=982
+https://xuqinyu2123-cmd.github.io/aevemora/VERSION.txt?v=983
 
 正式测试：
-https://xuqinyu2123-cmd.github.io/aevemora/?v=9.8.2
+https://xuqinyu2123-cmd.github.io/aevemora/?v=9.8.3

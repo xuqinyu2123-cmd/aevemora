@@ -1,7 +1,7 @@
 {
   "name": "AEVEMORA 历史人格原型测试",
   "short_name": "AEVEMORA",
-  "description": "AEVEMORA V9.8.2：修复答题页左侧场景图，先显示本地高清兜底，再异步加载真实史料图。",
+  "description": "AEVEMORA V9.8.3：答题页左侧改为自托管本地历史场景图，不再依赖 Wikimedia。",
   "lang": "zh-CN",
   "start_url": "./",
   "scope": "./",

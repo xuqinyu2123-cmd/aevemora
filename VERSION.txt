@@ -1,2 +1,2 @@
-AEVEMORA V9.8.2 SCENE STABLE
-Left dossier artwork is always visible; remote historical imagery upgrades asynchronously.
+AEVEMORA V9.8.3 LOCAL SCENE ART
+Left dossier artwork is self-hosted and no longer depends on Wikimedia.
