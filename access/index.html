@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090b0f">
+<title>AEVEMORA · 授权获取中心</title>
+<style>
+:root{--bg:#080a0e;--line:rgba(221,184,116,.18);--gold:#d8b26f;--ink:#eee7dc}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif}
+body{min-height:100vh;background:radial-gradient(900px 480px at 18% 2%,rgba(174,126,59,.09),transparent 68%),radial-gradient(720px 460px at 90% 92%,rgba(177,132,67,.055),transparent 70%),linear-gradient(180deg,#090b0f,#080a0e 52%,#07090c)}
+body:before{content:"AEVEMORA · ARCHIVE ACCESS";position:fixed;left:-40px;top:34%;transform:rotate(-8deg);font:600 64px Georgia,serif;letter-spacing:.12em;color:rgba(255,255,255,.018);pointer-events:none;white-space:nowrap}
+.wrap{width:min(1120px,calc(100% - 34px));margin:0 auto;padding:34px 0 64px}.top{display:flex;align-items:center;justify-content:space-between;padding:0 2px 24px;border-bottom:1px solid rgba(255,255,255,.055)}
+.brand{font:700 24px Georgia,serif;letter-spacing:.28em;color:#e0bd7d}.top small{color:#756e66;font:600 9px Georgia,serif;letter-spacing:.18em}.back{border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.018);color:#bdb2a5;border-radius:999px;padding:10px 15px;text-decoration:none;font-size:11px}
+.hero{display:grid;grid-template-columns:1.12fr .88fr;gap:30px;padding:58px 0 34px}.eyebrow{color:#b88f54;font:600 10px Georgia,serif;letter-spacing:.26em;margin-bottom:15px}.hero h1{margin:0;font:600 clamp(38px,5.8vw,72px)/1.04 Georgia,"Songti SC",serif;letter-spacing:-.03em}.hero p{max-width:620px;margin:23px 0 0;color:#91887e;font-size:14px;line-height:1.9}.status{align-self:stretch;border:1px solid var(--line);border-radius:24px;padding:27px;background:linear-gradient(155deg,rgba(255,255,255,.025),rgba(255,255,255,.006));display:flex;flex-direction:column;justify-content:space-between;min-height:230px}.status b{font:600 12px Georgia,serif;letter-spacing:.18em;color:#cba467}.status strong{font:600 29px Georgia,"Songti SC",serif;line-height:1.25}.status span{color:#776f67;font-size:11px;line-height:1.7}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#c9a05d;margin-right:8px;box-shadow:0 0 18px rgba(207,164,89,.45)}
+.sectionTitle{display:flex;align-items:end;justify-content:space-between;margin:30px 0 15px}.sectionTitle h2{margin:0;font:600 27px Georgia,"Songti SC",serif}.sectionTitle p{margin:0;color:#6f6962;font-size:10px}.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.plan{position:relative;border:1px solid rgba(255,255,255,.075);border-radius:22px;padding:24px;min-height:220px;background:rgba(255,255,255,.014);cursor:pointer;transition:.18s ease}.plan:hover{transform:translateY(-2px);border-color:rgba(216,178,111,.27)}.plan.active{border-color:rgba(220,181,109,.58);background:linear-gradient(160deg,rgba(214,174,103,.09),rgba(255,255,255,.014));box-shadow:0 18px 50px rgba(0,0,0,.16),inset 0 0 0 1px rgba(220,181,109,.055)}.plan .num{position:absolute;right:20px;top:18px;color:rgba(211,174,107,.35);font:600 12px Georgia,serif;letter-spacing:.12em}.plan h3{margin:28px 0 8px;font-size:20px}.plan .duration{color:#d9b877;font:700 34px Georgia,serif}.plan p{color:#81786f;font-size:11px;line-height:1.75}.plan footer{position:absolute;left:24px;bottom:22px;color:#9b8465;font-size:9px;letter-spacing:.12em}
+.panel{margin-top:28px;border:1px solid rgba(255,255,255,.075);border-radius:26px;padding:28px;background:rgba(255,255,255,.014)}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}.step{padding:18px;border-top:1px solid rgba(216,178,111,.18);background:rgba(255,255,255,.008)}.step b{color:#c9a262;font:600 10px Georgia,serif;letter-spacing:.12em}.step strong{display:block;margin:9px 0 6px;font-size:13px}.step span{color:#706961;font-size:10px;line-height:1.65}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}.btn{height:56px;border-radius:14px;border:1px solid rgba(255,255,255,.08);font-weight:700;cursor:pointer}.btn.primary{border-color:#e0b971;background:linear-gradient(180deg,#e1c07e,#bc8c48);color:#16110b}.btn.ghost{background:rgba(255,255,255,.018);color:#d0c5b8}.copyStatus{min-height:25px;padding-top:10px;text-align:center;color:#ae9876;font-size:10px}.note{margin-top:18px;padding:17px 18px;border-left:1px solid #a98149;background:rgba(187,139,70,.035);color:#766f68;font-size:10px;line-height:1.8}.foot{margin-top:34px;padding-top:20px;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;color:#57534f;font:500 9px Georgia,serif;letter-spacing:.08em}
+@media(max-width:760px){.wrap{width:min(100% - 22px,1120px);padding-top:20px}.top{align-items:flex-start}.brand{font-size:19px}.top small{display:none}.hero{grid-template-columns:1fr;padding-top:38px}.hero h1{font-size:44px}.plans{grid-template-columns:1fr}.plan{min-height:184px}.steps{grid-template-columns:1fr 1fr}.actions{grid-template-columns:1fr}.foot{display:block;line-height:1.9}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div><div class="brand">AEVEMORA</div><small>AUTHORIZATION & ACCESS CENTER</small></div>
+    <a class="back" href="../?v=9.7">已有授权码 · 返回验证</a>
+  </header>
+  <section class="hero">
+    <div><div class="eyebrow">ACCESS CENTER · CURATED ENTRY</div><h1>获取你的<br>探索授权</h1><p>AEVEMORA 当前采用授权码访问。选择适合你的授权周期，复制申请信息，并通过你获得本测试链接的原渠道联系发布者。收到授权码后返回验证页即可开始测试。</p></div>
+    <aside class="status"><b><span class="dot"></span>CURRENT ACCESS STATUS</b><strong>内测阶段<br>人工发放授权码</strong><span>自动支付与自动发码将在后续版本接入。当前不需要填写手机号，也不会在此页面收集支付信息。</span></aside>
+  </section>
+  <div class="sectionTitle"><h2>选择授权方案</h2><p>价格与正式售卖规则尚未公开</p></div>
+  <section class="plans">
+    <article class="plan active" data-plan="7 天体验授权" onclick="pickPlan(this)"><span class="num">01</span><div class="eyebrow">TRIAL ACCESS</div><h3>体验授权</h3><div class="duration">7 DAYS</div><p>适合首次完整体验测试与结果报告。</p><footer>1 台设备 · 激活后计时</footer></article>
+    <article class="plan" data-plan="30 天标准授权" onclick="pickPlan(this)"><span class="num">02</span><div class="eyebrow">STANDARD ACCESS</div><h3>标准授权</h3><div class="duration">30 DAYS</div><p>适合多次测试、比较不同匹配模式与长期查看结果。</p><footer>1 台设备 · 激活后计时</footer></article>
+    <article class="plan" data-plan="长期授权" onclick="pickPlan(this)"><span class="num">03</span><div class="eyebrow">LONG-TERM ACCESS</div><h3>长期授权</h3><div class="duration">LONG TERM</div><p>面向希望持续使用 AEVEMORA 的用户，具体规则由发布者确认。</p><footer>正式规则待发布</footer></article>
+  </section>
+  <section class="panel">
+    <div class="sectionTitle" style="margin:0"><h2>获取流程</h2><p>无需注册账号</p></div>
+    <div class="steps">
+      <div class="step"><b>STEP 01</b><strong>选择方案</strong><span>在上方选择你希望申请的授权周期。</span></div>
+      <div class="step"><b>STEP 02</b><strong>复制申请</strong><span>点击下方按钮生成并复制标准申请文案。</span></div>
+      <div class="step"><b>STEP 03</b><strong>联系发布者</strong><span>回到你获得 AEVEMORA 链接的平台，将申请文案发送给发布者。</span></div>
+      <div class="step"><b>STEP 04</b><strong>返回验证</strong><span>收到 AEV-XXXX-XXXX 格式授权码后返回输入。</span></div>
+    </div>
+    <div class="actions"><button class="btn primary" onclick="copyRequest()">复制授权申请文案</button><button class="btn ghost" onclick="location.href='../?v=9.7'">我已有授权码</button></div>
+    <div id="copyStatus" class="copyStatus"></div>
+    <div class="note">当前为内测阶段，因此本页不会要求你付款或填写银行卡信息。正式收费前，建议发布者确认价格、退款规则、授权期限与隐私说明后再开放自动支付。</div>
+  </section>
+  <footer class="foot"><span>AEVEMORA · ACCESS CENTER · V9.7</span><span>PAST · SELF · ARCHETYPE</span></footer>
+</div>
+<script>
+let selectedPlan='7 天体验授权';
+function pickPlan(el){
+  document.querySelectorAll('.plan').forEach(x=>x.classList.remove('active'));
+  el.classList.add('active');
+  selectedPlan=el.dataset.plan||'7 天体验授权';
+}
+async function copyRequest(){
+  const msg=`AEVEMORA 授权申请\n方案：${selectedPlan}\n设备：1 台\n用途：个人历史人格测试体验\n请发送对应授权码。`;
+  const out=document.getElementById('copyStatus');
+  try{
+    await navigator.clipboard.writeText(msg);
+    out.textContent='申请文案已复制。请回到你获得本测试链接的渠道联系发布者。';
+  }catch(e){
+    window.prompt('复制下面的申请文案：',msg);
+    out.textContent='已生成申请文案。';
+  }
+}
+</script>
+</body>
+</html>

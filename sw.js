@@ -1,4 +1,4 @@
-const CACHE="aevemora-v9-6-5-root-lock-20260904";
+const CACHE="aevemora-v9-7-access-center-20260904";
 const CORE=[
   "./manifest.webmanifest",
   "./icon-192.png",

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta name="aevemora-build" content="9.6.5-root-lock">
+  <meta name="aevemora-build" content="9.7-access-center">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>AEVEMORA · 历史人格原型测试</title>
@@ -2600,7 +2600,7 @@ html.accessUnlocked .authBuildBadge{
         <div class="accessGateMark">
           <i></i><span></span><i></i>
         </div>
-        <div class="accessGateEyebrow">ACCESS REQUIRED · V9.6.5</div>
+        <div class="accessGateEyebrow">ACCESS REQUIRED · V9.7</div>
         <h2 id="accessGateTitle">验证后进入 AEVEMORA</h2>
         <p>本版本已启用强制访问控制。未通过授权验证，测试内容不会解锁。</p>
       </div>
@@ -2636,7 +2636,7 @@ html.accessUnlocked .authBuildBadge{
     </div>
   </div>
 
-<div class="authBuildBadge">AUTH LOCK · 9.6.5</div>
+<div class="authBuildBadge">AUTH LOCK · 9.7</div>
 <div id="mobileCTA" class="mobileBottomCTA">
     <div class="ctaRow">
       <button class="btn primary" onclick="requestQuizAccess()">开始测试</button>
@@ -2644,7 +2644,7 @@ html.accessUnlocked .authBuildBadge{
     </div>
   </div>
 
-  <div class="buildStamp">ACCESS BUILD · V9.6.5</div>
+  <div class="buildStamp">ACCESS BUILD · V9.7</div>
   <div class="footer">
     <span>AEVEMORA · Civilizations Edition · V9.3</span>
     <button class="footLink" onclick="openInfo('about')">关于测试</button>
@@ -2690,7 +2690,7 @@ const DIM_NAMES={control:"统筹掌控",creative:"开放创造",resilience:"稳�
 
 
 
-const AEVEMORA_BUILD="9.6.5";
+const AEVEMORA_BUILD="9.7";
 (async function enforceFreshAccessBuild(){
   try{
     const prev=localStorage.getItem("aevemora_build_version");
@@ -2716,7 +2716,7 @@ const AEVEMORA_BUILD="9.6.5";
 // purchaseUrl 可填写商品页、微信引导页或其他获取授权码页面。
 const ACCESS_CONFIG={
   apiBase:"https://aevemora-access.xuqinyu2123.workers.dev",
-  purchaseUrl:"",
+  purchaseUrl:"./access/",
   appId:"aevemora",
   storageKey:"aevemora_access_v2",
   deviceKey:"aevemora_device_v2"
@@ -2905,10 +2905,10 @@ async function verifyAccessCode(){
 }
 function acquireAccessCode(){
   if(ACCESS_CONFIG.purchaseUrl){
-    window.open(ACCESS_CONFIG.purchaseUrl,"_blank","noopener");
+    window.location.href=ACCESS_CONFIG.purchaseUrl;
     return;
   }
-  setAccessStatus("“获取授权码”入口尚未配置。你可以把这里连接到商品页、微信引导页或其他购买渠道。","");
+  setAccessStatus("授权获取中心暂不可用，请稍后再试。","error");
 }
 
 
@@ -3348,7 +3348,7 @@ function restart(){
 function copySummary(){
   if(!last) return;
   const t=topDims(last.user).slice(0,2).map(x=>DIM_NAMES[x[0]]).join(" × ");
-  const text="AEVEMORA 历史人格原型测试 V9.6.5\n我的历史人格原型："+last.best.name+"\n匹配模式："+modeName(last.mode)+"\n相似度："+last.best.sim.toFixed(1)+"%\n核心维度："+t+"\n"+last.best.tag;
+  const text="AEVEMORA 历史人格原型测试 V9.7\n我的历史人格原型："+last.best.name+"\n匹配模式："+modeName(last.mode)+"\n相似度："+last.best.sim.toFixed(1)+"%\n核心维度："+t+"\n"+last.best.tag;
   navigator.clipboard?.writeText(text).then(()=>alert("结果文案已复制")).catch(()=>prompt("复制下面的结果：",text));
 }
 
@@ -3569,7 +3569,7 @@ function renderPosterCanvas(x,img,compactFallback=false){
   x.textAlign="right";
   x.fillStyle="#8a806f";
   x.font="22px Georgia";
-  x.fillText("AEVEMORA JOURNAL · V9.6.5",1074,2390);
+  x.fillText("AEVEMORA JOURNAL · V9.7",1074,2390);
   x.textAlign="left";
 }
 
@@ -4474,7 +4474,7 @@ function warmPortraitCandidates(){
 if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
   window.addEventListener("load", async () => {
     try {
-      const reg = await navigator.serviceWorker.register("./sw.js?v=9.6.5");
+      const reg = await navigator.serviceWorker.register("./sw.js?v=9.7");
       await reg.update();
 
       let refreshed = false;

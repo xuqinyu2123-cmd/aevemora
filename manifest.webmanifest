@@ -1,7 +1,7 @@
 {
   "name": "AEVEMORA 历史人格原型测试",
   "short_name": "AEVEMORA",
-  "description": "AEVEMORA V9.6.5：根目录直传版，授权墙默认锁定，Worker 地址已内置。",
+  "description": "AEVEMORA V9.7：新增站内授权获取中心，获取授权码按钮可正常跳转。",
   "lang": "zh-CN",
   "start_url": "./",
   "scope": "./",
