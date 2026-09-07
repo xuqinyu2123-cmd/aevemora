@@ -757,15 +757,32 @@ body:after{
     radial-gradient(circle at 50% 26%,transparent 38%,rgba(9,9,12,.22) 100%);
 }
 .rankThumb{position:relative;background:#0f1014}
-.portraitCredit{
-  position:absolute;left:12px;right:12px;bottom:10px;z-index:2;
-  display:flex;justify-content:space-between;gap:8px;align-items:center;
-  padding:7px 9px;border-radius:10px;
-  background:rgba(10,10,13,.58);backdrop-filter:blur(8px);
-  border:1px solid rgba(255,255,255,.04);
-  font-size:10px;color:#93897e;
+.portraitAttribution{
+  margin-top:10px;border:1px solid rgba(207,174,118,.13);border-radius:12px;
+  background:linear-gradient(180deg,rgba(207,174,118,.035),rgba(8,9,12,.32));
+  color:#948a7e;font-size:10px;line-height:1.55;overflow:hidden;
 }
-.portraitCredit a{color:#b8a587;text-decoration:none}
+.portraitAttribution[hidden]{display:none!important}
+.portraitAttribution summary{
+  min-height:40px;padding:0 12px;display:flex;align-items:center;gap:7px;
+  color:#a89b8c;cursor:pointer;list-style:none;letter-spacing:.025em;
+}
+.portraitAttribution summary::-webkit-details-marker{display:none}
+.portraitAttribution summary::after{
+  content:"＋";margin-left:auto;color:#b59460;font-size:13px;line-height:1;
+}
+.portraitAttribution[open] summary::after{content:"−"}
+.portraitAttribution summary b{color:#c9a96f;font-weight:600}
+.portraitAttribution summary:hover{color:#c6b7a3;background:rgba(255,255,255,.018)}
+.portraitAttribution summary:focus-visible,
+.portraitAttribution a:focus-visible{outline:2px solid #d5b471;outline-offset:2px}
+.portraitAttributionBody{padding:11px 12px 12px;border-top:1px solid rgba(255,255,255,.045)}
+.portraitAttributionBody dl{display:grid;gap:8px;margin:0}
+.portraitAttributionBody dl>div{display:grid;grid-template-columns:44px minmax(0,1fr);gap:9px;align-items:start}
+.portraitAttributionBody dt{color:#736b62}
+.portraitAttributionBody dd{margin:0;color:#b8aea2;min-width:0;overflow-wrap:anywhere}
+.portraitAttributionBody a{color:#d2b274;text-decoration:underline;text-decoration-color:rgba(210,178,116,.35);text-underline-offset:3px}
+.portraitAttributionBody a:hover{color:#ecd198}
 .portraitBadge{
   position:absolute;right:13px;top:13px;z-index:3;
   padding:7px 9px;border-radius:999px;
@@ -793,7 +810,7 @@ body:after{
   color:#a89d90;font-size:12px;line-height:1.75
 }
 @media(max-width:700px){
-  .portraitCredit{font-size:9px}
+  .portraitAttribution{font-size:9px}
   .portraitBadge{font-size:9px}
 }
 
@@ -3229,10 +3246,6 @@ body.quizMode .quizCinemaNav.answerReadyPulse .quizNavBtn.next:not(:disabled){
             <div id="portraitLoading" class="portraitLoading portraitSkeleton">正在载入真实人物肖像…</div>
             <img id="portraitMain" decoding="async" fetchpriority="high" alt="人物肖像">
             <div id="portraitFallbackNote" class="portraitFallbackNote">当前网络未能取得真实肖像，已暂时使用本地馆藏风格兜底卡。</div>
-            <div id="portraitCredit" class="portraitCredit" hidden>
-              <span id="portraitCreditLicense"></span>
-              <a id="portraitCreditSource" href="#" target="_blank" rel="noopener noreferrer">查看来源</a>
-            </div>
             
           
                     </div>
@@ -3249,6 +3262,33 @@ body.quizMode .quizCinemaNav.answerReadyPulse .quizNavBtn.next:not(:disabled){
               <span>人格相似度</span>
             </div>
           </div>
+
+          <details id="portraitAttribution" class="portraitAttribution" hidden>
+            <summary>
+              <span>肖像来源与许可</span>
+              <b id="portraitAttributionLicenseSummary">—</b>
+            </summary>
+            <div class="portraitAttributionBody">
+              <dl aria-label="肖像署名详情">
+                <div id="portraitAttributionAuthorRow">
+                  <dt>作者</dt>
+                  <dd id="portraitAttributionAuthor"></dd>
+                </div>
+                <div id="portraitAttributionLicenseRow">
+                  <dt>许可</dt>
+                  <dd><a id="portraitAttributionLicenseLink" href="#" target="_blank" rel="noopener noreferrer"></a></dd>
+                </div>
+                <div>
+                  <dt>来源</dt>
+                  <dd><a id="portraitAttributionSourceLink" href="#" target="_blank" rel="noopener noreferrer">查看原始来源</a></dd>
+                </div>
+                <div id="portraitAttributionModifiedRow">
+                  <dt>修改</dt>
+                  <dd id="portraitAttributionModified"></dd>
+                </div>
+              </dl>
+            </div>
+          </details>
 
         </div>
         <div id="leftQuote" class="leftQuote"></div>
@@ -5222,17 +5262,41 @@ function setPortraitMetadata(img,record,url){
 }
 
 function setPortraitCredit(record){
-  const credit=document.getElementById("portraitCredit");
-  const license=document.getElementById("portraitCreditLicense");
-  const source=document.getElementById("portraitCreditSource");
-  if(!credit || !license || !source || !record || !(record.sourcePage || record.source)){
-    if(credit) credit.hidden=true;
+  const details=document.getElementById("portraitAttribution");
+  const licenseSummary=document.getElementById("portraitAttributionLicenseSummary");
+  const authorRow=document.getElementById("portraitAttributionAuthorRow");
+  const author=document.getElementById("portraitAttributionAuthor");
+  const licenseRow=document.getElementById("portraitAttributionLicenseRow");
+  const licenseLink=document.getElementById("portraitAttributionLicenseLink");
+  const sourceLink=document.getElementById("portraitAttributionSourceLink");
+  const modifiedRow=document.getElementById("portraitAttributionModifiedRow");
+  const modified=document.getElementById("portraitAttributionModified");
+  const sourceUrl=record && (record.sourcePage || (/^https?:\/\//.test(record.source||"") ? record.source : ""));
+  if(!details || !licenseSummary || !authorRow || !author || !licenseRow || !licenseLink || !sourceLink || !modifiedRow || !modified || !record || !sourceUrl){
+    if(details){
+      details.open=false;
+      details.hidden=true;
+    }
     return;
   }
-  license.textContent=record.license ? "肖像 · "+record.license : "肖像来源";
-  source.href=record.sourcePage || record.source;
-  source.title=record.author ? "作者 / 提供者："+record.author : "查看肖像来源";
-  credit.hidden=false;
+  const requiresAttribution=record.attributionRequired===true;
+  details.open=false;
+  details.hidden=false;
+  licenseSummary.textContent=record.license || "来源信息";
+  sourceLink.href=sourceUrl;
+
+  authorRow.hidden=!requiresAttribution;
+  author.textContent=requiresAttribution ? (record.author || "未提供") : "";
+
+  licenseRow.hidden=!requiresAttribution;
+  licenseLink.textContent=requiresAttribution ? (record.license || "未提供") : "";
+  if(requiresAttribution && record.licenseUrl) licenseLink.href=record.licenseUrl;
+  else licenseLink.removeAttribute("href");
+
+  modifiedRow.hidden=!requiresAttribution;
+  modified.textContent=record.modified===false
+    ? "未进行实质性修改。"
+    : "本肖像经过裁切、缩放、WebP 格式转换及轻微对比度调整。";
 }
 
 async function setMainPortrait(person){

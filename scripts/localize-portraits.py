@@ -401,6 +401,14 @@ def research_person(
         }
         return ResearchResult(person_row, None, todo, None)
 
+    # Allow a reviewed source-page policy to complete machine-readable fields
+    # that Commons extmetadata omits. Values must be documented in the override.
+    license_name = str(override.get("license") or license_name)
+    license_url = str(override.get("license_url") or license_url)
+    if "attribution_required" in override:
+        attribution = bool(override["attribution_required"])
+    modified = bool(override.get("modified", True))
+
     width, height = image_dimensions(info)
     if width < 240 or height < 300:
         todo = {
@@ -437,7 +445,7 @@ def research_person(
         return ResearchResult(person_row, None, todo, None)
 
     metadata = info.get("extmetadata", {})
-    author = clean_html(metadata_value(metadata, "Artist")) or clean_html(metadata_value(metadata, "Credit"))
+    author = str(override.get("author") or clean_html(metadata_value(metadata, "Artist")) or clean_html(metadata_value(metadata, "Credit")))
     original_url = str(info.get("url", ""))
     notes = (
         f"Identity verified through exact {primary_lang}wiki page and Wikidata {qid} P18; "
@@ -449,7 +457,7 @@ def research_person(
         "id": person_id, "name_zh": person["name"], "name_en": name_en,
         "source_page": candidate_page, "original_image_url": original_url, "author": author,
         "license": license_name, "license_url": license_url, "public_domain": bool_text(public_domain),
-        "commercial_use_allowed": "true", "attribution_required": bool_text(attribution), "modified": "true",
+        "commercial_use_allowed": "true", "attribution_required": bool_text(attribution), "modified": bool_text(modified),
         "local_main_path": f"./portraits/{person_id}/main.webp",
         "local_thumb_path": f"./portraits/{person_id}/thumb.webp",
         "download_date": date.today().isoformat(), "notes": notes
@@ -458,7 +466,8 @@ def research_person(
         "id": person_id, "name": person["name"],
         "main": f"./portraits/{person_id}/main.webp", "thumb": f"./portraits/{person_id}/thumb.webp",
         "local": True, "sourcePage": candidate_page, "author": author,
-        "license": license_name, "licenseUrl": license_url, "attributionRequired": attribution
+        "license": license_name, "licenseUrl": license_url, "attributionRequired": attribution,
+        "modified": modified
     }
     return ResearchResult(person_row, license_row, None, manifest_row, image_hash)
 

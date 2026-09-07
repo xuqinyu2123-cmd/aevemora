@@ -51,5 +51,13 @@
   "P114": {
     "commons_file": "CGJung.jpg",
     "notes": "Public-domain museum-sourced photograph from Ortsmuseum Zollikon."
+  },
+  "P118": {
+    "author": "Los Alamos National Laboratory",
+    "license": "Attribution",
+    "license_url": "https://www.lanl.gov/lanl-resources/web-policies",
+    "attribution_required": true,
+    "modified": true,
+    "notes": "Commons identifies Los Alamos National Laboratory as the image source and required credit; commercial and derivative use are expressly permitted with attribution. License policy verified at the official LANL Web Policies page."
   }
 }

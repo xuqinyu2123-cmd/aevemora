@@ -164,6 +164,7 @@ const personList = parseCsv(text("portrait-person-list.csv"));
 const licenses = parseCsv(text("portrait-licenses.csv"));
 const todo = parseCsv(text("portrait-todo.csv"));
 const manifest = loadManifest();
+const attributionRows = licenses.filter((row) => row.attribution_required === "true");
 const ids = people.map((person) => person.id);
 const expectedIds = Array.from({ length: 120 }, (_, i) => `P${String(i + 1).padStart(3, "0")}`);
 
@@ -193,10 +194,26 @@ check("person CSV IDs and Chinese names match PEOPLE", personList.every((row, i)
 
 const manifestEntries = Object.entries(manifest);
 check("manifest contains 118 localized portraits", manifestEntries.length === 118, String(manifestEntries.length));
-check("manifest is keyed by stable person ID", manifestEntries.every(([id, record]) => id === record.id && expectedIds.includes(id) && record.local === true));
+check("manifest is keyed by stable person ID", manifestEntries.every(([id, record]) => id === record.id && expectedIds.includes(id) && record.local === true && Object.hasOwn(record, "modified")));
 check("license/TODO coverage is exactly 120 people", licenses.length === 118 && todo.length === 2 && new Set([...licenses, ...todo].map((row) => row.id)).size === 120);
 check("license and TODO sets are disjoint", licenses.every((row) => !todo.some((item) => item.id === row.id)));
-check("all localized portraits allow commercial use", licenses.every((row) => row.commercial_use_allowed === "true" && /^(Public Domain|CC0|CC BY(?:-SA)?|Attribution)/.test(row.license)));
+const completeAttributionRows = attributionRows.filter((row) => {
+  const record = manifest[row.id];
+  return [row.author, row.license, row.license_url, row.source_page, row.modified].every((value) => value?.trim())
+    && /^https:\/\//.test(row.license_url)
+    && /^https:\/\//.test(row.source_page)
+    && record?.attributionRequired === true
+    && record.author === row.author
+    && record.license === row.license
+    && record.licenseUrl === row.license_url
+    && record.sourcePage === row.source_page
+    && Object.hasOwn(record, "modified");
+});
+check("attribution metadata is complete and commercial-use flags remain valid",
+  licenses.every((row) => row.commercial_use_allowed === "true" && /^(Public Domain|CC0|CC BY(?:-SA)?|Attribution)/.test(row.license))
+    && attributionRows.length === 13
+    && completeAttributionRows.length === attributionRows.length,
+  `${completeAttributionRows.length}/${attributionRows.length} attribution records complete`);
 check("all localized portraits have traceable sources", licenses.every((row) => /^https:\/\/commons\.wikimedia\.org\/wiki\/File:/.test(row.source_page) && /^https:\/\//.test(row.original_image_url)));
 
 const expectedFiles = new Set();
@@ -251,7 +268,21 @@ const posterSource = extractFunction("loadPosterPortrait");
 check("main chain checks local main before network fallback", mainSource.indexOf("local.main") < mainSource.indexOf("fetchWikiPortrait(person)"));
 check("Top 5 chain uses local thumb then Cloudflare proxy", top5Source.includes("local.thumb") && top5Source.includes("proxyPortraitRecord(person)") && !top5Source.includes("fetchWikiPortrait"));
 check("poster prefers local main", posterSource.includes("realPortraitRecord(last.best)") && posterSource.includes("local.main"));
-check("manifest is loaded by the production page", html.includes("./portrait-manifest.js?v=10.0.0"));
+const attributionUiSource = extractFunction("setPortraitCredit");
+check("manifest-backed attribution UI is accessible without title-only metadata",
+  html.includes("./portrait-manifest.js?v=10.0.0")
+    && /<details\s+id="portraitAttribution"/.test(html)
+    && /<summary>/.test(html)
+    && html.includes('id="portraitAttributionAuthor"')
+    && html.includes('id="portraitAttributionLicenseLink"')
+    && html.includes('id="portraitAttributionSourceLink"')
+    && html.includes('id="portraitAttributionModified"')
+    && html.includes('target="_blank" rel="noopener noreferrer"')
+    && attributionUiSource.includes("author.textContent")
+    && attributionUiSource.includes("licenseLink.href=record.licenseUrl")
+    && attributionUiSource.includes("sourceLink.href=sourceUrl")
+    && attributionUiSource.includes("本肖像经过裁切、缩放、WebP 格式转换及轻微对比度调整。")
+    && !attributionUiSource.includes(".title"));
 
 let inlineSyntaxValid = true;
 for (const match of html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/gi)) {

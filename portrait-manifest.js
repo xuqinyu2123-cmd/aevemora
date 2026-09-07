@@ -10,7 +10,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "AnonymousUnknown author",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P002": {
     "id": "P002",
@@ -22,7 +23,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "歷代聖賢半身像 冊 老子. 故宮典藏資料檢索. National Palace Museum.",
     "license": "CC BY 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-    "attributionRequired": true
+    "attributionRequired": true,
+    "modified": true
   },
   "P003": {
     "id": "P003",
@@ -34,7 +36,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Gary Todd from Xinzheng, China",
     "license": "CC0",
     "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P004": {
     "id": "P004",
@@ -46,7 +49,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Unknown authorUnknown author",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P005": {
     "id": "P005",
@@ -58,7 +62,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Taken by Fanghong",
     "license": "CC BY 2.5",
     "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
-    "attributionRequired": true
+    "attributionRequired": true,
+    "modified": true
   },
   "P006": {
     "id": "P006",
@@ -70,7 +75,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "anonymous",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P007": {
     "id": "P007",
@@ -82,7 +88,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Unknown authorUnknown author",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P008": {
     "id": "P008",
@@ -94,7 +101,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Chen Hongshou",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P009": {
     "id": "P009",
@@ -106,7 +114,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Unknown artistUnknown artist",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P010": {
     "id": "P010",
@@ -118,7 +127,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Unknown authorUnknown author",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P011": {
     "id": "P011",
@@ -130,7 +140,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "scan from 《社会历史博物馆》 ISBN 7-5347-1397-8",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P012": {
     "id": "P012",
@@ -142,7 +153,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Unknown authorUnknown author",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P013": {
     "id": "P013",
@@ -154,7 +166,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P014": {
     "id": "P014",
@@ -166,7 +179,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P015": {
     "id": "P015",
@@ -178,7 +192,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Unknown authorUnknown author",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P016": {
     "id": "P016",
@@ -190,7 +205,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Wang Qi",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P017": {
     "id": "P017",
@@ -202,7 +218,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Yan Liben (閻立本)",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P018": {
     "id": "P018",
@@ -214,7 +231,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Unknown authorUnknown author",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P019": {
     "id": "P019",
@@ -226,7 +244,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Ming Zhu Tianran",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P020": {
     "id": "P020",
@@ -238,7 +257,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Unknown authorUnknown author",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P021": {
     "id": "P021",
@@ -250,7 +270,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Chen Hongshou (1599-1652)",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P022": {
     "id": "P022",
@@ -262,7 +283,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Unknown Chinese artist",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P023": {
     "id": "P023",
@@ -274,7 +296,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Unknown artistUnknown artist",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P024": {
     "id": "P024",
@@ -286,7 +309,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Likely to be Zhang Xuan (张萱)",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P025": {
     "id": "P025",
@@ -298,7 +322,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Unknown authorUnknown author",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P026": {
     "id": "P026",
@@ -310,7 +335,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Unknown authorUnknown author",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P027": {
     "id": "P027",
@@ -322,7 +348,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P028": {
     "id": "P028",
@@ -334,7 +361,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "This image was carried on the book which is called \"Wan hsiao tang-Chu chuang -Hua chuan（晩笑堂竹荘畫傳） \" which was published in 1921（民国十年）.",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P029": {
     "id": "P029",
@@ -346,7 +374,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Unknown authorUnknown author",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P030": {
     "id": "P030",
@@ -358,7 +387,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Suzhou Government",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P031": {
     "id": "P031",
@@ -370,7 +400,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Unknown authorUnknown author",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P032": {
     "id": "P032",
@@ -382,7 +413,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Annonymous",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P033": {
     "id": "P033",
@@ -394,7 +426,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Zhao Mengfu",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P034": {
     "id": "P034",
@@ -406,7 +439,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "劉松年繪",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "attributionRequired": true
+    "attributionRequired": true,
+    "modified": true
   },
   "P035": {
     "id": "P035",
@@ -418,7 +452,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "向史公哲曰",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "attributionRequired": true
+    "attributionRequired": true,
+    "modified": true
   },
   "P036": {
     "id": "P036",
@@ -430,7 +465,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Araniko",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P037": {
     "id": "P037",
@@ -442,7 +478,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Unknown authorUnknown author",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P038": {
     "id": "P038",
@@ -454,7 +491,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Unknown authorUnknown author",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P039": {
     "id": "P039",
@@ -466,7 +504,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Marcin Konsek",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "attributionRequired": true
+    "attributionRequired": true,
+    "modified": true
   },
   "P040": {
     "id": "P040",
@@ -478,7 +517,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Cai Shixin",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P041": {
     "id": "P041",
@@ -490,7 +530,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Original uploader was 蒼穹之丘 at zh.wikipedia",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P042": {
     "id": "P042",
@@ -502,7 +543,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Thomas Chen",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P044": {
     "id": "P044",
@@ -514,7 +556,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Photoed and reproduced by User:Mountain",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P045": {
     "id": "P045",
@@ -526,7 +569,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "AnonymousUnknown author Qing Dynasty Court Painter",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P046": {
     "id": "P046",
@@ -538,7 +582,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "anonymous",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P047": {
     "id": "P047",
@@ -550,7 +595,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Unidentified painter",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P048": {
     "id": "P048",
@@ -562,7 +608,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Lam Qua",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P049": {
     "id": "P049",
@@ -574,7 +621,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Unknown authorUnknown author",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P050": {
     "id": "P050",
@@ -586,7 +634,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Boiarskii, Adolf-Nikolay Erazmovich",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P051": {
     "id": "P051",
@@ -598,7 +647,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Russell & Sons",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P052": {
     "id": "P052",
@@ -610,7 +660,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Unknown authorUnknown author",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P053": {
     "id": "P053",
@@ -622,7 +673,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "The Library of Congress",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P054": {
     "id": "P054",
@@ -634,7 +686,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Unknown authorUnknown author",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P055": {
     "id": "P055",
@@ -646,7 +699,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Unknown authorUnknown author",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P056": {
     "id": "P056",
@@ -658,7 +712,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P057": {
     "id": "P057",
@@ -670,7 +725,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Zheng Jingkang",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P058": {
     "id": "P058",
@@ -682,7 +738,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Unknown authorUnknown author",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P060": {
     "id": "P060",
@@ -694,7 +751,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "China News Service",
     "license": "CC BY 3.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-    "attributionRequired": true
+    "attributionRequired": true,
+    "modified": true
   },
   "P061": {
     "id": "P061",
@@ -706,7 +764,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Copy of Lysippos (?)",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P062": {
     "id": "P062",
@@ -718,7 +777,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Marie-Lan Nguyen",
     "license": "CC BY 2.5",
     "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
-    "attributionRequired": true
+    "attributionRequired": true,
+    "modified": true
   },
   "P063": {
     "id": "P063",
@@ -730,7 +790,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "After Lysippos",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P064": {
     "id": "P064",
@@ -742,7 +803,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Unknown authorUnknown author",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P065": {
     "id": "P065",
@@ -754,7 +816,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Ángel M. Felicísimo from Mérida, España",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P066": {
     "id": "P066",
@@ -766,7 +829,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Joel Bellviure",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "attributionRequired": true
+    "attributionRequired": true,
+    "modified": true
   },
   "P067": {
     "id": "P067",
@@ -778,7 +842,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Marie-Lan Nguyen (2011)",
     "license": "CC BY 2.5",
     "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
-    "attributionRequired": true
+    "attributionRequired": true,
+    "modified": true
   },
   "P068": {
     "id": "P068",
@@ -790,7 +855,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Louis le Grand",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P069": {
     "id": "P069",
@@ -802,7 +868,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Charlemagne. Autorité émettrice de monnaie indéterminé. Atelier monétaire. Émetteur",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P070": {
     "id": "P070",
@@ -814,7 +881,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Derived from original commons upload at which is now in the history version: 01:39, 13. 8. 2005 Colour-graded to reveal more detail using GIMP software \"curves\" tool",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P071": {
     "id": "P071",
@@ -826,7 +894,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Attributed to Francesco Melzi",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P072": {
     "id": "P072",
@@ -838,7 +907,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Attributed to Daniele da Volterra",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P073": {
     "id": "P073",
@@ -850,7 +920,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Raphael",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P074": {
     "id": "P074",
@@ -862,7 +933,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Santi di Tito",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P075": {
     "id": "P075",
@@ -874,7 +946,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Justus Sustermans",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P076": {
     "id": "P076",
@@ -886,7 +959,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "James Thronill after Sir Godfrey Kneller",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P077": {
     "id": "P077",
@@ -898,7 +972,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Attributed to John Taylor",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P078": {
     "id": "P078",
@@ -910,7 +985,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Attributed to William Segar / Attributed to George Gower / Formerly attributed to Nicholas Hilliard",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P079": {
     "id": "P079",
@@ -922,7 +998,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Attributed to Jean-Marc Nattier",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P080": {
     "id": "P080",
@@ -934,7 +1011,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "After Alexander Roslin",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P081": {
     "id": "P081",
@@ -946,7 +1024,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Gilbert Stuart",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P082": {
     "id": "P082",
@@ -958,7 +1037,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Rembrandt Peale",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P083": {
     "id": "P083",
@@ -970,7 +1050,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Joseph-Siffred Duplessis",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P084": {
     "id": "P084",
@@ -982,7 +1063,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Alexander Gardner",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P085": {
     "id": "P085",
@@ -994,7 +1076,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Jacques-Louis David",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P086": {
     "id": "P086",
@@ -1006,7 +1089,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Jacques Pilartz",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P087": {
     "id": "P087",
@@ -1018,7 +1102,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Yousuf Karsh",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P088": {
     "id": "P088",
@@ -1030,7 +1115,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Leon Perskie",
     "license": "CC BY 2.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-    "attributionRequired": true
+    "attributionRequired": true,
+    "modified": true
   },
   "P089": {
     "id": "P089",
@@ -1042,7 +1128,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Elliott & Fry",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P090": {
     "id": "P090",
@@ -1054,7 +1141,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Kingkongphoto & www.celebrity-photos.com from Laurel",
     "license": "CC BY-SA 2.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-    "attributionRequired": true
+    "attributionRequired": true,
+    "modified": true
   },
   "P091": {
     "id": "P091",
@@ -1066,7 +1154,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Yoichi Okamoto",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P092": {
     "id": "P092",
@@ -1078,7 +1167,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Herbert Rose Barraud",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P093": {
     "id": "P093",
@@ -1090,7 +1180,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Unknown authorUnknown author",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P094": {
     "id": "P094",
@@ -1102,7 +1193,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Oren Jack Turner",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P095": {
     "id": "P095",
@@ -1114,7 +1206,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Napoleon Sarony",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P096": {
     "id": "P096",
@@ -1126,7 +1219,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Louis Bachrach, Bachrach Studios, restored by Michel Vuijlsteke",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P097": {
     "id": "P097",
@@ -1138,7 +1232,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Thomas Phillips",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P098": {
     "id": "P098",
@@ -1150,7 +1245,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Unknown authorUnknown author",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P099": {
     "id": "P099",
@@ -1162,7 +1258,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Margaret Sarah Carpenter",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P100": {
     "id": "P100",
@@ -1174,7 +1271,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Henry Hering (1814-1893)",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P101": {
     "id": "P101",
@@ -1186,7 +1284,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Elias Gottlob Haussmann",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P102": {
     "id": "P102",
@@ -1198,7 +1297,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Barbara Krafft",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P103": {
     "id": "P103",
@@ -1210,7 +1310,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Joseph Karl Stieler",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P104": {
     "id": "P104",
@@ -1222,7 +1323,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Vincent van Gogh",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "attributionRequired": true
+    "attributionRequired": true,
+    "modified": true
   },
   "P105": {
     "id": "P105",
@@ -1234,7 +1336,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Argentina. Revista Vea y Lea",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P106": {
     "id": "P106",
@@ -1246,7 +1349,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Sergei Prokudin-Gorskii",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P107": {
     "id": "P107",
@@ -1258,7 +1362,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Vasily Perov",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P108": {
     "id": "P108",
@@ -1270,7 +1375,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Étienne Carjat",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P109": {
     "id": "P109",
@@ -1282,7 +1388,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Friedrich Hermann Hartmann",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P110": {
     "id": "P110",
@@ -1294,7 +1401,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Becker",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P111": {
     "id": "P111",
@@ -1306,7 +1414,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Etching created by Cadell and Davies (1811), John Horsburgh (1828) or R.C. Bell (1872).",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P112": {
     "id": "P112",
@@ -1318,7 +1427,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Unknown authorUnknown author",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P113": {
     "id": "P113",
@@ -1330,7 +1440,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Max Halberstadt",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P114": {
     "id": "P114",
@@ -1342,7 +1453,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "unknown, upload by Adrian Michael",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P115": {
     "id": "P115",
@@ -1354,7 +1466,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Paul Nadar",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P116": {
     "id": "P116",
@@ -1366,7 +1479,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Official photographer",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P117": {
     "id": "P117",
@@ -1378,7 +1492,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Elliott & Fry",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P118": {
     "id": "P118",
@@ -1387,10 +1502,11 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "thumb": "./portraits/P118/thumb.webp",
     "local": true,
     "sourcePage": "https://commons.wikimedia.org/wiki/File:JohnvonNeumann-LosAlamos.jpg",
-    "author": "",
+    "author": "Los Alamos National Laboratory",
     "license": "Attribution",
-    "licenseUrl": "",
-    "attributionRequired": true
+    "licenseUrl": "https://www.lanl.gov/lanl-resources/web-policies",
+    "attributionRequired": true,
+    "modified": true
   },
   "P119": {
     "id": "P119",
@@ -1402,7 +1518,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "James S. Davis",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   },
   "P120": {
     "id": "P120",
@@ -1414,7 +1531,8 @@ window.AEVEMORA_REAL_PORTRAITS = {
     "author": "Boy Scouts of America",
     "license": "Public Domain",
     "licenseUrl": "",
-    "attributionRequired": false
+    "attributionRequired": false,
+    "modified": true
   }
 };
 window.AEVEMORA_REAL_PORTRAITS_BY_NAME = Object.fromEntries(
