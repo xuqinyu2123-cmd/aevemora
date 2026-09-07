@@ -1,0 +1,121 @@
+﻿id,name_zh,name_en,era,region,type,wiki_title_zh,wiki_title_en
+P001,孔子,Confucius,春秋 · 思想家,中国,思想 / 教育,孔子,Confucius
+P002,老子,Laozi,春秋 · 思想家,中国,哲学 / 观察,老子,Laozi
+P003,孙子,Sun Tzu,春秋 · 军事家,中国,战略 / 军事,孙子,Sun Tzu (disambiguation)
+P004,管仲,Guan Zhong,春秋 · 政治家,中国,治理 / 经济,管仲,Guan Zhong
+P005,商鞅,Shang Yang,战国 · 改革家,中国,制度 / 改革,商鞅,Shang Yang
+P006,孟子,Mencius,战国 · 思想家,中国,伦理 / 思想,孟子,Mencius
+P007,庄子,Zhuang Zhou,战国 · 思想家,中国,哲学 / 自由,庄子,Zhuang Zhou
+P008,屈原,Qu Yuan,战国 · 诗人,中国,理想 / 文学,屈原,Qu Yuan
+P009,秦始皇,Qin Shi Huang,秦 · 皇帝,中国,统治 / 制度,秦始皇,Qin Shi Huang
+P010,汉武帝,Emperor Wu of Han,西汉 · 皇帝,中国,统治 / 扩张,汉武帝,Emperor Wu of Han
+P011,司马迁,Sima Qian,西汉 · 史学家,中国,观察 / 记录,司馬遷,Sima Qian
+P012,刘邦,Emperor Gaozu of Han,西汉 · 开国皇帝,中国,组织 / 人心,刘邦,Emperor Gaozu of Han
+P013,韩信,Han Xin,西汉 · 军事家,中国,军事 / 破局,韩信,Han Xin
+P014,张良,Zhang Liang,西汉 · 谋臣,中国,谋略 / 节奏,张良,Zhang Liang (Western Han)
+P015,萧何,Xiao He,西汉 · 丞相,中国,组织 / 后勤,萧何,Xiao He
+P016,曹操,Cao Cao,东汉末 · 政治家,中国,政治 / 军事,曹操,Cao Cao
+P017,刘备,Liu Bei,蜀汉 · 皇帝,中国,关系 / 韧性,刘备,Liu Bei
+P018,诸葛亮,Zhuge Liang,蜀汉 · 丞相,中国,治理 / 谋略,诸葛亮,Zhuge Liang
+P019,司马懿,Sima Yi,三国 · 政治家,中国,谋略 / 韧性,司马懿,Sima Yi
+P020,周瑜,Zhou Yu,东汉末 · 将领,中国,军事 / 创造,周瑜,Zhou Yu
+P021,陶渊明,Tao Yuanming,东晋 · 诗人,中国,审美 / 内省,陶渊明,Tao Yuanming
+P022,王羲之,Wang Xizhi,东晋 · 书法家,中国,艺术 / 表达,王羲之,Wang Xizhi
+P023,李世民,Emperor Taizong of Tang,唐 · 皇帝,中国,统治 / 决策,唐太宗,Emperor Taizong of Tang
+P024,武则天,Wu Zetian,唐 · 政治家,中国,权力 / 机会,武则天,Wu Zetian
+P025,李白,Li Bai,唐 · 诗人,中国,文学 / 想象,李白,Li Bai
+P026,杜甫,Du Fu,唐 · 诗人,中国,现实 / 悲悯,杜甫,Du Fu
+P027,王维,Wang Wei,唐 · 诗人画家,中国,审美 / 内省,王维,Wang Wei
+P028,韩愈,Han Yu,唐 · 文学家,中国,思想 / 改革,韩愈,Han Yu
+P029,白居易,Bai Juyi,唐 · 诗人,中国,文学 / 共情,白居易,Bai Juyi
+P030,范仲淹,Fan Zhongyan,北宋 · 政治家,中国,责任 / 治理,范仲淹,Fan Zhongyan
+P031,王安石,Wang Anshi,北宋 · 改革家,中国,改革 / 制度,王安石,Wang Anshi
+P032,司马光,Sima Guang,北宋 · 史学家,中国,秩序 / 判断,司马光,Sima Guang
+P033,苏轼,Su Shi,北宋 · 文学家,中国,文学 / 适应,苏轼,Su Shi
+P034,岳飞,Yue Fei,南宋 · 将领,中国,军事 / 原则,岳飞,Yue Fei
+P035,朱熹,Zhu Xi,南宋 · 思想家,中国,体系 / 教育,朱熹,Zhu Xi
+P036,忽必烈,Kublai Khan,元 · 皇帝,中国,统治 / 整合,忽必烈,Kublai Khan
+P037,朱元璋,Hongwu Emperor,明 · 开国皇帝,中国,生存 / 控制,朱元璋,Hongwu Emperor
+P038,朱棣,Yongle Emperor,明 · 皇帝,中国,扩张 / 统治,明成祖,Yongle Emperor
+P039,郑和,Zheng He,明 · 航海家,中国,探索 / 外交,鄭和,Zheng He
+P040,王阳明,Wang Yangming,明 · 思想家,中国,思想 / 行动,王陽明,Wang Yangming
+P041,张居正,Zhang Juzheng,明 · 改革家,中国,改革 / 执行,張居正,Zhang Juzheng
+P042,戚继光,Qi Jiguang,明 · 将领,中国,军事 / 训练,戚继光,Qi Jiguang
+P043,李时珍,Li Shizhen,明 · 医药学家,中国,科学 / 观察,李时珍,Li Shizhen
+P044,徐霞客,Xu Xiake,明 · 地理学家,中国,探索 / 观察,徐霞客,Xu Xiake
+P045,康熙,Kangxi Emperor,清 · 皇帝,中国,治理 / 学习,康熙帝,Kangxi Emperor
+P046,雍正,Yongzheng Emperor,清 · 皇帝,中国,执行 / 治理,雍正帝,Yongzheng Emperor
+P047,乾隆,Qianlong Emperor,清 · 皇帝,中国,统治 / 表达,乾隆帝,Qianlong Emperor
+P048,林则徐,Lin Tse-hsu,清 · 政治家,中国,原则 / 执行,林则徐,Lin Zexu
+P049,曾国藩,Zeng Guofan,晚清 · 政治家,中国,修身 / 组织,曾国藩,Zeng Guofan
+P050,左宗棠,Zuo Zongtang,晚清 · 政治家,中国,军事 / 执行,左宗棠,Zuo Zongtang
+P051,李鸿章,Li Hongzhang,晚清 · 政治家,中国,外交 / 平衡,李鴻章,Li Hongzhang
+P052,梁启超,Liang Chi-chao,近代 · 思想家,中国,启蒙 / 改革,梁启超,Liang Qichao
+P053,蔡元培,Cai Yuanpei,近代 · 教育家,中国,教育 / 包容,蔡元培,Cai Yuanpei
+P054,鲁迅,Lu Xun,近代 · 作家,中国,批判 / 文学,鲁迅,Lu Xun
+P055,胡适,Hu Shih,近代 · 学者,中国,思想 / 实证,胡適,Hu Shih
+P056,徐悲鸿,Xu Beihong,近现代 · 画家,中国,艺术 / 训练,徐悲鸿,Xu Beihong
+P057,齐白石,Qi Baishi,近现代 · 画家,中国,艺术 / 个性,齐白石,Qi Baishi
+P058,钱学森,Qian Xuesen,现代 · 科学家,中国,科学 / 系统,钱学森,Qian Xuesen
+P059,邓稼先,Deng Jiaxian,现代 · 科学家,中国,科学 / 责任,邓稼先,Deng Jiaxian
+P060,袁隆平,Yuan Longping,现代 · 农学家,中国,科学 / 实践,袁隆平,Yuan Longping
+P061,苏格拉底,Socrates,古希腊 · 哲学家,外国,哲学 / 追问,苏格拉底,Socrates
+P062,柏拉图,Plato,古希腊 · 哲学家,外国,思想 / 结构,柏拉图,Plato
+P063,亚里士多德,Aristotle,古希腊 · 哲学家,外国,知识 / 分类,亚里士多德,Aristotle
+P064,亚历山大大帝,Alexander the Great,古马其顿 · 征服者,外国,军事 / 扩张,亚历山大大帝,Alexander the Great
+P065,尤利乌斯·凯撒,Julius Caesar,古罗马 · 政治家,外国,政治 / 军事,尤利烏斯·凱撒,Julius Caesar
+P066,奥古斯都,Augustus,古罗马 · 皇帝,外国,制度 / 治理,奥古斯都,Augustus
+P067,马可·奥勒留,Marcus Aurelius,古罗马 · 皇帝哲学家,外国,哲学 / 自律,馬可·奧理略,Marcus Aurelius
+P068,克娄巴特拉七世,Cleopatra,古埃及 · 女王,外国,政治 / 外交,克娄巴特拉七世,Cleopatra
+P069,查理曼,Charlemagne,法兰克 · 皇帝,外国,统治 / 整合,查理曼,Charlemagne
+P070,圣女贞德,Joan of Arc,法国 · 军事人物,外国,信念 / 行动,聖女貞德,Joan of Arc
+P071,达·芬奇,Leonardo da Vinci,意大利 · 艺术家与发明家,外国,艺术 / 科学,列奥纳多·达·芬奇,Leonardo da Vinci
+P072,米开朗基罗,Michelangelo,意大利 · 艺术家,外国,艺术 / 意志,米开朗基罗,Michelangelo
+P073,拉斐尔,Raphael,意大利 · 画家,外国,艺术 / 协调,拉斐尔,Raphael
+P074,马基雅维利,Niccolò Machiavelli,意大利 · 思想家,外国,政治 / 现实,尼古洛·馬基雅維利,Niccolò Machiavelli
+P075,伽利略,Galileo Galilei,意大利 · 科学家,外国,科学 / 质疑,伽利略·伽利莱,Galileo Galilei
+P076,牛顿,Isaac Newton,英国 · 科学家,外国,科学 / 深度,艾萨克·牛顿,Isaac Newton
+P077,莎士比亚,William Shakespeare,英国 · 剧作家,外国,文学 / 人性,威廉·莎士比亚,William Shakespeare
+P078,伊丽莎白一世,Elizabeth I of England,英国 · 女王,外国,统治 / 平衡,伊丽莎白一世,Elizabeth I
+P079,彼得大帝,Peter the Great,俄罗斯 · 沙皇,外国,改革 / 扩张,彼得大帝,Peter the Great
+P080,叶卡捷琳娜二世,Catherine II of Russia,俄罗斯 · 女皇,外国,统治 / 文化,叶卡捷琳娜二世,Catherine the Great
+P081,乔治·华盛顿,George Washington,美国 · 建国者,外国,统帅 / 克制,乔治·华盛顿,George Washington
+P082,托马斯·杰斐逊,Thomas Jefferson,美国 · 政治家,外国,思想 / 建制,托马斯·杰斐逊,Thomas Jefferson
+P083,本杰明·富兰克林,Benjamin Franklin,美国 · 政治家与科学家,外国,实用 / 创造,班哲文·富蘭克林,Benjamin Franklin
+P084,亚伯拉罕·林肯,Abraham Lincoln,美国 · 总统,外国,政治 / 伦理,亚伯拉罕·林肯,Abraham Lincoln
+P085,拿破仑,Napoleon,法国 · 皇帝与军事家,外国,军事 / 治理,拿破仑一世,Napoleon
+P086,俾斯麦,Otto von Bismarck,德国 · 政治家,外国,政治 / 谋略,奥托·冯·俾斯麦,Otto von Bismarck
+P087,丘吉尔,Winston Churchill,英国 · 首相,外国,政治 / 动员,温斯顿·丘吉尔,Winston Churchill
+P088,富兰克林·罗斯福,Franklin Delano Roosevelt,美国 · 总统,外国,治理 / 危机,富兰克林·德拉诺·罗斯福,Franklin D. Roosevelt
+P089,甘地,Mahatma Gandhi,印度 · 社会活动家,外国,伦理 / 动员,圣雄甘地,Mahatma Gandhi
+P090,纳尔逊·曼德拉,Nelson Mandela,南非 · 政治家,外国,和解 / 韧性,纳尔逊·曼德拉,Nelson Mandela
+P091,马丁·路德·金,Martin Luther King Jr.,美国 · 民权领袖,外国,理想 / 动员,马丁·路德·金,Martin Luther King Jr.
+P092,达尔文,Charles Darwin,英国 · 生物学家,外国,观察 / 理论,查尔斯·达尔文,Charles Darwin
+P093,玛丽·居里,Marie Curie,波兰 / 法国 · 科学家,外国,科学 / 韧性,玛丽·居里,Marie Curie
+P094,爱因斯坦,Albert Einstein,德国 / 美国 · 科学家,外国,科学 / 想象,阿尔伯特·爱因斯坦,Albert Einstein
+P095,尼古拉·特斯拉,Nikola Tesla,塞尔维亚裔美国发明家,外国,发明 / 灵感,尼古拉·特斯拉,Nikola Tesla
+P096,托马斯·爱迪生,Thomas Edison,美国 · 发明家,外国,发明 / 实验,托马斯·爱迪生,Thomas Edison
+P097,迈克尔·法拉第,Michael Faraday,英国 · 科学家,外国,实验 / 发现,麥可·法拉第,Michael Faraday
+P098,詹姆斯·麦克斯韦,James Clerk Maxwell,英国 · 科学家,外国,理论 / 统一,詹姆斯·克拉克·麦克斯韦,James Clerk Maxwell
+P099,艾达·洛芙莱斯,Ada Lovelace,英国 · 数学家,外国,计算 / 想象,愛達·勒芙蕾絲,Ada Lovelace
+P100,弗洛伦斯·南丁格尔,Florence Nightingale,英国 · 护理先驱,外国,组织 / 关怀,弗羅倫斯·南丁格爾,Florence Nightingale
+P101,巴赫,Johann Sebastian Bach,德国 · 作曲家,外国,音乐 / 结构,约翰·塞巴斯蒂安·巴赫,Johann Sebastian Bach
+P102,莫扎特,Wolfgang Amadeus Mozart,奥地利 · 作曲家,外国,音乐 / 灵感,沃尔夫冈·阿玛多伊斯·莫扎特,Wolfgang Amadeus Mozart
+P103,贝多芬,Ludwig van Beethoven,德国 · 作曲家,外国,音乐 / 意志,路德维希·范·贝多芬,Ludwig van Beethoven
+P104,梵高,Vincent van Gogh,荷兰 · 画家,外国,艺术 / 强感受,文森特·梵高,Vincent van Gogh
+P105,毕加索,Pablo Picasso,西班牙 · 画家,外国,艺术 / 破框,巴勃羅·畢卡索,Pablo Picasso
+P106,托尔斯泰,Leo Tolstoy,俄国 · 作家,外国,文学 / 道德,列夫·托爾斯泰,Leo Tolstoy
+P107,陀思妥耶夫斯基,Fyodor Dostoyevsky,俄国 · 作家,外国,文学 / 深层心理,费奥多尔·陀思妥耶夫斯基,Fyodor Dostoevsky
+P108,维克多·雨果,Victor Hugo,法国 · 作家,外国,文学 / 人道,维克多·雨果,Victor Hugo
+P109,尼采,Friedrich Nietzsche,德国 · 哲学家,外国,哲学 / 价值重估,弗里德里希·尼采,Friedrich Nietzsche
+P110,康德,Immanuel Kant,德国 · 哲学家,外国,哲学 / 体系,伊曼努尔·康德,Immanuel Kant
+P111,亚当·斯密,Adam Smith,苏格兰 · 思想家,外国,经济 / 社会观察,亚当·斯密,Adam Smith
+P112,凯恩斯,John Maynard Keynes,英国 · 经济学家,外国,经济 / 政策,约翰·梅纳德·凯恩斯,John Maynard Keynes
+P113,弗洛伊德,Sigmund Freud,奥地利 · 心理学家,外国,心理 / 解释,西格蒙德·弗洛伊德,Sigmund Freud
+P114,荣格,Carl Jung,瑞士 · 心理学家,外国,心理 / 象征,卡尔·荣格,Carl Jung
+P115,路易·巴斯德,Louis Pasteur,法国 · 科学家,外国,科学 / 应用,路易·巴斯德,Louis Pasteur
+P116,亚历山大·弗莱明,Alexander Fleming,英国 · 科学家,外国,科学 / 发现,亚历山大·弗莱明,Alexander Fleming
+P117,艾伦·图灵,Alan Turing,英国 · 数学家,外国,计算 / 抽象,艾伦·图灵,Alan Turing
+P118,冯·诺依曼,John von Neumann,匈牙利裔美国数学家,外国,数学 / 系统,约翰·冯·诺伊曼,John von Neumann
+P119,格蕾丝·霍珀,Grace Hopper,美国 · 计算机科学家,外国,计算 / 实用创新,葛麗絲·霍普,Grace Hopper
+P120,沃尔特·迪士尼,Walt Disney,美国 · 创作者与企业家,外国,创意 / 组织,華特·迪士尼,Walt Disney

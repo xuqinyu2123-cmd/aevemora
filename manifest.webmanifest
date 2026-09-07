@@ -1,7 +1,7 @@
 {
   "name": "AEVEMORA 历史人格原型测试",
   "short_name": "AEVEMORA",
-  "description": "AEVEMORA V9.9.3：修复手机结果页人物姓名、时代、身份与相似度被肖像容器裁掉的问题。",
+  "description": "AEVEMORA V10.0：120 位历史人物稳定 ID 与真实肖像本地优先加载。",
   "lang": "zh-CN",
   "start_url": "./",
   "scope": "./",

@@ -1,0 +1,3 @@
+﻿id,name,reason,candidate_source,copyright_problem,quality_problem,identity_problem,notes
+P043,李时珍,Commons 原图分辨率过低,https://commons.wikimedia.org/wiki/File:Li_Shizhen_portrait.jpg,false,true,false,source dimensions=232x283; Wikidata=Q698925
+P059,邓稼先,现有明确自由许可照片分辨率有限且带大面积手写文字,https://commons.wikimedia.org/wiki/File:鄧稼先普渡照片.jpg,false,true,false,Visual QA rejected the image; retain network and curated-card fallback.

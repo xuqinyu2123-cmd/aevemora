@@ -1,0 +1,63 @@
+{
+  "P003": {
+    "commons_file": "Sunzi, Author of Art of War (9873714545).jpg",
+    "notes": "CC0 photograph of the traditional Sun Tzu statue; identity reviewed against Commons description."
+  },
+  "P001": {
+    "commons_file": "至聖先賢半身像 冊-001-孔子.jpg",
+    "crop_box": [0.08, 0.18, 0.755, 0.78],
+    "notes": "National Palace Museum traditional half portrait; public-domain historical artwork. Manual crop removes the marginal title and focuses on the sitter."
+  },
+  "P002": {
+    "commons_file": "歷代聖賢半身像 冊 老子 (Laozi).png",
+    "crop_box": [0.06, 0.20, 0.746, 0.95],
+    "notes": "National Palace Museum album-leaf portrait under CC BY 4.0. Manual crop removes marginal text and focuses on the sitter."
+  },
+  "P004": {
+    "commons_file": "Guan Zhong.png",
+    "notes": "Public-domain Qing dynasty portrait from Lidai Mingchen Xiang Jie."
+  },
+  "P009": {
+    "commons_file": "Qinshihuang.jpg",
+    "notes": "Higher-resolution public-domain traditional portrait of Qin Shi Huang."
+  },
+  "P005": {
+    "crop_box": [0.232, 0.159, 0.768, 0.611],
+    "notes": "Manual 4:5 upper-statue crop removes the pedestal inscription."
+  },
+  "P013": {
+    "crop_box": [0.0, 0.10, 0.72, 0.74],
+    "notes": "Manual 4:5 crop removes marginal calligraphy and retains the depicted figure."
+  },
+  "P023": {
+    "crop_box": [0.20, 0.08, 0.867, 0.482],
+    "notes": "Manual upper-body crop prevents a false face detection from removing the emperor's head."
+  },
+  "P024": {
+    "crop_box": [0.15, 0.05, 0.854, 0.547],
+    "notes": "Manual upper-body crop retains the complete head and upper body."
+  },
+  "P059": {
+    "skip": true,
+    "reason": "现有明确自由许可照片分辨率有限且带大面积手写文字",
+    "candidate_source": "https://commons.wikimedia.org/wiki/File:鄧稼先普渡照片.jpg",
+    "quality_problem": true,
+    "notes": "Visual QA rejected the image; retain network and curated-card fallback."
+  },
+  "P085": {
+    "crop_box": [0.18, 0.05, 0.82, 0.53],
+    "notes": "Manual upper-body crop prevents a false face detection from removing Napoleon's head."
+  },
+  "P114": {
+    "commons_file": "CGJung.jpg",
+    "notes": "Public-domain museum-sourced photograph from Ortsmuseum Zollikon."
+  },
+  "P118": {
+    "author": "Los Alamos National Laboratory",
+    "license": "Attribution",
+    "license_url": "https://www.lanl.gov/lanl-resources/web-policies",
+    "attribution_required": true,
+    "modified": true,
+    "notes": "Commons identifies Los Alamos National Laboratory as the image source and required credit; commercial and derivative use are expressly permitted with attribution. License policy verified at the official LANL Web Policies page."
+  }
+}

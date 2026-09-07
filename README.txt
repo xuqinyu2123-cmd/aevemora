@@ -1,35 +1,33 @@
-AEVEMORA V9.9.3 · 人物姓名卡修正版
+AEVEMORA V10.0.0 · 120 人物真实肖像本地化
 
-本版专门修复 V9.9.2 手机结果页：
-真实人物肖像已经显示，但人物姓名没有显示。
+项目类型：无需构建步骤的静态 PWA。
 
-原因：
-V9.9.2 中 mobileResultIdentity（人物姓名 / 时代 / 身份 / 相似度）
-被错误嵌套到了 portraitWrap 图片容器内部。
-portraitWrap 使用固定比例和 overflow:hidden，因此姓名卡被裁掉。
+V10.0.0 主要变化：
+- 120 位人物按现有顺序获得稳定 ID（P001—P120）。
+- 118 位人物具备经身份与许可核验的本地 WebP 主图和缩略图。
+- P043 李时珍、P059 邓稼先因候选图片质量不足保留为网络回退。
+- 主肖像：本地 main → Cloudflare → Wikipedia → portrait-data → SVG。
+- Top 5：本地 thumb → Cloudflare → SVG。
+- 分享海报优先使用本地 main。
+- Service Worker 只在实际访问时缓存肖像，不在安装阶段全量下载。
 
-V9.9.3 修复后手机结果页顺序：
-真实人物肖像
-↓
-人物姓名 + 时代 + 类型 + 模式 + 相似度
-↓
-人物引语
-↓
-核心维度
-↓
-深度结果分析
+关键文件：
+- index.html：正式页面、人物与题目数据、加载链路。
+- portrait-manifest.js：按稳定 ID 索引的本地肖像清单。
+- portrait-person-list.csv：120 位人物资料与维基标题。
+- portrait-licenses.csv：118 张本地肖像的来源与许可记录。
+- portrait-todo.csv：2 个未本地化人物及原因。
+- portrait-data.js：保留的既有馆藏卡兜底数据。
+- sw.js：应用壳与本地肖像运行时缓存。
+- scripts/validate-v10.mjs：V10 自动验证脚本。
 
-保留：
-- Cloudflare 真实肖像代理
-- 手机建筑答题布局
-- 开发者无限测试
-- 首次免费 / 后续授权
-- 120 人物匹配库
+本地运行：
+python -m http.server 8000
 
-Cloudflare Worker 不需要重新部署。
+打开：
+http://127.0.0.1:8000/
 
-版本检查：
-https://xuqinyu2123-cmd.github.io/aevemora/VERSION.txt?v=993
+验证：
+node scripts/validate-v10.mjs
 
-手机测试：
-https://xuqinyu2123-cmd.github.io/aevemora/?v=9.9.3
+本版本只在 v10-local-portraits 分支开发，不自动合并或部署到 main。
