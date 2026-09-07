@@ -1,6 +1,8 @@
-const CACHE="aevemora-v9-9-3-mobile-name-card-fix-20260904";
+const CACHE="aevemora-v10-shell-20260907";
+const PORTRAIT_CACHE="aevemora-v10-portraits-20260907";
 const STATIC_CORE=[
   "./manifest.webmanifest","./icon-192.png","./icon-512.png","./apple-touch-icon.png","./owner-config.js",
+  "./portrait-manifest.js",
   "./quiz-bg-1.svg","./quiz-bg-2.svg","./quiz-bg-3.svg","./quiz-bg-4.svg","./quiz-bg-5.svg","./quiz-bg-6.svg"
 ];
 
@@ -20,7 +22,7 @@ self.addEventListener("install",event=>{
 self.addEventListener("activate",event=>{
   event.waitUntil((async()=>{
     const keys=await caches.keys();
-    await Promise.all(keys.filter(k=>k!==CACHE && /aevemora|historia/i.test(k)).map(k=>caches.delete(k)));
+    await Promise.all(keys.filter(k=>k!==CACHE && k!==PORTRAIT_CACHE && /aevemora|historia/i.test(k)).map(k=>caches.delete(k)));
     await self.clients.claim();
   })());
 });
@@ -37,6 +39,23 @@ self.addEventListener("fetch",event=>{
   if(req.method!=="GET") return;
   const url=new URL(req.url);
   if(url.origin!==self.location.origin) return; // 外部图片/API完全交给浏览器，SW不再放大失败链路
+
+  // V10.0：肖像按实际访问缓存，不在安装阶段批量下载 236 个资源。
+  if(/\/portraits\/P\d{3}\/(?:main|thumb)\.webp$/i.test(url.pathname)){
+    event.respondWith((async()=>{
+      const cache=await caches.open(PORTRAIT_CACHE);
+      const hit=await cache.match(req);
+      if(hit) return hit;
+      try{
+        const resp=await fetch(req);
+        if(resp && resp.ok) await cache.put(req,resp.clone());
+        return resp;
+      }catch(e){
+        return Response.error();
+      }
+    })());
+    return;
+  }
 
   if(req.mode==="navigate" || req.destination==="document"){
     event.respondWith((async()=>{

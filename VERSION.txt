@@ -1,2 +1,2 @@
-AEVEMORA V9.9.3 MOBILE NAME CARD FIX
-The mobile portrait identity card now renders directly below the historical portrait.
+AEVEMORA V10.0.0 LOCAL PORTRAITS
+120 stable person IDs; 118 verified local portraits; 2 documented network fallbacks.

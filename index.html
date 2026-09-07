@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta name="aevemora-build" content="9.9.3-mobile-name-card-fix">
+  <meta name="aevemora-build" content="10.0.0-local-portraits">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>AEVEMORA · 历史人格原型测试</title>
@@ -3019,6 +3019,7 @@ body.quizMode .quizCinemaNav.answerReadyPulse .quizNavBtn.next:not(:disabled){
 <link rel="dns-prefetch" href="//upload.wikimedia.org">
 
   <script src="./owner-config.js"></script>
+  <script src="./portrait-manifest.js?v=10.0.0"></script>
 </head>
 <body>
 <div id="splash" aria-hidden="true">
@@ -3228,6 +3229,10 @@ body.quizMode .quizCinemaNav.answerReadyPulse .quizNavBtn.next:not(:disabled){
             <div id="portraitLoading" class="portraitLoading portraitSkeleton">正在载入真实人物肖像…</div>
             <img id="portraitMain" decoding="async" fetchpriority="high" alt="人物肖像">
             <div id="portraitFallbackNote" class="portraitFallbackNote">当前网络未能取得真实肖像，已暂时使用本地馆藏风格兜底卡。</div>
+            <div id="portraitCredit" class="portraitCredit" hidden>
+              <span id="portraitCreditLicense"></span>
+              <a id="portraitCreditSource" href="#" target="_blank" rel="noopener noreferrer">查看来源</a>
+            </div>
             
           
                     </div>
@@ -3383,7 +3388,7 @@ body.quizMode .quizCinemaNav.answerReadyPulse .quizNavBtn.next:not(:disabled){
     </div>
   </div>
 
-  <div class="buildStamp">MOBILE EDITION · V9.9.3</div>
+  <div class="buildStamp">LOCAL PORTRAITS · V10.0.0</div>
   <div class="footer">
     <span>AEVEMORA · Civilizations Edition · V9.3</span>
     <button class="footLink" onclick="openInfo('about')">关于测试</button>
@@ -3429,7 +3434,7 @@ const DIM_NAMES={control:"统筹掌控",creative:"开放创造",resilience:"稳�
 
 
 
-const AEVEMORA_BUILD="9.9.3";
+const AEVEMORA_BUILD="10.0.0";
 (async function enforceFreshAccessBuild(){
   try{
     const prev=localStorage.getItem("aevemora_build_version");
@@ -3925,15 +3930,14 @@ function nextQuestion(){
         const u=normalize();
         const winner=rank(u,mode)[0];
         if(winner){
-          fetchWikiPortrait(winner).then(data=>{
-            if(data && data.url){
+          const local=realPortraitRecord(winner);
+          if(local && local.main){
               const im=new Image();
               im.decoding="async";
               im.fetchPriority="high";
-              im.src=data.url;
+              im.src=local.main;
             }
-          }).catch(()=>{});
-        }
+          }
       }catch(e){}
     }
     renderQuestion();
@@ -4240,7 +4244,7 @@ function restart(){
 function copySummary(){
   if(!last) return;
   const t=topDims(last.user).slice(0,2).map(x=>DIM_NAMES[x[0]]).join(" × ");
-  const text="AEVEMORA 历史人格原型测试 V9.8.1\n我的历史人格原型："+last.best.name+"\n匹配模式："+modeName(last.mode)+"\n相似度："+last.best.sim.toFixed(1)+"%\n核心维度："+t+"\n"+last.best.tag;
+  const text="AEVEMORA 历史人格原型测试 V10.0.0\n我的历史人格原型："+last.best.name+"\n匹配模式："+modeName(last.mode)+"\n相似度："+last.best.sim.toFixed(1)+"%\n核心维度："+t+"\n"+last.best.tag;
   navigator.clipboard?.writeText(text).then(()=>alert("结果文案已复制")).catch(()=>prompt("复制下面的结果：",text));
 }
 
@@ -4248,7 +4252,8 @@ function copySummary(){
 async function loadPosterPortrait(){
   if(!last) return null;
   const main=document.getElementById("portraitMain");
-  let url=(main && (main.dataset.portraitUrl || main.currentSrc || main.src)) || "";
+  const local=realPortraitRecord(last.best);
+  let url=(local && local.main) || (main && (main.dataset.portraitUrl || main.currentSrc || main.src)) || "";
   if(!url && typeof fetchWikiPortrait==="function"){
     try{
       const data=await fetchWikiPortrait(last.best);
@@ -4461,7 +4466,7 @@ function renderPosterCanvas(x,img,compactFallback=false){
   x.textAlign="right";
   x.fillStyle="#8a806f";
   x.font="22px Georgia";
-  x.fillText("AEVEMORA JOURNAL · V9.8.1",1074,2390);
+  x.fillText("AEVEMORA JOURNAL · V10.0.0",1074,2390);
   x.textAlign="left";
 }
 
@@ -4916,6 +4921,12 @@ async function setQuizBackdrop(index){
 
 let LOCAL_PORTRAITS={};
 let localPortraitDataPromise=null;
+function realPortraitRecord(person){
+  if(!person || !person.id) return null;
+  const record=window.AEVEMORA_REAL_PORTRAITS && window.AEVEMORA_REAL_PORTRAITS[person.id];
+  return record && record.local===true ? record : null;
+}
+
 function ensureLocalPortraits(){
   if(Object.keys(LOCAL_PORTRAITS).length) return Promise.resolve(LOCAL_PORTRAITS);
   if(localPortraitDataPromise) return localPortraitDataPromise;
@@ -4926,7 +4937,7 @@ function ensureLocalPortraits(){
     };
     if(window.AEVEMORA_LOCAL_PORTRAITS){ useLoaded(); return; }
     const script=document.createElement("script");
-    script.src="./portrait-data.js?v=9.9.3";
+    script.src="./portrait-data.js?v=10.0.0";
     script.async=true;
     script.onload=useLoaded;
     script.onerror=()=>resolve(LOCAL_PORTRAITS);
@@ -5198,6 +5209,32 @@ function markPortraitLoaded(img,loading){
   if(loading) loading.style.display="none";
 }
 
+function loadPortraitImage(img,url,ms){
+  return new Promise(resolve=>{
+    setImageWithTimeout(img,url,()=>resolve(true),()=>resolve(false),ms);
+  });
+}
+
+function setPortraitMetadata(img,record,url){
+  img.dataset.portraitUrl=url || "";
+  img.dataset.portraitOrigin=(record && (record.sourcePage || record.source)) || "";
+  img.dataset.portraitMode=(record && record.mode) || "真实肖像";
+}
+
+function setPortraitCredit(record){
+  const credit=document.getElementById("portraitCredit");
+  const license=document.getElementById("portraitCreditLicense");
+  const source=document.getElementById("portraitCreditSource");
+  if(!credit || !license || !source || !record || !(record.sourcePage || record.source)){
+    if(credit) credit.hidden=true;
+    return;
+  }
+  license.textContent=record.license ? "肖像 · "+record.license : "肖像来源";
+  source.href=record.sourcePage || record.source;
+  source.title=record.author ? "作者 / 提供者："+record.author : "查看肖像来源";
+  credit.hidden=false;
+}
+
 async function setMainPortrait(person){
   const wrap=document.getElementById("portraitMainWrap");
   const img=document.getElementById("portraitMain");
@@ -5208,6 +5245,19 @@ async function setMainPortrait(person){
   img.classList.remove("loaded");
 
   if(loading) loading.style.display="grid";
+  setPortraitCredit(null);
+
+  // V10.0：稳定人物 ID 直达同源本地主肖像；失败时再进入原有网络链路。
+  const local=realPortraitRecord(person);
+  if(local && local.main){
+    const loaded=await loadPortraitImage(img,local.main,AEV_MOBILE_STABLE?2600:3200);
+    if(loaded){
+      markPortraitLoaded(img,loading);
+      setPortraitMetadata(img,local,local.main);
+      setPortraitCredit(local);
+      return;
+    }
+  }
 
   // 如果本地缓存已有图片 URL，则 fetchWikiPortrait 会同步从 Map 命中，
   // 不再访问人物接口，只剩图片本身的浏览器/Service Worker 缓存命中。
@@ -5224,13 +5274,14 @@ async function setMainPortrait(person){
           if(direct && direct.url){
             setImageWithTimeout(
               img,direct.url,
-              ()=>markPortraitLoaded(img,loading),
+              ()=>{
+                markPortraitLoaded(img,loading);
+                setPortraitMetadata(img,direct,direct.url);
+                setPortraitCredit(direct);
+              },
               ()=>fallbackMainPortrait(person),
               3600
             );
-            img.dataset.portraitUrl=direct.url;
-            img.dataset.portraitOrigin=direct.source||"";
-            img.dataset.portraitMode=direct.mode||"";
             return;
           }
         }catch(e){}finally{
@@ -5243,13 +5294,14 @@ async function setMainPortrait(person){
     setImageWithTimeout(
       img,
       data.url,
-      ()=>markPortraitLoaded(img,loading),
+      ()=>{
+        markPortraitLoaded(img,loading);
+        setPortraitMetadata(img,data,data.url);
+        setPortraitCredit(data);
+      },
       failToDirect,
       AEV_MOBILE_STABLE?4300:5200
     );
-    img.dataset.portraitUrl=data.url;
-    img.dataset.portraitOrigin=data.source||"";
-    img.dataset.portraitMode=data.mode||"";
   }else{
     fallbackMainPortrait(person);
   }
@@ -5261,6 +5313,7 @@ function fallbackMainPortrait(person){
   const loading=document.getElementById("portraitLoading");
 
   if(wrap) wrap.classList.add("fallback");
+  setPortraitCredit(null);
   if(img){
     const fallbackUrl=buildPortraitSVG(person,720,900);
     img.onload=()=>markPortraitLoaded(img,loading);
@@ -5279,7 +5332,7 @@ const rankPortraitObserver=("IntersectionObserver" in window)
         if(!entry.isIntersecting) return;
         const img=entry.target;
         rankPortraitObserver.unobserve(img);
-        const person=PEOPLE.find(p=>p.name===img.dataset.personName);
+        const person=PEOPLE.find(p=>p.id===img.dataset.personId);
         if(person) hydrateRankPortrait(img,person,true);
       });
     },{rootMargin:"300px 0px"})
@@ -5291,12 +5344,11 @@ async function hydrateRankPortrait(img,person,immediate=false){
 
   if(!immediate && rankPortraitObserver){
     img.dataset.hydrated="0";
-    img.dataset.personName=person.name;
+    img.dataset.personId=person.id;
     rankPortraitObserver.observe(img);
     return;
   }
 
-  const data=await fetchWikiPortrait(person);
   const fallback=()=> {
     setImageWithTimeout(
       img,
@@ -5307,6 +5359,17 @@ async function hydrateRankPortrait(img,person,immediate=false){
     );
   };
 
+  const local=realPortraitRecord(person);
+  if(local && local.thumb){
+    const loaded=await loadPortraitImage(img,local.thumb,AEV_MOBILE_STABLE?2200:2800);
+    if(loaded){
+      img.classList.add("loaded");
+      return;
+    }
+  }
+
+  // Top 5 只使用轻量缩略图；本地缺失或失败后走 Cloudflare，再失败直接 SVG。
+  const data=proxyPortraitRecord(person);
   if(data && data.url){
     setImageWithTimeout(
       img,
@@ -5325,13 +5388,11 @@ function warmPortraitCandidates(){
     const user=normalize();
     const candidates=rank(user,mode).slice(0,AEV_MOBILE_STABLE?1:3);
     candidates.forEach(p=>{
-      fetchWikiPortrait(p).then(data=>{
-        if(data && data.url){
-          const im=new Image();
-          im.decoding="async";
-          im.src=data.url;
-        }
-      }).catch(()=>{});
+      const local=realPortraitRecord(p);
+      if(!local || !local.main) return;
+      const im=new Image();
+      im.decoding="async";
+      im.src=local.main;
     });
   }catch(e){}
 }
@@ -5340,7 +5401,7 @@ function warmPortraitCandidates(){
 // ===== V9.8.1 Mobile Stable：安静更新，不强制刷新当前页面 =====
 if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js?v=9.9.3")
+    navigator.serviceWorker.register("./sw.js?v=10.0.0")
       .then(reg=>reg.update().catch(()=>{}))
       .catch(()=>{});
   }, {once:true});
