@@ -246,9 +246,28 @@ def detect_primary_face(image: Image.Image) -> tuple[int, int, int, int] | None:
     return max(pool, key=lambda face: face[2] * face[3])
 
 
-def crop_box_4x5(image: Image.Image, face: tuple[int, int, int, int] | None) -> tuple[int, int, int, int]:
+def crop_box_4x5(
+    image: Image.Image,
+    face: tuple[int, int, int, int] | None,
+    override: dict[str, Any] | None = None,
+) -> tuple[int, int, int, int]:
     width, height = image.size
     target_ratio = 4 / 5
+    override = override or {}
+    manual = override.get("crop_box")
+    if isinstance(manual, list) and len(manual) == 4:
+        left, top, right, bottom = [float(value) for value in manual]
+        if all(0 <= value <= 1 for value in (left, top, right, bottom)):
+            left, right = round(left * width), round(right * width)
+            top, bottom = round(top * height), round(bottom * height)
+        else:
+            left, top, right, bottom = map(round, (left, top, right, bottom))
+        if left < 0 or top < 0 or right > width or bottom > height or right <= left or bottom <= top:
+            raise ValueError(f"Invalid crop_box {manual} for image {width}x{height}")
+        if abs(((right - left) / (bottom - top)) - target_ratio) > 0.02:
+            raise ValueError(f"crop_box must be 4:5, got {right-left}x{bottom-top}")
+        return left, top, right, bottom
+
     if width / height > target_ratio:
         crop_height = height
         crop_width = round(height * target_ratio)
@@ -258,7 +277,9 @@ def crop_box_4x5(image: Image.Image, face: tuple[int, int, int, int] | None) -> 
 
     crop_width = width
     crop_height = round(width / target_ratio)
-    if face:
+    if override.get("crop_anchor") == "top":
+        desired_top = 0
+    elif face:
         desired_top = face[1] - face[3] * 0.62
     else:
         desired_top = (height - crop_height) * 0.18
@@ -285,7 +306,7 @@ def save_webp(image: Image.Image, path: Path, size: tuple[int, int], max_bytes: 
 
 def dhash(image: Image.Image) -> str:
     gray = image.convert("L").resize((9, 8), Image.Resampling.LANCZOS)
-    values = list(gray.getdata())
+    values = list(gray.get_flattened_data())
     bits = []
     for row in range(8):
         offset = row * 9
@@ -398,7 +419,7 @@ def research_person(
     try:
         image = download_source(info)
         face = detect_primary_face(image)
-        box = crop_box_4x5(image, face)
+        box = crop_box_4x5(image, face, override)
         cropped = image.crop(box)
         output_dir = PORTRAITS_DIR / person_id
         main_path = output_dir / "main.webp"
@@ -421,7 +442,8 @@ def research_person(
     notes = (
         f"Identity verified through exact {primary_lang}wiki page and Wikidata {qid} P18; "
         f"source {width}x{height}; crop={box}; face_detected={bool(face)}; "
-        f"main={main_size} bytes; thumb={thumb_size} bytes; deterministic crop/resize/WebP/contrast +2%."
+        f"main={main_size} bytes; thumb={thumb_size} bytes; deterministic crop/resize/WebP/contrast +2%. "
+        f"Review note: {override.get('notes', 'Wikidata P18 candidate reviewed against contact sheet.')}"
     )
     license_row = {
         "id": person_id, "name_zh": person["name"], "name_en": name_en,
@@ -492,6 +514,10 @@ def main() -> int:
     people, zh_aliases, en_aliases = load_people_and_aliases()
     selected_ids = set(args.ids.split(",")) if args.ids else None
     overrides = json.loads(OVERRIDES_PATH.read_text(encoding="utf-8")) if OVERRIDES_PATH.exists() else {}
+    if not args.metadata_only and not selected_ids and PORTRAITS_DIR.exists():
+        if PORTRAITS_DIR.resolve().parent != ROOT.resolve():
+            raise RuntimeError(f"Unsafe portraits cleanup target: {PORTRAITS_DIR}")
+        shutil.rmtree(PORTRAITS_DIR)
     results: list[ResearchResult] = []
     for index, person in enumerate(people, start=1):
         if selected_ids and person["id"] not in selected_ids:
